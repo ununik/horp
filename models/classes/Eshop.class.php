@@ -94,4 +94,26 @@ class Eshop extends Connection
         $colors = $result->fetch();
         return $colors;
     }
+    public function addCommentToBasket($comment, $ip){
+        $db = parent::connect();
+        $result = $db->prepare("UPDATE `basket` SET `comment`=? WHERE ip = ?");
+        $result->execute(array($comment, $ip));
+    }
+    public function getAllTypesDoprava(){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `doprava`");
+        $result->execute(array());
+        $doprava = $result->fetchAll();
+        return $doprava;
+    }
+    public function changeDoprava($doprava, $ip){
+        $db = parent::connect();
+        $result = $db->prepare("UPDATE `basket` SET `doprava`=? WHERE ip = ?");
+        $result->execute(array($doprava, $ip));
+    }
+    public function changeUdaje($value, $input, $ip){
+        $db = parent::connect();
+        $result = $db->prepare("UPDATE `basket` SET $input = ? WHERE ip = ?");
+        $result->execute(array($value, $ip));
+    }
 }

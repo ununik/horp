@@ -10,7 +10,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
     $mobil1 = "";
     $mobil2 = "";
 }else{
-    $header = "Contact";
+    $header = "Kontakt";
     $street = 'Valkeřická 536';
     $city = 'Benešov nad Ploučnicí';
     $mobil1 = "+420 605 008 341";

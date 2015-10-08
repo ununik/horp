@@ -16,6 +16,7 @@ $javascript .= "<script src='js/eshop.js'></script>";
  */
 $eshop = new Eshop();
 $eshop_nav = $eshop->getAllCategories();
+$eshop_panel = "<div id='eshop_panel'></div><script>showBasket()</script>";
 $eshop_navigation = "<a href='index.php?page=eshop&subpage=basket'>Košík</a>";
 foreach($eshop_nav as $nav){
     $eshop_navigation .= "<li>$nav[$lang]";

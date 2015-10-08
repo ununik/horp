@@ -1,0 +1,232 @@
+@import url(https://fonts.googleapis.com/css?family=Didact+Gothic);
+body{
+    font-family: 'Didact Gothic', sans-serif;
+    background-color: #F7DCB4;
+    color: #465747;
+}
+.basket_odstranit{
+    cursor: pointer;
+    margin: 0px 0px 0px 5px;
+    width: 75px;
+    visibility: hidden;
+}
+.basket_table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.basket_table tr:hover .basket_odstranit{
+    visibility: visible;
+}
+.basket_table tr:hover td {
+    background-color: white;
+    cursor: default;
+}
+.basket_table .celkem:hover td{
+    background-color: transparent;
+}
+.basket_table .celkem{
+    border-top: 2px solid #465747;
+    font-weight: bold;
+}
+.basket_table td{
+    vertical-align: top;
+}
+.basket_table th{
+    vertical-align: top;
+}
+.basket_table .nazev{
+    min-width: 250px;
+}
+.basket_table .barva{
+    width: 110px;
+    margin: 2px 6px 0px 0px;
+}
+.basket_table .pocetKusu{
+    width: 90px;
+    text-align: center;
+}
+.basket_table .cena{
+    width: 100px;
+    text-align: right;
+}
+.basket_table .barva div{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+#Basket-step_2{
+    display: none;
+}
+#Basket-step_3{
+    display: none;
+}
+#Basket-step_4{
+    display: none;
+}
+#content{
+    position:relative;
+    top: 150px;
+    margin: 0px 250px;
+}
+#content h1{
+    border-bottom: 1px solid #A97D5D;
+}
+#content a{
+    color: #A97D5D;
+    text-decoration: none;
+}
+#eshop_navigation{
+    position: absolute;
+    left: -250px;
+    top: 0px;
+    height: 100%;
+    border-right: 1px solid #9C9F84;
+    width: 190px;
+}
+#eshop_navigation li{
+    display: block;
+}
+#eshop_navigation li ul li{
+    display: block;
+}
+#eshop_navigation li ul li a{
+    color: red;
+}
+#eshop_poznamka{
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+}
+#eshop_poznamka_div{
+    margin: 25px 0px 0px 0px;
+}
+#language{
+    float: right;
+}
+#language_cz{
+    background-image: url(../images/header/cz.png);
+    -webkit-background-size: 30px 20px;
+    background-size: 30px 20px;
+    width:30px;
+    height: 20px;
+    display: inline-block;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 4px black;
+    -moz-box-shadow: 0px 0px 4px black;
+    box-shadow: 0px 0px 4px black;
+}
+#language_en{
+    background-image: url(../images/header/en.png);
+    -webkit-background-size: 30px 20px;
+    background-size: 30px 20px;
+    width:30px;
+    height: 20px;
+    display: inline-block;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 10px 18px 0px 5px;
+    -webkit-box-shadow: 0px 0px 4px black;
+    -moz-box-shadow: 0px 0px 4px black;
+    box-shadow: 0px 0px 4px black;
+}
+#header{
+    background-color: #9C9F84;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 150px;
+    z-index: 100;
+}
+#header h1{
+    position: absolute;
+    top:10px;
+    left: 50px;
+}
+#header h2{
+    position: absolute;
+    top:10px;
+    right: 50px;
+}
+#menu_panel{
+    position:absolute;
+    top: 110px;
+    left: 0px;
+    width: 100%;
+    height: 40px;
+    background-image: url(../images/header/menu_panel_background.png);
+}
+nav li{
+    float: left;
+    display: inline-block;
+    position: relative;
+    top: -15px;
+    font-size: 18px;
+    margin: 0px 5px;
+}
+nav a{
+    text-decoration: none;
+    display: block;
+    padding: 6px 35px;
+    color: #465747;
+    text-shadow: 0px 0px 1px white;
+    font-weight: bold;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 1px 0px 0px 0px;
+}
+nav a:hover{
+    background-color:rgba(92, 117, 94, 0.5);
+}
+#step1{
+    width: 405px;
+    height: 97px;
+    background-image: url(../images/eshop/step1.png);
+}
+.step1{
+    display: inline-block;
+    height: 70px;
+    width: 82px;
+    position: relative;
+    top: 10px;
+    left: 25px;
+    cursor: pointer;
+    margin: 0px 0px 0px 0px;
+}
+#step2{
+    width: 405px;
+    height: 97px;
+    background-image: url(../images/eshop/step2.png);
+}
+.step2{
+    display: inline-block;
+    height: 70px;
+    width: 82px;
+    position: relative;
+    top: 10px;
+    left: 71px;
+    cursor: pointer;
+    margin: 0px 0px 0px 0px;
+}
+#step3{
+    width: 405px;
+    height: 97px;
+    background-image: url(../images/eshop/step3.png);
+}
+.step3{
+    display: inline-block;
+    height: 70px;
+    width: 82px;
+    position: relative;
+    top: 10px;
+    left: 115px;
+    cursor: pointer;
+    margin: 0px 0px 0px 0px;
+}
+#successMessage{
+    position: absolute;
+}

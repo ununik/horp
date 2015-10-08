@@ -28,6 +28,12 @@ if(isset($language[1])){
     }
     $getPage = $language[0];
 }
+$language_link = "";
+foreach($_GET as $get => $value){
+    if($get != "page"){
+        $language_link .= "&$get=$value";
+    }
+}
 
 $title = 'HORP - výroba lezeckých chytů';
 $navigation = include_once("views/navigation.php");
