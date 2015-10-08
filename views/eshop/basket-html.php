@@ -5,7 +5,8 @@
  * Date: 05.10.2015
  * Time: 15:53
  */
-$basket = "<div id='Basket-step_1'>
+$basket = "<h1>Košík</h1>
+            <div id='Basket-step_1'>
             <div id='step1'><div class='step1'></div>
             <div class='step2' onclick='nextstep(\"Basket-step_2\")'></div>
             <div class='step3' onclick='nextstep(\"Basket-step_3\")'></div>
@@ -26,9 +27,9 @@ foreach($items as $item){
 }
 $basket .= "<tr class='celkem'><td colspan='5'>Celkem</td><td class='cena'>{$celkovaCena['bezDPH']} Kč</td><td class='cena'>{$celkovaCena['sDPH']} Kč</td><td></td></tr>";
 $basket .= "</table>";
-$basket .= "<div id='eshop_poznamka_div'>Poznámka<div id='poznamka_saved'></div><textarea id='eshop_poznamka' onchange='addPoznamka(this)'>{$basketItem['comment']}</textarea></div>";
+$basket .= "<div id='eshop_poznamka_div'>Poznámka:<div id='poznamka_saved'></div><textarea id='eshop_poznamka' onchange='addPoznamka(this)'>{$basketItem['comment']}</textarea></div>";
 
-$basket .= "<button onclick='nextstep(\"Basket-step_2\")'>Přejít k dalšímu kroku</button></div>";
+$basket .= "<button onclick='nextstep(\"Basket-step_2\")' class='nextStep'></button></div>";
 
 
 $basket .= "<div id='Basket-step_2'><div id='step2'><div class='step1' onclick='nextstep(\"Basket-step_1\")'></div>
@@ -36,7 +37,7 @@ $basket .= "<div id='Basket-step_2'><div id='step2'><div class='step1' onclick='
         <div class='step3' onclick='nextstep(\"Basket-step_3\")'></div>
         </div><h2>Doprava a platba</h2>";
 $basket .= $doprava;
-$basket .= "<button onclick='nextstep(\"Basket-step_1\")'>Přejít k přechozímu kroku</button><button onclick='nextstep(\"Basket-step_3\")'>Přejít k dalšímu kroku</button></div>";
+$basket .= "<button onclick='nextstep(\"Basket-step_1\")' class='previousStep'></button><button onclick='nextstep(\"Basket-step_3\")' class='nextStep'></button></div>";
 
 $basket .= "<div id='Basket-step_3'><div id='step3'><div class='step1' onclick='nextstep(\"Basket-step_1\")'></div>
             <div class='step2' onclick='nextstep(\"Basket-step_2\")'></div>
@@ -62,7 +63,7 @@ $basket .= "<tr><td>Adresa:</td><td><input type='text'  name='adresa_dodaci' onc
 $basket .= "<tr><td>Město:</td><td><input type='text'  name='mesto_dodaci' onchange='udaje_change(this)' value='{$basketItem['mesto_dodaci']}'></td></tr>";
 $basket .= "<tr><td>PSČ:</td><td><input type='text'  name='psc_dodaci' onchange='udaje_change(this)' value='{$basketItem['psc_dodaci']}'></td></tr>";
 $basket .= "</table>";
-$basket .= "<button onclick='nextstep(\"Basket-step_2\")'>Přejít k přechozímu kroku</button><button onclick='nextstep(\"Basket-step_4\")'>Objednat</button></div>";
+$basket .= "<button onclick='nextstep(\"Basket-step_2\")'  class='previousStep'></button><button onclick='nextstep(\"Basket-step_4\")' class='objednat'>Objednat</button></div>";
 
 $basket .= "<div id='Basket-step_4'><h2>Děkujeme za Vaši objednávku</h2>";
 

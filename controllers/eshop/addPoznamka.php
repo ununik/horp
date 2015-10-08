@@ -13,4 +13,4 @@ $comment = $_GET['text'];
 $eshop->addCommentToBasket($comment, $ip);
 
 
-echo "uloženo";
+echo " (uloženo)";

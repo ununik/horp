@@ -12,7 +12,7 @@ class Connection
         if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1') {
             return new PDO('mysql:host=localhost;dbname=horp', 'root', '');
         }else{
-            return new PDO('mysql:host=localhost;dbname=tiary.wz.cz7069', 'tiary.wz.cz7069', 'VqOziuR');
+            return new PDO('mysql:host=localhost;dbname=ununik', 'ununik', 'am4qgx');
         }
     }
 }

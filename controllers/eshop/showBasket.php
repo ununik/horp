@@ -24,4 +24,6 @@ for($number = 0; $number < $manyItems; $number++){
 
 $manyItems--;
 
-echo "V košíku je $manyItems položek za $howMuch,- Kč";
+$howMuch = number_format($howMuch, 2, '.', '');
+
+echo "V košíku je <b>$manyItems</b> položek za <b>$howMuch Kč</b>";

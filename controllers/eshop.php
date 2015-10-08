@@ -17,7 +17,8 @@ $javascript .= "<script src='js/eshop.js'></script>";
 $eshop = new Eshop();
 $eshop_nav = $eshop->getAllCategories();
 $eshop_panel = "<div id='eshop_panel'></div><script>showBasket()</script>";
-$eshop_navigation = "<a href='index.php?page=eshop&subpage=basket'>Košík</a>";
+$eshop_navigation = "<li><a href='index.php?page=eshop&subpage=basket'>Košík</a></li>";
+$eshop_navigation .= "<li class='nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>Jak nakupovat</a></li>";
 foreach($eshop_nav as $nav){
     $eshop_navigation .= "<li>$nav[$lang]";
         $subcategory = $eshop->getAllSubcategories($nav['id']);
@@ -37,6 +38,8 @@ if(isset($_GET['category']) && $_GET['category'] != ""){
     $body = include_once('controllers/eshop/category.php');
 }elseif(isset($_GET['subpage']) && $_GET['subpage'] == "basket"){
     $body = include('controllers/eshop/basket.php');
+}elseif(isset($_GET['subpage']) && $_GET['subpage'] == "jak_nakupovat"){
+    $body = include('views/eshop/jak_nakupovat.php');
 } else {
     $body = include('views/eshop/page-home-html.php');
 }
