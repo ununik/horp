@@ -5,7 +5,7 @@
  * Date: 05.10.2015
  * Time: 12:15
  */
-$container = "<ul id='eshop_navigation'>$eshop_navigation</ul><div id='successMessage'></div>$eshop_panel";
+$container = "<div id='eshop_panel'></div><script>showBasket()</script><ul id='eshop_navigation'>$eshop_navigation</ul><div id='successMessage'></div>";
 
 $container .= "$body";
 
