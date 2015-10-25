@@ -19,6 +19,7 @@ function deleteFromBasket(id, color){
 function showBasket(){
     ajaxCall('controllers/eshop/showBasket.php', function(xhr) {
         document.getElementById('eshop_panel').innerHTML = xhr.responseText;
+        document.getElementById('eshop_panel').style.width = "220px";
     })
 }
 function addPoznamka(){
