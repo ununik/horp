@@ -26,4 +26,4 @@ $manyItems--;
 
 $howMuch = number_format($howMuch, 2, '.', '');
 
-echo "V košíku je <b>$manyItems</b> položek za <b>$howMuch Kč</b>";
+echo "Obsah košíku:<p><b>$manyItems</b> položek<br>za <b>$howMuch Kč</b></p>";

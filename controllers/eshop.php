@@ -16,8 +16,13 @@ $javascript .= "<script src='js/eshop.js'></script>";
  */
 $eshop = new Eshop();
 $eshop_nav = $eshop->getAllCategories();
-$eshop_navigation = "<li><a href='index.php?page=eshop&subpage=basket'>Košík</a></li>";
-$eshop_navigation .= "<li class='nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>Jak nakupovat</a></li>";
+if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
+    $eshop_navigation = "<li><a href='index.php?page=eshop&subpage=basket'>Basket</a></li>";
+    $eshop_navigation .= "<li class='nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>How to shopping</a></li>";
+}else{
+    $eshop_navigation = "<li><a href='index.php?page=eshop&subpage=basket'>Košík</a></li>";
+    $eshop_navigation .= "<li class='nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>Jak nakupovat</a></li>";
+}
 foreach($eshop_nav as $nav){
     $eshop_navigation .= "<li>$nav[$lang]";
         $subcategory = $eshop->getAllSubcategories($nav['id']);

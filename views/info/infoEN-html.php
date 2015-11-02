@@ -25,23 +25,23 @@ $container .= "<p>We are able to produce these holds by special request. However
 
 $container .= "<h2>Polyester and Epoxy holds</h2>";
 $container .= "<h3>Polyester holds (mix of polyester and filling material)</h3>";
-$container .= "<h4>Advantage:</h4>
+$container .= "<h4 class='advantage'>Advantage:</h4>
                 + holds that weigh less than epoxy holds<br>
                 + more textured surface<br>
                 + vibrant colours<br>
                 + seamless<br>
 
-                <h4>Disadvantage:</h4>
+                <h4 class='disadvantage'>Disadvantage:</h4>
                 - less resistance to friction, wear-and-tear<br>
                 - higher prices<br>";
 
 $container .= "<h3>Epoxy holds (mix of epoxy resin and silica sand)</h3>";
-$container .= "<h4>Advantage:</h4>
+$container .= "<h4 class='advantage'>Advantage:</h4>
                 + high resistance to friction, wear-and-tear<br>
                 + extremely strong and durable<br>
                 + easy on skin, fingers and hands<br>
 
-                <h4>Disadvantage:</h4>
+                <h4 class='disadvantage'>Disadvantage:</h4>
                 - smaller friction<br>";
 
 

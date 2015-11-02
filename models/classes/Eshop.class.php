@@ -74,25 +74,11 @@ class Eshop extends Connection
         $basket = $result->fetch();
         return $basket;
     }
-    public function addToBasket($count, $item, $color, $ip){
+    public function addToBasket($count, $item, $ip){
         $db = parent::connect();
         $timestamp = time();
-        $result = $db->prepare("UPDATE `basket` SET `timestamp`=?,`count`=?,`item`=?, `color`=? WHERE ip = ?");
-        $result->execute(array($timestamp, $count, $item, $color, $ip));
-    }
-    public function getAllColors(){
-        $db = parent::connect();
-        $result = $db->prepare("SELECT * FROM `colors`");
-        $result->execute(array());
-        $colors = $result->fetchAll();
-        return $colors;
-    }
-    public function getColor($id){
-        $db = parent::connect();
-        $result = $db->prepare("SELECT * FROM `colors` WHERE id = ?");
-        $result->execute(array($id));
-        $colors = $result->fetch();
-        return $colors;
+        $result = $db->prepare("UPDATE `basket` SET `timestamp`=?,`count`=?,`item`=? WHERE ip = ?");
+        $result->execute(array($timestamp, $count, $item, $ip));
     }
     public function addCommentToBasket($comment, $ip){
         $db = parent::connect();

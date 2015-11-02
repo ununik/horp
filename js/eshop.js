@@ -1,15 +1,15 @@
 function addToBasket(id){
     var count = document.getElementById('kosik_'+id).value;
-    var color = document.getElementById('color_'+id).value;
-    ajaxCall('controllers/eshop/addToBasket.php?id='+id+'&count='+count+'&color='+color, function(xhr) {
+    ajaxCall('controllers/eshop/addToBasket.php?id='+id+'&count='+count, function(xhr) {
         document.getElementById('successMessage').innerHTML = xhr.responseText;
         document.getElementById('successMessage').style.left = "0px";
+        showBasket();
         setTimeout(function(){ document.getElementById('successMessage').style.left = "-331px"; }, 3000);
     })
-    showBasket()
+
 }
-function deleteFromBasket(id, color){
-    ajaxCall('controllers/eshop/deleteFromBasket.php?id='+id+'&color='+color, function(xhr) {
+function deleteFromBasket(id){
+    ajaxCall('controllers/eshop/deleteFromBasket.php?id='+id, function(xhr) {
         document.getElementById('successMessage').innerHTML = xhr.responseText;
         document.getElementById('successMessage').style.left = "0px";
         setTimeout(function(){ document.getElementById('successMessage').style.left = "-331px"; }, 3000);
@@ -19,7 +19,7 @@ function deleteFromBasket(id, color){
 function showBasket(){
     ajaxCall('controllers/eshop/showBasket.php', function(xhr) {
         document.getElementById('eshop_panel').innerHTML = xhr.responseText;
-        document.getElementById('eshop_panel').style.width = "220px";
+        document.getElementById('eshop_panel').style.right = "-20px";
     })
 }
 function addPoznamka(){
@@ -45,4 +45,13 @@ function udaje_change(input){
     value = input.value;
         ajaxCall('controllers/eshop/changeUdaje.php?input='+name+'&value='+value, function(xhr) {
     })
+}
+function pocetKsMinus(id){
+    if(document.getElementById('kosik_'+id).value > 1){
+        document.getElementById('kosik_'+id).value--
+    }
+}
+
+function pocetKsPlus(id){
+    document.getElementById('kosik_'+id).value++
 }

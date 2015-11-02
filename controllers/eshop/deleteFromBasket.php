@@ -11,15 +11,13 @@ $basket = $eshop->getBasket($ip);
 
 $items = explode("_;_", $basket['item']);
 $count = explode("_;_", $basket['count']);
-$color = explode("_;_", $basket['color']);
 
 $num = 0;
 for($number = 0; $number < count($items); $number++){
-    if($items[$number] == $_GET['id'] && $color[$number] == $_GET['color']) {
+    if($items[$number] == $_GET['id']) {
     }else{
         $countNew[$num] = $count[$number];
         $itemsNew[$num] = $items[$number];
-        $colorNew[$num] = $color[$number];
         $num++;
     }
 
@@ -28,9 +26,8 @@ for($number = 0; $number < count($items); $number++){
 
 $items = implode("_;_", $itemsNew);
 $count = implode("_;_", $countNew);
-$color = implode("_;_", $colorNew);
 
-$eshop->addToBasket($count, $items, $color, $ip);
+$eshop->addToBasket($count, $items, $ip);
 
 $item = $eshop->getItem($_GET['id']);
 

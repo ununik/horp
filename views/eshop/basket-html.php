@@ -12,20 +12,19 @@ $basket = "<h1>Košík</h1>
             <div class='step3' onclick='nextstep(\"Basket-step_3\")'></div>
             </div>
             <h2>Můj košík</h2>";
-$basket .= "<table class='basket_table'><th class='nazev'>Název</th><th class='barva'>Barva</th><th>Cena za kus<br><small>bez DPH</small></th><th>Cena za kus<br><small>s DPH</small></th><th>Počet kusů</th><th>Cena<br><small>bez DPH</small></th><th>Cena<br><small>s DPH</small></th><th></th>";
+$basket .= "<table class='basket_table'><th class='nazev'>Název</th><th>Cena za kus<br><small>bez DPH</small></th><th>Cena za kus<br><small>s DPH</small></th><th>Počet kusů</th><th>Cena<br><small>bez DPH</small></th><th>Cena<br><small>s DPH</small></th><th></th>";
 foreach($items as $item){
     $basket .= "<tr><td class='nazev'>{$item['item']}</td>
-                <td class='barva'><div style='background-color:{$item['color']}'></div>{$item['barva']}</td>
                 <td class='cena'>{$item['cenaZaKusBezDPH']} Kč</td>
                 <td class='cena'>{$item['cenaZaKusSDPH']} Kč</td>
 
                 <td  class='pocetKusu'>{$item['count']}</td>
                 <td class='cena'>{$item['cenaBezDPH']} Kč</td>
                 <td class='cena'>{$item['cenaSDPH']} Kč</td>
-                <td><span onclick='deleteFromBasket({$item['id']}, {$item['colorId']})' class='basket_odstranit'>odstranit</span></td>
+                <td><span onclick='deleteFromBasket({$item['id']})' class='basket_odstranit'>odstranit</span></td>
                 </tr>";
 }
-$basket .= "<tr class='celkem'><td colspan='5'>Celkem</td><td class='cena'>{$celkovaCena['bezDPH']} Kč</td><td class='cena'>{$celkovaCena['sDPH']} Kč</td><td></td></tr>";
+$basket .= "<tr class='celkem'><td colspan='4'>Celkem</td><td class='cena'>{$celkovaCena['bezDPH']} Kč</td><td class='cena'>{$celkovaCena['sDPH']} Kč</td><td></td></tr>";
 $basket .= "</table>";
 $basket .= "<div id='eshop_poznamka_div'>Poznámka:<div id='poznamka_saved'></div><textarea id='eshop_poznamka' onchange='addPoznamka(this)'>{$basketItem['comment']}</textarea></div>";
 
@@ -36,7 +35,8 @@ $basket .= "<div id='Basket-step_2'><div id='step2'><div class='step1' onclick='
         <div class='step2'></div>
         <div class='step3' onclick='nextstep(\"Basket-step_3\")'></div>
         </div><h2>Doprava a platba</h2>";
-$basket .= $doprava;
+$basket .= "Celková hmotnost - {$celkovaHmotnostKg}kg<br>";
+$basket .= "<p>$doprava</p>";
 $basket .= "<button onclick='nextstep(\"Basket-step_1\")' class='previousStep'></button><button onclick='nextstep(\"Basket-step_3\")' class='nextStep'></button></div>";
 
 $basket .= "<div id='Basket-step_3'><div id='step3'><div class='step1' onclick='nextstep(\"Basket-step_1\")'></div>

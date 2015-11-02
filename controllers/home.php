@@ -5,6 +5,7 @@
  * Date: 05.10.2015
  * Time: 10:31
  */
+$background = "background2.png";
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
     $header = "Welcome";
     $body = '<p>Our company was established in 1992. Since then we have been designing and manufacturing handholds for climbing walls. Since the above period of time our company has sold tens of thousands of the products. We are sure that the quality of our products is very high in comparison with our remarkably low prices. Our products can be found all over Europe. They are currently being used on climbing walls in Germany, Switzerland, Italy etc.</p>';

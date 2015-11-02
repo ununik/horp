@@ -32,13 +32,20 @@ if(isset($language[1])){
     $getPage = $language[0];
 }
 $language_link = "";
+$background = "background1.png";
 foreach($_GET as $get => $value){
     if($get != "page"){
         $language_link .= "&$get=$value";
     }
 }
-
-$title = 'HORP - výroba lezeckých chytů';
+if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
+    $subtitle = 'Climbing holder making';
+    $title = 'HORP - climbing holder making';
+}else{
+    $subtitle = 'Výroba lezeckých chytů';
+    $title = 'HORP - výroba lezeckých chytů';
+}
+$footer = include_once("controllers/footer.php");
 $navigation = include_once("views/navigation.php");
 $content = include_once("controllers/$getPage.php");
 
