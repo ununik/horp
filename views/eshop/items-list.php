@@ -28,7 +28,7 @@ foreach($items as $item){
     }
     $body .= "<tr><td class='left'>cena za 1ks:<br><small>(bez DPH)</small></td><td colspan='2'>$cenaBezDPH Kč</td></tr>";
     $body .= "<tr><td class='left'>cena za 1ks:<br><small>(s DPH)</small></td><td colspan='2'>$cenaSDPH Kč</td></tr>";
-    $body .= "<tr><td class='left'>počet kusů:</small></td><td class='pocet_kusu'><input type='text' id='kosik_{$item['id']}' value='1'><div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$item['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$item['id']}\")'></div></div></td><td rowspan='2'><button onclick='addToBasket({$item['id']})' class='basket'>Přidat do košíku</button></td></tr>";
+    $body .= "<tr><td class='left'>počet kusů:</small></td><td class='pocet_kusu'><input type='text' onkeypress='validateNumber(event)' id='kosik_{$item['id']}' value='1'><div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$item['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$item['id']}\")'></div></div></td><td rowspan='2'><button onclick='addToBasket({$item['id']})' class='basket'>Přidat do košíku</button></td></tr>";
     $body .= "</table>";
 
 

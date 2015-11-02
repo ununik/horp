@@ -239,6 +239,22 @@ body{
     float: left;
     margin: 0px 25px 0px 0px;
 }
+#kontakt_mapa{
+    display: block;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    clear: both;
+}
+.konec_content{
+    clear: both;
+    width: 100% !important;
+}
+#kontakt_information{
+    display: block;
+    margin: 0px 0px 0px 50px;
+    float: left;
+}
 #language{
     float: right;
 }
@@ -450,4 +466,26 @@ nav span {
     transition: left 1s;
     color: #F7DCB4;
     padding: 15px;
+}
+.upravit{
+    visibility: hidden;
+}
+.basket_table td:hover .upravit{
+    visibility: visible;
+    text-decoration: underline;
+}
+.basket_count_input{
+    display: none;
+    position:relative;
+    left: 5px;
+}
+.basket_count_input input{
+    width: 50px;
+    border: none;
+    outline: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 3px 2px;
+    float: left;
 }

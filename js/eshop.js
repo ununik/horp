@@ -55,3 +55,32 @@ function pocetKsMinus(id){
 function pocetKsPlus(id){
     document.getElementById('kosik_'+id).value++
 }
+
+function validateNumber(evt){
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+}
+
+function upravit_count(td, id, count){
+    var span = td.parentNode.getElementsByTagName('span');
+    span[0].style.display = "none";
+    span[1].style.display = "none";
+    span[2].style.display = "block";
+}
+function saveNewCount(span, id){
+    var newCount = span.parentNode.parentNode.getElementsByTagName('input')[0].value;
+    var visible = span.parentNode.parentNode.getElementsByTagName('span');
+    visible[0].style.display = "inline-block";
+    visible[0].innerHTML = newCount
+    visible[1].style.display = "inline-block";
+    visible[2].style.display = "none";
+    ajaxCall('controllers/eshop/changeCount.php?newCount='+newCount+'&id='+id, function(xhr) {
+        location.reload();
+    })
+}

@@ -18,7 +18,7 @@ foreach($items as $item){
                 <td class='cena'>{$item['cenaZaKusBezDPH']} Kč</td>
                 <td class='cena'>{$item['cenaZaKusSDPH']} Kč</td>
 
-                <td  class='pocetKusu'>{$item['count']}</td>
+                <td  class='pocetKusu'><span>{$item['count']}</span><span class='upravit' onclick='upravit_count(this, {$item['id']}, {$item['count']})'>upravit</span><span class='basket_count_input'><input type='text' onkeypress='validateNumber(event)' id='kosik_{$item['id']}' value='{$item['count']}'><div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$item['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$item['id']}\")'></div></div><span onclick='saveNewCount(this, \"{$item['id']}\")'>S</span></span></td>
                 <td class='cena'>{$item['cenaBezDPH']} Kč</td>
                 <td class='cena'>{$item['cenaSDPH']} Kč</td>
                 <td><span onclick='deleteFromBasket({$item['id']})' class='basket_odstranit'>odstranit</span></td>
