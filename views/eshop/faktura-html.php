@@ -13,10 +13,10 @@ $faktura .= "<tr><td>Jméno:</td><td>{$basket['jmeno']}</td><td>Jméno:</td><td>
 $faktura .= "<tr><td>Příjmení:</td><td>{$basket['prijmeni']}</td><td>Příjmení:</td><td>{$basket['prijmeni_dodaci']}</td></tr>";
 $faktura .= "<tr><td>Adresa:</td><td>{$basket['adresa']}</td><td>Adresa:</td><td>{$basket['adresa_dodaci']}</td></tr>";
 $faktura .= "<tr><td>Město:</td><td>{$basket['mesto']}</td><td>Město:</td><td>{$basket['mesto_dodaci']}</td></tr>";
-$faktura .= "<tr><td>PSČ:</td><td>{$basket['psc']}'></td><td>PSČ:</td><td>{$basket['psc_dodaci']}</td></tr>";
-$faktura .= "<tr><td>Firma:</td><td>{$basket['firma']}'></td><td colspan='2'></td></tr>";
-$faktura .= "<tr><td>IČ:</td><td>{$basket['ic']}'></td><td colspan='2'></td></tr>";
-$faktura .= "<tr><td>DIČ:</td><td>{$basket['dic']}'></td><td colspan='2'></td></tr>";
+$faktura .= "<tr><td>PSČ:</td><td>{$basket['psc']}</td><td>PSČ:</td><td>{$basket['psc_dodaci']}</td></tr>";
+$faktura .= "<tr><td>Firma:</td><td>{$basket['firma']}</td><td colspan='2'></td></tr>";
+$faktura .= "<tr><td>IČ:</td><td>{$basket['ic']}</td><td colspan='2'></td></tr>";
+$faktura .= "<tr><td>DIČ:</td><td>{$basket['dic']}</td><td colspan='2'></td></tr>";
 $faktura .= "</table>";
 
 $faktura .= "<table class='basket_table'><th class='nazev'>Název</th><th>Cena za kus<br><small>bez DPH</small></th><th>Cena za kus<br><small>s DPH</small></th><th>Počet kusů</th><th>Cena<br><small>bez DPH</small></th><th>Cena<br><small>s DPH</small></th><th></th>";
