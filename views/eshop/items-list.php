@@ -6,6 +6,7 @@
  * Time: 14:14
  */
 $body = "<h1>$subcategory[$lang]</h1>";
+$body .= "<div>podle ceny: <a href='index.php?page=eshop&category={$subcategory['id']}&order=cena'>vzestupne</a><a href='index.php?page=eshop&category={$subcategory['id']}&order=cenaDESC'>sestupne</a> | podle velikosti: <a href='index.php?page=eshop&category={$subcategory['id']}&order=velikost'>vzestupne</a><a href='index.php?page=eshop&category={$subcategory['id']}&order=velikostDESC'>sestupne</a>";
 foreach($items as $item){
     $cenaBezDPH = number_format($item['cenaBezDPH'], 2, '.', '');
     $cenaSDPH = number_format($item['cenaSDPH'], 2, '.', '');
@@ -34,5 +35,5 @@ foreach($items as $item){
 
     $body .= '</div>';
 }
-
+$body .= "<span onclick='goNahoru()' class='nahoru'>$nahoru</span>";
 return $body;

@@ -157,6 +157,7 @@ body{
     -o-transition: right 1s;
     transition: right 1s;
     overflow: hidden;
+    color: black;
 }
 #eshop_panel p{
     text-align: right;
@@ -321,6 +322,11 @@ body{
     width: 100%;
     height: 40px;
     z-index: 90 !important;
+}
+.nahoru{
+    cursor: pointer;
+    display: block;
+    margin: 15px 0px 0px 0px;
 }
 nav li{
     float: left;

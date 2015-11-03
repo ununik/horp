@@ -39,8 +39,8 @@ foreach($_GET as $get => $value){
     }
 }
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
-    $subtitle = 'Climbing holder making';
-    $title = 'HORP - climbing holder making';
+    $subtitle = 'Climbing holds production';
+    $title = 'HORP - climbing holds production';
 }else{
     $subtitle = 'Výroba lezeckých chytů';
     $title = 'HORP - výroba lezeckých chytů';

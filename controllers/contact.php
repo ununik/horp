@@ -12,7 +12,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
     $state = "Czech Republic";
     $mobil1 = "";
     $mobil2 = "";
-    $title = "Contact | HORP - climbing holder making";
+    $title = "Contact | HORP - climbing holds production";
     $account = "Account: 2600105374/2010";
     $ico = "Company registration number: 46793721";
     $dic = "TAX ID: CZ7306252371";

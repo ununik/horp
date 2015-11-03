@@ -36,9 +36,25 @@ class Eshop extends Connection
         $category = $result->fetch();
         return $category;
     }
-    public function getItems($subcategory){
+    public function getItems($subcategory, $order){
         $db = parent::connect();
-        $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ?");
+        switch($order){
+            case "cena":
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC");
+                break;
+            case "cenaDESC":
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` DESC");
+                break;
+            case "velikost":
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` ASC");
+                break;
+            case "velikostDESC":
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` DESC");
+                break;
+            default:
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC");
+        }
+
         $result->execute(array($subcategory));
         $items = $result->fetchAll();
         return $items;
@@ -90,6 +106,13 @@ class Eshop extends Connection
         $result = $db->prepare("SELECT * FROM `doprava`");
         $result->execute(array());
         $doprava = $result->fetchAll();
+        return $doprava;
+    }
+    public function getDoprava($id){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `doprava` WHERE id = ?");
+        $result->execute(array($id));
+        $doprava = $result->fetch();
         return $doprava;
     }
     public function changeDoprava($doprava, $ip){

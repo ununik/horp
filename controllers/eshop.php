@@ -19,9 +19,11 @@ $eshop_nav = $eshop->getAllCategories();
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
     $eshop_navigation = "<li><a href='index.php?page=eshop&subpage=basket'>Basket</a></li>";
     $eshop_navigation .= "<li class='nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>How to shopping</a></li>";
+    $nahoru = "up";
 }else{
     $eshop_navigation = "<li><a href='index.php?page=eshop&subpage=basket'>Košík</a></li>";
     $eshop_navigation .= "<li class='nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>Jak nakupovat</a></li>";
+    $nahoru = "nahoru";
 }
 foreach($eshop_nav as $nav){
     $eshop_navigation .= "<li>$nav[$lang]";
@@ -39,6 +41,11 @@ foreach($eshop_nav as $nav){
  */
 
 if(isset($_GET['category']) && $_GET['category'] != ""){
+    if(isset($_GET['order']) && $_GET['order']!=""){
+        $order = $_GET['order'];
+    } else{
+        $order = 'cena';
+    }
     $body = include_once('controllers/eshop/category.php');
 }elseif(isset($_GET['subpage']) && $_GET['subpage'] == "basket"){
     $body = include('controllers/eshop/basket.php');

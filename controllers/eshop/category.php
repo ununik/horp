@@ -8,7 +8,7 @@
 $subcategory = $eshop->getSubcategory($_GET['category']);
 $category = $eshop->getCategory($subcategory['category']);
 
-$items = $eshop->getItems($subcategory['id']);
+$items = $eshop->getItems($subcategory['id'], $order);
 
 
 

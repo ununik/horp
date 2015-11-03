@@ -84,3 +84,11 @@ function saveNewCount(span, id){
         location.reload();
     })
 }
+function goNahoru(){
+    window.scrollTo('0px', '0px');
+}
+function faktura(){
+    ajaxCall('controllers/eshop/faktura.php', function(xhr) {
+        document.getElementById('eshop_body').innerHTML = xhr.responseText;
+    })
+}

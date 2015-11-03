@@ -13,6 +13,7 @@ $container .= "<div>$mobil1</div>";
 $container .= "<div>$mobil2</div>";
 $container .= "</p><p>";
 $container .= "<div><a href='mailto:$email' title='$email'>$email</a></div>";
+$container .= "<div><a href='https://www.facebook.com/horpcz/' target='_blank'>https://www.facebook.com/horpcz/</a></div>";
 $container .= "</p>";
 $container .= "<p>";
 $container .= $account;

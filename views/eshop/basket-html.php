@@ -63,8 +63,8 @@ $basket .= "<tr><td>Adresa:</td><td><input type='text'  name='adresa_dodaci' onc
 $basket .= "<tr><td>Město:</td><td><input type='text'  name='mesto_dodaci' onchange='udaje_change(this)' value='{$basketItem['mesto_dodaci']}'></td></tr>";
 $basket .= "<tr><td>PSČ:</td><td><input type='text'  name='psc_dodaci' onchange='udaje_change(this)' value='{$basketItem['psc_dodaci']}'></td></tr>";
 $basket .= "</table>";
-$basket .= "<button onclick='nextstep(\"Basket-step_2\")'  class='previousStep'></button><button onclick='nextstep(\"Basket-step_4\")' class='objednat'>Objednat</button></div>";
+$basket .= "<button onclick='nextstep(\"Basket-step_2\")'  class='previousStep'></button><button onclick='faktura()' class='objednat'>Rekapituace</button></div>";
 
-$basket .= "<div id='Basket-step_4'><h2>Děkujeme za Vaši objednávku</h2>";
+$basket .= "<div id='Basket-step_4'></div>";
 
 return $basket;
