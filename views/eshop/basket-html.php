@@ -47,12 +47,15 @@ $basket .= "<table>";
 $basket .= "<th colspan='2'>Fakturační údaje</th>";
 $basket .= "<tr><td>Jméno*:</td><td><input type='text' name='jmeno' onchange='udaje_change(this)' value='{$basketItem['jmeno']}'></td></tr>";
 $basket .= "<tr><td>Příjmení*:</td><td><input type='text'  name='prijmeni' onchange='udaje_change(this)' value='{$basketItem['prijmeni']}'></td></tr>";
-$basket .= "<tr><td>Firma:</td><td><input type='text'  name='firma' onchange='udaje_change(this)' value='{$basketItem['firma']}'></td></tr>";
-$basket .= "<tr><td>IČ:</td><td><input type='text'  name='ic' onchange='udaje_change(this)' value='{$basketItem['ic']}'></td></tr>";
-$basket .= "<tr><td>DIČ:</td><td><input type='text'  name='dic' onchange='udaje_change(this)' value='{$basketItem['dic']}'></td></tr>";
 $basket .= "<tr><td>Adresa*:</td><td><input type='text' name='adresa' onchange='udaje_change(this)' value='{$basketItem['adresa']}'></td></tr>";
 $basket .= "<tr><td>Město*:</td><td><input type='text' name='mesto' onchange='udaje_change(this)' value='{$basketItem['mesto']}'></td></tr>";
 $basket .= "<tr><td>PSČ*:</td><td><input type='text' name='psc' onchange='udaje_change(this)' value='{$basketItem['psc']}'></td></tr>";
+$basket .= "<tr><td>Mail:</td><td><input type='text' name='mail' onchange='udaje_change(this)' value='{$basketItem['mail']}'></td></tr>";
+$basket .= "<tr><td>Tel:</td><td><input type='text' name='tel' onchange='udaje_change(this)' value='{$basketItem['tel']}'></td></tr>";
+$basket .= "<tr><td>Firma:</td><td><input type='text'  name='firma' onchange='udaje_change(this)' value='{$basketItem['firma']}'></td></tr>";
+$basket .= "<tr><td>IČ:</td><td><input type='text'  name='ic' onchange='udaje_change(this)' value='{$basketItem['ic']}'></td></tr>";
+$basket .= "<tr><td>DIČ:</td><td><input type='text'  name='dic' onchange='udaje_change(this)' value='{$basketItem['dic']}'></td></tr>";
+
 $basket .= "</table>";
 
 $basket .= "<table>";

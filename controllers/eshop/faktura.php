@@ -12,7 +12,7 @@ $ip = $_SERVER["REMOTE_ADDR"];
 $eshop = new Eshop();
 $basket = $eshop->getBasket($ip);
 
-if($basket['jmeno'] == "" || $basket['prijmeni'] == "" || $basket['adresa'] == "" || $basket['mesto'] == "" || $basket['psc'] == ""){
+if((($basket['jmeno'] == "" || $basket['prijmeni'] == "") && $basket['firma'] == "" )){// || $basket['adresa'] == "" || $basket['mesto'] == "" || $basket['psc'] == ""){
     print include_once('../../views/eshop/faktura-neni_vyplneno.php');
     return;
 }

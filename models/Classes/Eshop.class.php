@@ -125,4 +125,16 @@ class Eshop extends Connection
         $result = $db->prepare("UPDATE `basket` SET $input = ? WHERE ip = ?");
         $result->execute(array($value, $ip));
     }
+    public function getSleva($cena){
+        $db = parent::connect();
+        $result = $db->prepare("SELECT * FROM `sleva` WHERE `zboziNad` < ? ORDER BY `zboziNad` DESC");
+        $result->execute(array($cena));
+        $sleva = $result->fetch();
+        if(isset($sleva['sleva'])){
+            $sleva = $sleva['sleva'];
+        }else{
+            $sleva = 0;
+        }
+        return $sleva;
+    }
 }

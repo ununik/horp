@@ -22,7 +22,8 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
     $nahoru = "up";
 }else{
     $eshop_navigation = "<li><a href='index.php?page=eshop&subpage=basket'>Košík</a></li>";
-    $eshop_navigation .= "<li class='nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>Jak nakupovat</a></li>";
+    $eshop_navigation .= "<li><a href='index.php?page=eshop&subpage=jak_nakupovat'>Jak nakupovat</a></li>";
+    $eshop_navigation .= "<li class='nav_basket'><a href='index.php?page=eshop&subpage=obchodni_podminky'>Obchodní podmínky</a></li>";
     $nahoru = "nahoru";
 }
 foreach($eshop_nav as $nav){
@@ -51,6 +52,8 @@ if(isset($_GET['category']) && $_GET['category'] != ""){
     $body = include('controllers/eshop/basket.php');
 }elseif(isset($_GET['subpage']) && $_GET['subpage'] == "jak_nakupovat"){
     $body = include('views/eshop/jak_nakupovat.php');
+}elseif(isset($_GET['subpage']) && $_GET['subpage'] == "obchodni_podminky"){
+    $body = include('views/eshop/obchodni_podminky.php');
 } else {
     $body = include('views/eshop/page-home-html.php');
 }
