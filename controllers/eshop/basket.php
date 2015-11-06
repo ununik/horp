@@ -27,6 +27,10 @@ for($num = 0; $num < count($itemsAll); $num++){
         $thisItem = $eshop->getItem($itemsAll[$num]);
 
         $items[$number]['item'] = $thisItem['cz'];
+        $items[$number]['subcategory'] = $eshop->getSubcategory($thisItem['subcategory']);
+        $items[$number]['subcategory'] = $items[$number]['subcategory']['category'];
+        $items[$number]['category'] = $eshop->getCategory($items[$number]['subcategory']);
+        $items[$number]['category'] = $items[$number]['category']['cz'];
         $items[$number]['id'] = $itemsAll[$num];
         $items[$number]['count'] = $countAll[$num];
         $items[$number]['cenaZaKusBezDPH'] = number_format($thisItem['cenaBezDPH'], 2, '.', '');

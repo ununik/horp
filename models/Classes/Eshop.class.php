@@ -40,19 +40,19 @@ class Eshop extends Connection
         $db = parent::connect();
         switch($order){
             case "cena":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC, `id` ASC");
                 break;
             case "cenaDESC":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` DESC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` DESC, `id` ASC");
                 break;
             case "velikost":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` ASC, `id` ASC");
                 break;
             case "velikostDESC":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` DESC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` DESC, `id` ASC");
                 break;
             default:
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC, `id` ASC");
         }
 
         $result->execute(array($subcategory));

@@ -14,7 +14,7 @@ $basket = "<h1>Košík</h1>
             <h2>Můj košík</h2>";
 $basket .= "<table class='basket_table'><th class='nazev'>Název</th><th>Cena za kus<br><small>bez DPH</small></th><th>Cena za kus<br><small>s DPH</small></th><th>Počet kusů</th><th>Cena<br><small>bez DPH</small></th><th>Cena<br><small>s DPH</small></th><th></th>";
 foreach($items as $item){
-    $basket .= "<tr><td class='nazev'>{$item['item']}</td>
+    $basket .= "<tr><td class='nazev'>{$item['item']} ({$item['category']})</td>
                 <td class='cena'>{$item['cenaZaKusBezDPH']} Kč</td>
                 <td class='cena'>{$item['cenaZaKusSDPH']} Kč</td>
 

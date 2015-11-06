@@ -23,7 +23,7 @@ $faktura .= "</table>";
 $faktura .= "<h3>Obsah košíku</h3>";
 $faktura .= "<table class='basket_table faktura_basket'><th class='nazev'>Název</th><th>Cena za kus<br><small>bez DPH</small></th><th>Cena za kus<br><small>s DPH</small></th><th>Počet kusů</th><th>Cena<br><small>bez DPH</small></th><th>Cena<br><small>s DPH</small></th><th></th>";
 foreach($items as $item){
-    $faktura .= "<tr><td class='nazev'>{$item['item']}</td>
+    $faktura .= "<tr><td class='nazev'>{$item['item']} ({$item['category']})</td>
                 <td class='cena'>{$item['cenaZaKusBezDPH']} Kč</td>
                 <td class='cena'>{$item['cenaZaKusSDPH']} Kč</td>
 
@@ -51,6 +51,9 @@ $cenaSDPH = number_format($cenaSDPH, 2, '.', '');
 $faktura .= "<tr><td colspan='4'>Poštovné a balné: {$doprava['cz']}</td><td class='cena'>$cena Kč</td><td class='cena'>$cena Kč</td>";
 $faktura .= "<tr  class='celkem'><td colspan='4'>Celkem</td><td class='cena'>$cenaBezDPH Kč</td><td class='cena'>$cenaSDPH Kč</td>";
 $faktura .= "</table>";
+$faktura .= "<h3>Poznámka</h3>";
+$poznamka = nl2br($basket['comment']);
+$faktura .= "<div>{$poznamka}</div>";
 $faktura.= "<a href='index.php?page=eshop&subpage=basket'><button class='objednat'>Zpět k objednávce</button></a> <button class='objednat'>Objednat</button>";
 
 return $faktura;

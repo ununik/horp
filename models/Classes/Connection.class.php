@@ -10,9 +10,13 @@ class Connection
 {
     protected function connect(){
         if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1') {
-            return new PDO('mysql:host=localhost;dbname=horp', 'root', '');
+            $dbh = new PDO('mysql:host=localhost;dbname=horp', 'root', '');
+            $dbh->exec("set names utf8");
+            return $dbh;
         }else{
-            return new PDO('mysql:host=localhost;dbname=ununik', 'ununik', 'am4qgx');
+            $dbh = new PDO('mysql:host=localhost;dbname=ununik', 'ununik', 'am4qgx');
+            $dbh->exec("set names utf8");
+            return $dbh;
         }
     }
 }
