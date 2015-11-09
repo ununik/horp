@@ -6,7 +6,7 @@
  * Time: 14:14
  */
 $body = "<h1>$subcategory[$lang]</h1>";
-$body .= "<div>podle ceny: <a href='index.php?page=eshop&category={$subcategory['id']}&order=cena'>vzestupne</a><a href='index.php?page=eshop&category={$subcategory['id']}&order=cenaDESC'>sestupne</a> | podle velikosti: <a href='index.php?page=eshop&category={$subcategory['id']}&order=velikost'>vzestupne</a><a href='index.php?page=eshop&category={$subcategory['id']}&order=velikostDESC'>sestupne</a>";
+$body .= "<div><b>Řazení:</b> podle ceny: <a href='index.php?page=eshop&category={$subcategory['id']}&order=cena' class='vzestupne'></a><a href='index.php?page=eshop&category={$subcategory['id']}&order=cenaDESC' class='sestupne'></a> podle velikosti: <a href='index.php?page=eshop&category={$subcategory['id']}&order=velikost' class='vzestupne'></a><a href='index.php?page=eshop&category={$subcategory['id']}&order=velikostDESC' class='sestupne'></a>";
 foreach($items as $item){
     $cenaBezDPH = number_format($item['cenaBezDPH'], 2, '.', '');
     $cenaSDPH = number_format($item['cenaSDPH'], 2, '.', '');
@@ -15,9 +15,26 @@ foreach($items as $item){
     $body .= "<h3>$item[$lang]</h3>";
     $body .= "<table class='itemList'>";
     if($item['montazniPrvek'] != "" ){
-        $body .= "<tr><td class='left'>montážní prvek:</td><td colspan='2'>{$item['montazniPrvek']}</td>
-                    <td rowspan='7' class='image_item'>uuhui hiuhli iu</td></tr>";
+        $body .= "<tr><td class='left'>montážní prvek:</td><td colspan='2'>{$item['montazniPrvek']}</td>";
     }
+     $body .= "<td rowspan='7' class='image_item'>";
+        if($item['img1'] != "" ) {
+            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/250/{$item['img1']}'>";
+        }
+        if($item['img2'] != "" ) {
+            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/30/{$item['img2']}'>";
+        }
+        if($item['img3'] != "" ) {
+            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/30/{$item['img3']}'>";
+        }
+        if($item['img4'] != "" ) {
+            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/30/{$item['img4']}'>";
+        }
+        if($item['img5'] != "" ) {
+            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/30/{$item['img5']}'>";
+        }
+    $body .= "</td></tr>";
+
     if($item['rozmery'] != "" ){
         $body .= "<tr><td class='left'>rozměry:</td><td colspan='2'>{$item['rozmery']}</td></tr>";
     }

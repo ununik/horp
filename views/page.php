@@ -18,7 +18,7 @@ return "
         $javascript
     </head>
     <body>
-    <div id='header'><h1>HORP</h1><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a href='index.php?page=$getPage@cz$language_link' id='language_cz'></a><a href='index.php?page=$getPage@en$language_link' id='language_en'></a></div>
+    <div id='header'><h1><span>HORP</span></h1><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a href='index.php?page=$getPage@cz$language_link' id='language_cz'></a><a href='index.php?page=$getPage@en$language_link' id='language_en'></a></div>
     <nav>$navigation</nav></div>
     </div>
     <div id='notice'></div>
