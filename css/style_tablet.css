@@ -1,0 +1,96 @@
+body{
+	font-size: 0.87em;
+}
+#content{
+	margin: 0px 25px;
+}
+#facebook{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	clear: both;
+	height: 400px !important;
+}
+#eshop_navigation{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	vertical-align: top;
+	z-index: 5000;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 10px;
+	-webkit-transition: top 1s;
+    -moz-transition: top 1s;
+    -ms-transition: top 1s;
+    -o-transition: top 1s;
+    transition: top 1s;
+    background-color: white;
+    border-bottom: 2px solid black;
+    margin: 0px;
+}
+#eshop_navigation .menuEshop{
+	display: block;
+}
+#eshop_navigation li{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0px 5px;
+}
+#eshop_navigation li ul li{
+	margin: 0px;
+	position: relative;
+	left: -25px;
+}
+#menuButton{
+	font-size: 20px;
+	text-align: center;
+	display: block;
+	height: 25px;
+	margin-top: 35px;
+}
+#header{
+	padding-top: 20px;
+}
+#header h1{
+	top: 30px;
+}
+nav li{
+	top: 5px;
+}
+#content{
+	margin-top: 45px;
+}
+#eshop_panel{
+	width: 140px;	
+}
+#header h2{
+	top: 30px;
+}
+.active_eshop_navigation{
+	position:relative;
+	left: -50px !important;
+}
+.basket_table{
+	font-size: 0.8em;
+}
+.pocet_kusu input{
+	width: 30px;
+}
+.basket_table .nazev{
+	min-width: 150px;
+}
+.basket_count_input input{
+	width: 20px;
+}
+.upravit{
+	visibility: visible !important;
+	padding-left: 3px;
+}
+#eshop_panel p{
+	margin-right: 25px;
+}
+.basket_odstranit{
+	visibility: visible;
+}

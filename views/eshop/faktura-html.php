@@ -49,11 +49,13 @@ if($sleva != 0){
 $cenaBezDPH = number_format($cenaBezDPH, 2, '.', '');
 $cenaSDPH = number_format($cenaSDPH, 2, '.', '');
 $faktura .= "<tr><td colspan='4'>Poštovné a balné: {$doprava['cz']}</td><td class='cena'>$cena Kč</td><td class='cena'>$cena Kč</td>";
-$faktura .= "<tr  class='celkem'><td colspan='4'>Celkem</td><td class='cena'>$cenaBezDPH Kč</td><td class='cena'>$cenaSDPH Kč</td>";
+$faktura .= "<tr  class='celkem' style='font-weight: bold; border-top: 2px solid black;'><td colspan='4'>Celkem</td><td class='cena'>$cenaBezDPH Kč</td><td class='cena'>$cenaSDPH Kč</td>";
 $faktura .= "</table>";
 $faktura .= "<h3>Poznámka</h3>";
 $poznamka = nl2br($basket['comment']);
-$faktura .= "<div>{$poznamka}</div>";
-$faktura.= "<a href='index.php?page=eshop&subpage=basket'><button class='objednat'>Zpět k objednávce</button></a> <button class='objednat'>Objednat</button>";
 
+$faktura .= "<div>{$poznamka}</div>";
+if(!isset($mail) || $mail!=true){
+$faktura.= "<a href='index.php?page=eshop&subpage=basket'><button class='objednat'>Zpět k objednávce</button></a> <button class='objednat' onclick='objednat()'>Objednat</button>";
+}
 return $faktura;

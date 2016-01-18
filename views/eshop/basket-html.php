@@ -14,11 +14,15 @@ $basket = "<h1>Košík</h1>
             <h2>Můj košík</h2>";
 $basket .= "<table class='basket_table'><th class='nazev'>Název</th><th>Cena za kus<br><small>bez DPH</small></th><th>Cena za kus<br><small>s DPH</small></th><th>Počet kusů</th><th>Cena<br><small>bez DPH</small></th><th>Cena<br><small>s DPH</small></th><th></th>";
 foreach($items as $item){
-    $basket .= "<tr><td class='nazev'>{$item['item']} ({$item['category']})</td>
+    $basket .= "<tr><td class='nazev'>";
+    		$basket .= "<a href='images/eshop/foto/{$item['categoryNumber']}/1000/{$item['img1']}' rel='lightbox[{$item['img1']}]'>";
+            $basket .= "<img src='images/eshop/foto/{$item['categoryNumber']}/30/{$item['img1']}' class='basket_nahled'>";
+            $basket .= "</a>";
+    $basket .= "<a href='index.php?page=eshop&category={$item['categoryNumber']}&id={$item['id']}'>{$item['item']} ({$item['category']})</a></td>
                 <td class='cena'>{$item['cenaZaKusBezDPH']} Kč</td>
                 <td class='cena'>{$item['cenaZaKusSDPH']} Kč</td>
 
-                <td  class='pocetKusu'><span>{$item['count']}</span><span class='upravit' onclick='upravit_count(this, {$item['id']}, {$item['count']})'>upravit</span><span class='basket_count_input'><input type='text' onkeypress='validateNumber(event)' id='kosik_{$item['id']}' value='{$item['count']}'><div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$item['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$item['id']}\")'></div></div><span onclick='saveNewCount(this, \"{$item['id']}\")'>S</span></span></td>
+                <td  class='pocetKusu'><span>{$item['count']}</span><span class='upravit' onclick='upravit_count(this, {$item['id']}, {$item['count']})'>upravit</span><span class='basket_count_input'><input type='text' onkeypress='validateNumber(event)' id='kosik_{$item['id']}' value='{$item['count']}'><div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$item['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$item['id']}\")'></div></div><span onclick='saveNewCount(this, \"{$item['id']}\")' class='save'></span></span></td>
                 <td class='cena'>{$item['cenaBezDPH']} Kč</td>
                 <td class='cena'>{$item['cenaSDPH']} Kč</td>
                 <td><span onclick='deleteFromBasket({$item['id']})' class='basket_odstranit'>odstranit</span></td>
@@ -45,7 +49,7 @@ $basket .= "<div id='Basket-step_3'><div id='step3'><div class='step1' onclick='
             </div><h2>Fakturační údaje</h2>";
 $basket .= "<table>";
 $basket .= "<th colspan='2'>Fakturační údaje</th>";
-$basket .= "<tr><td>Jméno*:</td><td><input type='text' name='jmeno' onchange='udaje_change(this)' value='{$basketItem['jmeno']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>Jméno*:</td><td><input type='text' name='jmeno' onchange='udaje_change(this)' value='{$basketItem['jmeno']}'></td></tr>";
 $basket .= "<tr><td>Příjmení*:</td><td><input type='text'  name='prijmeni' onchange='udaje_change(this)' value='{$basketItem['prijmeni']}'></td></tr>";
 $basket .= "<tr><td>Adresa*:</td><td><input type='text' name='adresa' onchange='udaje_change(this)' value='{$basketItem['adresa']}'></td></tr>";
 $basket .= "<tr><td>Město*:</td><td><input type='text' name='mesto' onchange='udaje_change(this)' value='{$basketItem['mesto']}'></td></tr>";
@@ -60,13 +64,13 @@ $basket .= "</table>";
 
 $basket .= "<table>";
 $basket .= "<th colspan='2'>Dodací adresa (liší-li se od fakturačních údajů)</th>";
-$basket .= "<tr><td>Jméno:</td><td><input type='text' name='jmeno_dodaci' onchange='udaje_change(this)' value='{$basketItem['jmeno_dodaci']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>Jméno:</td><td><input type='text' name='jmeno_dodaci' onchange='udaje_change(this)' value='{$basketItem['jmeno_dodaci']}'></td></tr>";
 $basket .= "<tr><td>Příjmení:</td><td><input type='text' name='prijmeni_dodaci' onchange='udaje_change(this)' value='{$basketItem['prijmeni_dodaci']}'></td></tr>";
 $basket .= "<tr><td>Adresa:</td><td><input type='text'  name='adresa_dodaci' onchange='udaje_change(this)' value='{$basketItem['adresa_dodaci']}'></td></tr>";
 $basket .= "<tr><td>Město:</td><td><input type='text'  name='mesto_dodaci' onchange='udaje_change(this)' value='{$basketItem['mesto_dodaci']}'></td></tr>";
 $basket .= "<tr><td>PSČ:</td><td><input type='text'  name='psc_dodaci' onchange='udaje_change(this)' value='{$basketItem['psc_dodaci']}'></td></tr>";
 $basket .= "</table>";
-$basket .= "<button onclick='nextstep(\"Basket-step_2\")'  class='previousStep'></button><button onclick='faktura()' class='objednat'>Rekapituace</button></div>";
+$basket .= "<button onclick='nextstep(\"Basket-step_2\")'  class='previousStep'></button><button onclick='faktura()' class='objednat rekapituace'>Rekapituace</button></div>";
 
 $basket .= "<div id='Basket-step_4'></div>";
 

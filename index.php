@@ -18,6 +18,8 @@ if(isset($_GET['page']) && $_GET['page'] != ""){
     $getPage = 'home';
 }
 $javascript = "<script src='js/ajax.js'></script>";
+$javascript .= '<script src="js/jquery-1.7.2.min.js"></script>
+                <script src="js/lightbox.js"></script>';
 $language = explode('@', $getPage);
 if(isset($language[1])){
     switch($language[1]){

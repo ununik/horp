@@ -103,8 +103,8 @@ body{
 #eshop_navigation{
      position: absolute;
      left: -245px;
-     top: 0px;
-     width: 190px;
+     top: -15px;
+     width: 200px;
     padding: 10px 10px 50px 25px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -158,6 +158,7 @@ body{
     transition: right 1s;
     overflow: hidden;
     color: black;
+    z-index: 5000;
 }
 #eshop_panel p{
     text-align: right;
@@ -198,6 +199,8 @@ body{
 }
 .image_item{
     width: 33%;
+}
+.image_item div{
 }
 .item{
     border-bottom: 1px dashed #A97D5D;
@@ -252,7 +255,6 @@ body{
     width: 100% !important;
 }
 #kontakt_information{
-    display: block;
     margin: 0px 0px 0px 50px;
     float: left;
 }
@@ -332,7 +334,8 @@ body{
 .nahoru{
     cursor: pointer;
     display: block;
-    margin: 15px 0px 0px 0px;
+    margin: 10px 0px 0px 0px;
+    text-align: center;
 }
 nav li{
     float: left;
@@ -420,6 +423,10 @@ nav span {
     font-weight: bold;
     cursor: pointer;
 }
+.rekapituace{
+    position: relative;
+    top: -27px;
+}
 #step1{
     width: 405px;
     height: 97px;
@@ -493,7 +500,7 @@ nav span {
     left: 5px;
 }
 .basket_count_input input{
-    width: 50px;
+    width: 30px;
     border: none;
     outline: none;
     -webkit-border-radius: 5px;
@@ -534,7 +541,145 @@ nav span {
     height: 23px;
     background-image: url(../images/eshop/nahoru.png);
     display: inline-block;
-    display: inline-block;
     position:relative;
     top: 8px;
+}
+.save{
+    width:18px;
+    height: 20px;
+    background-image: url(../images/eshop/save.png);
+    display: inline-block;
+    position: relative;
+    left: -17px;
+}
+.obrazek_nahled{
+    width: 65px;
+    border: 1px dotted #465747;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-right: 3px;
+}
+.obrazek_nahled:hover{
+    background-color: white;
+}
+.obrazek{
+    width: 220px;
+    border: 1px dotted #465747;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    display: block;
+}
+.obrazek:hover{
+    background-color: white;
+}
+.active_eshop_navigation{
+    padding-left: 25px;
+    background-image: url("../images/eshop/activeMenu.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    position: relative;
+    left: -25px;
+}
+#strankovani{
+    text-align: center;
+}
+#strankovani a{
+    display: inline-block;
+    padding: 3px 5px;
+    border-radius: 4px;
+    background-color: #9b9e84;
+    color: #465747;
+    margin: 15px 1px 5px 1px;
+    text-decoration: none !important;
+}
+#strankovani .activePageNumber{
+    background-color: #465747;
+    color: #9b9e84;
+}
+#strankovani .previousAndNextPage{
+    background-color: #465747;
+    color: #9b9e84;
+    margin: 0px 15px;
+}
+#strankovani_nahore{
+    text-align: right;
+    font-size: 0.8em;
+}
+#strankovani_nahore a{
+    display: inline-block;
+    padding: 3px 4px;
+    border-radius: 4px;
+    background-color: #9b9e84;
+    color: #465747;
+    margin: 15px 1px 5px 0px;
+    text-decoration: none !important;
+}
+#strankovani_nahore .activePageNumber{
+    background-color: #465747;
+    color: #9b9e84;
+}
+.horizontal_line{
+    margin-top: 10px;
+    border-bottom: 1px dashed #A97D5D;
+}
+.lb-outerContainer{
+    max-width: 100%;
+    max-height: 100%;
+}
+.lb-image{
+    height: 510px !important;
+    max-height: 70% !important;
+}
+.lb-outerContainer{
+    height: 520px !important;
+    max-height: 70% !important;
+}
+#facebook{
+	position: absolute;
+     left: -245px;
+     top: 0px;
+     width: 220px;
+    padding: 10px 10px 50px 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+     background-color: rgba(256, 256, 256, 0.85);
+}
+.next_item_obrazek_nahled{
+	   width: 100px;
+    border: 1px dotted #465747;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-right: 3px;
+}
+.doporuceni{
+	display:none;
+}
+.doporuceni_polozka{
+	width: 100px;
+	display: inline-block;
+	margin: 0px 3px;
+}
+.doporuceni_polozka div{
+	display: block;
+	position: relative;
+	top: -20px;
+	text-align: center;
+}
+.basket_nahled{
+	height: 1em;
+	margin-right: 5px;
+}
+#menuButton{
+	display: none;
+}
+.pocetKusu{
+	min-width: 90px;
+}
+.faktur_left{
+	width: 90px;
 }

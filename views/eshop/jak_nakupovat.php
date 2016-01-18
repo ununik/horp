@@ -13,6 +13,6 @@ jsou samotné chyty rozděleny podle typu nebo velikosti. Pro zvolení typu chyt
  Pokud chcete více kusů, přepište číslo u počtu kusů na váš poždadovaný počet.</p>";
 
 $body .= "<h3>Košík</h3>";
-$body .= "<p>Obsah košíku lze si prohlédnout po kliknutí v menu na \"Košík\".</p>";
+$body .= "<p>Obsah košíku lze si prohlédnout po kliknutí v menu na \"Košík\" nebo na \"Obsah košíku\" na pravé straně obrazovky.</p>";
 
 return $body;

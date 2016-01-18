@@ -8,6 +8,35 @@
  */
 class Eshop extends Connection
 {
+    public $titlesOnPage = 10;
+    public $pageNumber = 1;
+
+    public function pagesOfItems($items){
+        $pages = ceil(count($items)/$this->titlesOnPage);
+        return $pages;
+    }
+
+    public function getFirstItemOnPage(){
+        $firstItem = (($this->pageNumber - 1) * $this->titlesOnPage);
+
+        return $firstItem;
+    }
+
+    public function getLastItemOnPage($items){
+        $lastItem = (($this->pageNumber) * $this->titlesOnPage);
+        if($lastItem > count($items)){
+            $lastItem = count($items);
+        }
+
+        return $lastItem;
+    }
+
+    public function __construct($ip){
+        if($this->checkIPBasket($ip) == false) {
+            echo $this->newBasket($ip);
+        }
+    }
+
     public function getAllCategories(){
         $db = parent::connect();
         $result = $db->prepare("SELECT * FROM `category`");
@@ -40,19 +69,19 @@ class Eshop extends Connection
         $db = parent::connect();
         switch($order){
             case "cena":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC, `poradi` ASC, `id` ASC");
                 break;
             case "cenaDESC":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` DESC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` DESC, `poradi` ASC, `id` ASC");
                 break;
             case "velikost":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` ASC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` ASC, `poradi` ASC, `id` ASC");
                 break;
             case "velikostDESC":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` DESC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` DESC, `poradi` ASC, `id` ASC");
                 break;
             default:
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC, `poradi` ASC, `id` ASC");
         }
 
         $result->execute(array($subcategory));
@@ -69,13 +98,15 @@ class Eshop extends Connection
     public function newBasket($ip){
         $db = parent::connect();
         $timestamp = time();
-        $result = $db->prepare("INSERT INTO `basket`(`ip`, `timestamp`) VALUES (?, ?)");
-        $result->execute(array($ip, $timestamp));
+        $done = 0;
+        $result = $db->prepare("INSERT INTO `basket`(`ip`, `timestamp`, `done`) VALUES (?, ?, ?)");
+        $result->execute(array($ip, $timestamp, $done));
     }
     public function checkIPBasket($ip){
         $db = parent::connect();
-        $result = $db->prepare("SELECT * FROM `basket` WHERE ip  = ?");
-        $result->execute(array($ip));
+        $done = 1;
+        $result = $db->prepare("SELECT * FROM `basket` WHERE (`ip` = ? && `done` != ?) ");
+        $result->execute(array($ip, $done));
         $item = $result->fetch();
         if($item['ip'] != ""){
             return true;
@@ -83,23 +114,32 @@ class Eshop extends Connection
             return false;
         }
     }
+    public function done($ip){
+    	$db = parent::connect();
+    	$done = 1;
+    	$result = $db->prepare("UPDATE `basket` SET `done`=? WHERE ip = ? && done = ?");
+    	$result->execute(array($done, $ip, '0'));
+		echo $done;
+    	break;
+    }
     public function getBasket($ip){
         $db = parent::connect();
-        $result = $db->prepare("SELECT * FROM `basket` WHERE ip  = ?");
-        $result->execute(array($ip));
+        $done = 1;
+        $result = $db->prepare("SELECT * FROM `basket` WHERE ip  = ? && done != ?");
+        $result->execute(array($ip, $done));
         $basket = $result->fetch();
         return $basket;
     }
     public function addToBasket($count, $item, $ip){
         $db = parent::connect();
         $timestamp = time();
-        $result = $db->prepare("UPDATE `basket` SET `timestamp`=?,`count`=?,`item`=? WHERE ip = ?");
-        $result->execute(array($timestamp, $count, $item, $ip));
+        $result = $db->prepare("UPDATE `basket` SET `timestamp`=?,`count`=?,`item`=? WHERE ip = ?  && done = ?");
+        $result->execute(array($timestamp, $count, $item, $ip, '0'));
     }
     public function addCommentToBasket($comment, $ip){
         $db = parent::connect();
-        $result = $db->prepare("UPDATE `basket` SET `comment`=? WHERE ip = ?");
-        $result->execute(array($comment, $ip));
+        $result = $db->prepare("UPDATE `basket` SET `comment`=? WHERE ip = ?  && done = ?");
+        $result->execute(array($comment, $ip, '0'));
     }
     public function getAllTypesDoprava(){
         $db = parent::connect();
@@ -110,20 +150,20 @@ class Eshop extends Connection
     }
     public function getDoprava($id){
         $db = parent::connect();
-        $result = $db->prepare("SELECT * FROM `doprava` WHERE id = ?");
-        $result->execute(array($id));
+        $result = $db->prepare("SELECT * FROM `doprava` WHERE id = ?  && done = ?");
+        $result->execute(array($id, '0'));
         $doprava = $result->fetch();
         return $doprava;
     }
     public function changeDoprava($doprava, $ip){
         $db = parent::connect();
-        $result = $db->prepare("UPDATE `basket` SET `doprava`=? WHERE ip = ?");
-        $result->execute(array($doprava, $ip));
+        $result = $db->prepare("UPDATE `basket` SET `doprava`=? WHERE ip = ? && done = ?");
+        $result->execute(array($doprava, $ip, '0'));
     }
     public function changeUdaje($value, $input, $ip){
         $db = parent::connect();
-        $result = $db->prepare("UPDATE `basket` SET $input = ? WHERE ip = ?");
-        $result->execute(array($value, $ip));
+        $result = $db->prepare("UPDATE `basket` SET $input = ? WHERE ip = ?  && done = ?");
+        $result->execute(array($value, $ip, '0'));
     }
     public function getSleva($cena){
         $db = parent::connect();

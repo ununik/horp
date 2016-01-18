@@ -6,6 +6,7 @@ function addToBasket(id){
         showBasket();
         setTimeout(function(){ document.getElementById('successMessage').style.left = "-331px"; }, 3000);
     })
+    document.getElementById('doporuceni_'+id).style.display = "table-row";
 
 }
 function deleteFromBasket(id){
@@ -91,4 +92,17 @@ function faktura(){
     ajaxCall('controllers/eshop/faktura.php', function(xhr) {
         document.getElementById('eshop_body').innerHTML = xhr.responseText;
     })
+}
+
+function tabletMenu(){
+	if(document.getElementById("eshop_navigation").style.top != "-320px"){
+			document.getElementById("eshop_navigation").style.top = "-320px";	
+	}else{
+		document.getElementById("eshop_navigation").style.top = '0px';
+	}
+}
+function objednat(){
+	 ajaxCall('controllers/eshop/mail.php', function(xhr) {
+	    })
+	    window.location.href = "index.php?page=eshop&subpage=end";
 }

@@ -5,8 +5,12 @@ return "
     <head>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width; initial-scale=1.0'>
+        <link rel='shortcut icon' href='images/horp_ico1.ico'>
         <link rel='stylesheet' href='css/style.css' type='text/css' media='screen'/>
+		<link rel='stylesheet' href='css/style_tablet.css' type='text/css' media='handheld, only screen and (max-device-width: 1177px)'>
+		<link rel='stylesheet' href='css/style_mobile.css' type='text/css' media='handheld, only screen and (max-device-width: 720px)'>
         <title>$title</title>
+        <link href='css/lightbox.css' rel='stylesheet' />
         <style>
         nav [href *= '?page=$getPage']{
             /*background-color:rgba(212, 212, 212, 1);*/
@@ -18,7 +22,17 @@ return "
         $javascript
     </head>
     <body>
-    <div id='header'><h1><span>HORP</span></h1><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a href='index.php?page=$getPage@cz$language_link' id='language_cz'></a><a href='index.php?page=$getPage@en$language_link' id='language_en'></a></div>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72011333-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    <div id='header'><a href='index.php'><h1><span>HORP</span></h1></a><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a href='index.php?page=$getPage@cz$language_link' id='language_cz'></a><a href='index.php?page=$getPage@en$language_link' id='language_en'></a></div>
     <nav>$navigation</nav></div>
     </div>
     <div id='notice'></div>

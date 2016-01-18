@@ -6,9 +6,7 @@
  * Time: 15:50
  */
 $ip = $_SERVER["REMOTE_ADDR"];
-if($eshop->checkIPBasket($ip)) {
-    $eshop->newBasket($ip);
-}
+$eshop = new Eshop($ip);
 $basketItem = $eshop->getBasket($ip);
 
 
@@ -26,11 +24,13 @@ for($num = 0; $num < count($itemsAll); $num++){
         $number++;
         $thisItem = $eshop->getItem($itemsAll[$num]);
 
-        $items[$number]['item'] = $thisItem['cz'];
+        $items[$number]['item'] = $thisItem[$lang];
+        $items[$number]['img1'] = $thisItem['img1'];
+        $items[$number]['categoryNumber'] = $thisItem['subcategory'];
         $items[$number]['subcategory'] = $eshop->getSubcategory($thisItem['subcategory']);
         $items[$number]['subcategory'] = $items[$number]['subcategory']['category'];
         $items[$number]['category'] = $eshop->getCategory($items[$number]['subcategory']);
-        $items[$number]['category'] = $items[$number]['category']['cz'];
+        $items[$number]['category'] = $items[$number]['category'][$lang];
         $items[$number]['id'] = $itemsAll[$num];
         $items[$number]['count'] = $countAll[$num];
         $items[$number]['cenaZaKusBezDPH'] = number_format($thisItem['cenaBezDPH'], 2, '.', '');

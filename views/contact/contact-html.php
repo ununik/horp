@@ -22,7 +22,14 @@ $container .= "<p>";
 $container .= "<div>$ico</div><div>$dic</div>";
 $container .= "</p>";
 $container .= "</div>";
+$container .= '<div id="facebook"><h2>FACEBOOK</h2>
+				<iframe id="facebookIframe" src="//www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/pages/horpcz/1067663049920317?fref=ts&amp;width=220&amp;height=440&amp;colorscheme=light&amp;show_faces=false&amp;header=true&amp;stream=true&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:220px; height:440px;" allowtransparency="true"></iframe>
+				</div>';
 $container .= '<div id="kontakt_mapa" >' . $mapa . '</div>';
 $container .= "<div class='konec_content'></div>";
+
+$container .= '<script>heightC = $("#content").height();
+				heightC -= 29;
+						document.getElementById("facebook").style.height = heightC + "px"</script>';
 
 return $container;

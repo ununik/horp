@@ -9,10 +9,10 @@ function __autoload($name){
     include_once("../../models/Classes/$name.class.php");
 }
 $ip = $_SERVER["REMOTE_ADDR"];
-$eshop = new Eshop();
+$eshop = new Eshop($ip);
 $basket = $eshop->getBasket($ip);
 
-if((($basket['jmeno'] == "" || $basket['prijmeni'] == "") && $basket['firma'] == "" )){// || $basket['adresa'] == "" || $basket['mesto'] == "" || $basket['psc'] == ""){
+if((($basket['jmeno'] == "" || $basket['prijmeni'] == "") && $basket['firma'] == "")  || $basket['adresa'] == "" || $basket['mesto'] == "" || $basket['psc'] == ""   || $basket['item'] == "" || $basket['item'] == "_;_"){
     print include_once('../../views/eshop/faktura-neni_vyplneno.php');
     return;
 }

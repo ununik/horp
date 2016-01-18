@@ -9,6 +9,9 @@ $subcategory = $eshop->getSubcategory($_GET['category']);
 $category = $eshop->getCategory($subcategory['category']);
 
 $items = $eshop->getItems($subcategory['id'], $order);
+if(isset($_GET['pageNumber']) && $_GET['pageNumber']!=""){
+    $eshop->pageNumber = $_GET['pageNumber'];
+}
 
 
 

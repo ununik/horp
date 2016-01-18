@@ -1,0 +1,107 @@
+body{
+	font-size: 0.77em;
+}
+.home_img{
+	width: 90%;
+}
+nav{
+	clear: both;
+}
+nav li {
+	font-size: 14px;
+}
+nav a{
+	padding: 3px 7px;
+}
+nav ul{
+	padding-left:10px;
+}
+#header{
+	height: 170px;
+}
+#header h2{
+	font-size: 1.2em;
+	top: 90px;
+}
+#menu_panel{
+	top: 132px;
+}
+#content{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+#kontakt_information{
+	margin: 0px 0px 0px 10px;	
+}
+.kontakt_foto{
+	display: none;
+}
+#facebook {
+	margin: 10px auto;
+	text-align: center;
+	display: inline-block;
+	left: -10px;
+}
+#facebook iframe{
+	height: 390px !important;
+}
+#menuButton{
+	margin-top: 15px;
+}
+#eshop_panel{
+	width: 100px;
+	padding: 10px 10px 15px 10px;
+	bottom: 50px;
+	top: auto;
+}
+#eshop_panel p {
+    margin-right: 15px;
+}
+.vzestupne{
+	width: 15px;
+	background-size: 15px;
+	height: 15px;
+	background-repeat: no-repeat;
+}
+.sestupne{
+	width: 15px;
+	background-size: 15px;
+	height: 15px;
+	background-repeat: no-repeat;
+	margin-right: 2px;
+}
+.itemList{
+	font-size: 0.85em;
+	padding-bottom: 65px;
+}
+.itemList .left {
+	width: 85px;
+}
+.itemList td {
+	padding: 2px 4px;
+}
+.obrazek{
+	width: 65px;
+	display: block;
+}
+.obrazek_nahled{
+	display: block;
+}
+.itemList .basket{
+	background-repeat: no-repeat;
+	position: absolute;
+	margin-top: 35px;
+	margin-left: 10px;
+}
+.pocet_kusu{
+	min-width: 66px !important;	
+}
+#background{
+	background: transparent !important;
+}
+#navigation_3{
+	display: block !important;
+}
+#navigation_5{
+	display: block !important;
+}
