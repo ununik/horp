@@ -116,6 +116,9 @@ body{
     font-size: 0.8em;
     margin-left: 7px;
 }
+#eshop_body{
+	min-height: 642px;
+}
 #eshop_navigation a{
     color:#465747;
     position: relative;
