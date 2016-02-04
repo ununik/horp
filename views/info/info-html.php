@@ -6,7 +6,7 @@ $container .= "<li><h2>Jaké chyty jsou vhodné pro děti?</h2>
                 <p>Samozřejmě záleží na věku dítěte, ale obecně je vhodné hledat ve velikosti M a L a Dětské. Co se týče tvaru, pak pozitivní , tzn. „ chytovaté“</p></li>";
 
 $container .= "<li><h2>Epoxidové, nebo polyesterové?</h2>
-                <p>Každý typ má své výhody i nevýhody, epoxidové mají vysokou životnost, mají menší tření při úchopu chytu – šetří pokožku prstů. Polyesterové mají jasnější barvy a vyšší tření.</p></li>";
+                <p>Každý typ má své výhody i nevýhody, epoxidové mají vysokou pevnost, mají menší tření při úchopu chytu – šetří pokožku prstů. Polyesterové mají jasnější barvy a vyšší tření.</p></li>";
 
 $container .= "<li><h2>Jak je to s barvami chytů?</h2>
                 <p>Jakýkoli chyt lze vyrobit v jakékoli barvě. Barvy chytů na naší webové stránce je pouze orientační (např. velikost XL nevyrábíme pouze v modré, jak je na stránkách, ale ve všech barvách). V případě objednávky zasíláme mix barev (nejrychlejší varianta). Pokud si přejete konkrétní barvy chytů, je třeba to uvést v objednávce (výroba zabere cca

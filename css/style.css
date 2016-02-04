@@ -559,9 +559,10 @@ nav span {
     -moz-border-radius: 5px;
     border-radius: 5px;
     margin-right: 3px;
+    background-color: black;
 }
 .obrazek_nahled:hover{
-    background-color: white;
+    background-color: black;
 }
 .obrazek{
     width: 220px;
@@ -571,9 +572,10 @@ nav span {
     border-radius: 5px;
     margin-bottom: 3px;
     display: block;
+    background-color: black;
 }
 .obrazek:hover{
-    background-color: white;
+    background-color: black;
 }
 .active_eshop_navigation{
     padding-left: 25px;
