@@ -106,3 +106,37 @@ function objednat(){
 	    })
 	    window.location.href = "index.php?page=eshop&subpage=end";
 }
+function fullScreen(){
+	var allItems = document.getElementById('allItems');
+	if(allItems.style.width != "100%" ){
+		document.getElementById('celaObrazovka').style.position = "fixed";
+		document.getElementById('blackBackground').style.display = "block";	
+		allItems.style.width = "100%";
+		allItems.style.height = "100%";
+		allItems.style.padding = "0px";
+		allItems.style.margin = "20px 0px";
+		allItems.style.bottom = "-20px";
+		allItems.style.right = "0px";
+		allItems.style.border = "none";
+		allItems.style.backgroundColor = "black";
+		var img = allItems.getElementsByTagName('img');
+		for (index = 0; index < img.length; ++index) {
+		    img[index].style.width = "50%";
+		}
+	} else {
+		document.getElementById('blackBackground').style.display = "none";
+		document.getElementById('celaObrazovka').style.position = "absolute";
+		allItems.style.width = "235px";
+		allItems.style.height = "235px";
+		allItems.style.padding = "15px";
+		allItems.style.margin = "0px";
+		allItems.style.bottom = "55px";
+		allItems.style.right = "-20px";
+		allItems.style.border = "1px solid #9C9F84";
+		allItems.style.backgroundColor = "rgba(256, 256, 256, 0.85)";
+		var img = allItems.getElementsByTagName('img');
+		for (index = 0; index < img.length; ++index) {
+		    img[index].style.width = "100%";
+		}
+	}
+}

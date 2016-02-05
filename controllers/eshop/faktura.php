@@ -6,8 +6,9 @@
  * Time: 15:01
  */
 function __autoload($name){
-    include_once("../../models/Classes/$name.class.php");
+    include("../../models/Classes/$name.class.php");
 }
+
 $ip = $_SERVER["REMOTE_ADDR"];
 $eshop = new Eshop($ip);
 $basket = $eshop->getBasket($ip);
@@ -50,9 +51,9 @@ $celkovaCena['sDPH'] = number_format($celkovaCena['sDPH'], 2, '.', '');
 $celkovaCena['bezDPH'] = number_format($celkovaCena['bezDPH'], 2, '.', '');
 $celkovaHmotnostKg = $celkovaHmotnost/1000;
 $celkovaHmotnostKg = number_format($celkovaHmotnostKg, 2, ',', '');
-$doprava = $eshop->getDoprava($basket['doprava']);
-$zbytek = $celkovaHmotnost%20000;
-$ostatni = (int) ($celkovaHmotnost - $zbytek)/20000;
+$doprava = $eshop->getDopravaById($basket['doprava']);
+$zbytek = $celkovaHmotnost%25000;
+$ostatni = (int) ($celkovaHmotnost - $zbytek)/25000;
 $cena = $doprava['cenaZaGram']*$zbytek + $doprava['cenaZaGram']*$ostatni + ($ostatni + 1)*$doprava['cenaZaJdenBalik'];
 $cena = (int) $cena;
 $cena = number_format($cena, 2, '.', '');

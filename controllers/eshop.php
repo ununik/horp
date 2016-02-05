@@ -48,7 +48,7 @@ foreach($eshop_nav as $nav){
 /**
  * PAGE CONTENT
  */
-
+$allImages = "";
 if(isset($_GET['category']) && $_GET['category'] != ""){
 	if(!isset($_GET['id']) || $_GET['id']==""){
 	    if(isset($_GET['order']) && $_GET['order']!=""){
@@ -56,6 +56,7 @@ if(isset($_GET['category']) && $_GET['category'] != ""){
 	    } else{
 	        $order = 'cena';
 	    }
+	    $allImages = include_once('controllers/eshop/allItemsOnOneSite.php');
 	    $body = include_once('controllers/eshop/category.php');
 	}else{
 		$body = include_once('controllers/eshop/item.php');

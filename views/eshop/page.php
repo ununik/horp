@@ -9,6 +9,8 @@ $container = "<a href='index.php?page=eshop&subpage=basket'><div id='eshop_panel
 
 $container .= "<div id='eshop_body'>$body</div>";
 
+$container .= $allImages;
+
 $container.= '<script>if(window.innerWidth <= 1177){tabletMenu()}</script>';
 
 

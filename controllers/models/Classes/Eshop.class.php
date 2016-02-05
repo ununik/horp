@@ -137,13 +137,6 @@ class Eshop extends Connection
         $doprava = $result->fetchAll();
         return $doprava;
     }
-    public function getDoprava($id){
-        $db = parent::connect();
-        $result = $db->prepare("SELECT * FROM `doprava` WHERE id = ?");
-        $result->execute(array($id));
-        $doprava = $result->fetch();
-        return $doprava;
-    }
     public function changeDoprava($doprava, $ip){
         $db = parent::connect();
         $result = $db->prepare("UPDATE `basket` SET `doprava`=? WHERE ip = ?");
