@@ -140,3 +140,8 @@ function fullScreen(){
 		}
 	}
 }
+function changeCurrency(currency){
+	ajaxCall('controllers/eshop/changeUdaje.php?input=mena&value='+currency, function(xhr) {
+    })
+    location.reload();
+}

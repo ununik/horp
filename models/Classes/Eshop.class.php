@@ -99,8 +99,13 @@ class Eshop extends Connection
         $db = parent::connect();
         $timestamp = time();
         $done = 0;
-        $result = $db->prepare("INSERT INTO `basket`(`ip`, `timestamp`, `done`) VALUES (?, ?, ?)");
-        $result->execute(array($ip, $timestamp, $done));
+        if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
+        	$mena = 'EN';
+        } else {
+        	$mena = '';
+        }
+        $result = $db->prepare("INSERT INTO `basket`(`ip`, `timestamp`, `done`, `mena`) VALUES (?, ?, ?, ?)");
+        $result->execute(array($ip, $timestamp, $done, $mena));
     }
     public function checkIPBasket($ip){
         $db = parent::connect();

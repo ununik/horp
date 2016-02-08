@@ -732,3 +732,23 @@ nav span {
 .faktur_left{
 	width: 90px;
 }
+.vyberMeny{
+	display: inline-block;
+	width: 100px;
+	padding: 31px 0px;
+	vertical-align: middle;
+	font-size: 38px;
+	text-align: center;
+	border-radius: 15%;
+	border: red 1px solid;
+	margin: 0px 10px;
+	cursor: pointer;
+}
+.activeCurrency{
+	border: 3px solid red;
+}
+#vyberMenyDiv{	
+	margin: 0px auto;
+	display: block;	
+	width: 400px;
+}

@@ -17,16 +17,47 @@ $javascript .= "<script src='js/eshop.js'></script>";
 $ip = $_SERVER["REMOTE_ADDR"];
 $eshop = new Eshop($ip);
 $eshop_nav = $eshop->getAllCategories();
+$basketItem = $eshop->getBasket($ip);
+
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
     $eshop_navigation = "<li class='menuEshop'><a href='index.php?page=eshop&subpage=basket'>Basket</a></li>";
     $eshop_navigation .= "<li class='menuEshop nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>How to shopping</a></li>";
-    $nahoru = "up";
+    $nahoru = "top";
+    $razeni = 'Sort';
+    $podleCeny = 'by price';
+    $podleVelikosti = 'by size';
+    $rozmery = 'dimensions';
+    $montazniPrvek = 'hardware';
+    $cenaZaKus = 'price per 1 piece';
+    $bezDPH = 'without tax';
+    $sDPH = 'with tax';
+    $pocetKusu = 'quantity';
+    $poznamka = 'comment';
+    $popis = 'description';
+    $daleDoporucujeme = 'Recommends';
+    $languageForDb = "EN";
+    $mena = 'EUR';
 }else{
     $eshop_navigation = "<li  class='menuEshop'><a href='index.php?page=eshop&subpage=basket'>Košík</a></li>";
     $eshop_navigation .= "<li  class='menuEshop'><a href='index.php?page=eshop&subpage=jak_nakupovat'>Jak nakupovat</a></li>";
     $eshop_navigation .= "<li class='menuEshop nav_basket'><a href='index.php?page=eshop&subpage=obchodni_podminky'>Obchodní podmínky</a></li>";
     $nahoru = "nahoru";
+    $razeni = 'Řazení';
+    $podleCeny = 'podle ceny';
+    $podleVelikosti = 'podle velikosti';
+    $rozmery = 'rozměry';
+    $montazniPrvek = 'montážní prvek';
+    $cenaZaKus = 'cena za 1ks';
+    $bezDPH = 'bez DPH';
+    $sDPH = 's DPH';
+    $pocetKusu = 'počet kusů';
+    $poznamka = 'poznámka';
+    $popis = 'popis';
+    $daleDoporucujeme = 'Dále doporučujeme';
+    $languageForDb = "";
+    $mena = 'Kč';
 }
+$menaArray = array('' => 'Kč', 'EN' => 'EUR');
 $i = 0;
 foreach($eshop_nav as $nav){
 	$i++;
@@ -71,7 +102,7 @@ if(isset($_GET['category']) && $_GET['category'] != ""){
 } elseif(isset($_GET['subpage']) && $_GET['subpage'] == "end"){
 	$body = include('views/eshop/end.php');
 }else {
-    $body = include('views/eshop/page-home-html.php');
+    $body = include('controllers/eshop/page-home.php');
 }
 
 return include('views/eshop/page.php');

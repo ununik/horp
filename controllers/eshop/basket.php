@@ -9,6 +9,56 @@ $ip = $_SERVER["REMOTE_ADDR"];
 $eshop = new Eshop($ip);
 $basketItem = $eshop->getBasket($ip);
 
+if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
+	$kosik = 'Basket';
+	$mujKosik = 'My basket';
+	$nazev = 'name';
+	$cenaPrice = 'price';
+	$celkem = 'Total';
+	$dopravaAPlatba = 'Shipping and payment';
+	$celkovaHmotnostTranslation = 'Total weight';
+	$fakturacniUdaje = 'Billing information';
+	$jmenoTranslation = 'Firstname';
+	$prijmeniTranslation = 'Lastname';
+	$adresaTranslation = 'Adress';
+	$mestoTranslation = 'City';
+	$PSCTranslation = 'ZIP code';
+	$statTranslation = 'Country';
+	$dodaciAdresa = 'Delivery address (if different from billing information)';
+	$upravit = 'change';
+	$odstranit = 'delete';
+	$menaSlovo = 'Currency';
+} else {
+	$kosik = 'Košík';
+	$mujKosik = 'Můj košík';
+	$nazev = 'název';
+	$cenaPrice = 'cena';
+	$celkem = 'Celkem';
+	$dopravaAPlatba = 'Doprava a platba';
+	$celkovaHmotnostTranslation = 'Celková hmotnost';
+	$fakturacniUdaje = 'Fakturační údaje';
+	$jmenoTranslation = 'Jméno';
+	$prijmeniTranslation = 'Příjmení';
+	$adresaTranslation = 'Adresa';
+	$mestoTranslation = 'Město';
+	$PSCTranslation = 'PSČ';
+	$statTranslation = 'Stát';
+	$dodaciAdresa = 'Dodací adresa (liší-li se od fakturačních údajů)';
+	$upravit = 'upravit';
+	$odstranit = 'odstranit';
+	$menaSlovo = 'Měna';
+}
+
+$menaSelect = "<option value='' ";
+if($basketItem['mena'] == ""){
+	$menaSelect .= "selected ";
+}
+$menaSelect .= ">Kč</option><option value='EN' ";
+if($basketItem['mena'] == "EN"){
+	$menaSelect .= "selected ";
+}
+$menaSelect .= ">EUR</option>";
+
 
 $itemsAll = explode("_;_", $basketItem['item']);
 
@@ -33,10 +83,10 @@ for($num = 0; $num < count($itemsAll); $num++){
         $items[$number]['category'] = $items[$number]['category'][$lang];
         $items[$number]['id'] = $itemsAll[$num];
         $items[$number]['count'] = $countAll[$num];
-        $items[$number]['cenaZaKusBezDPH'] = number_format($thisItem['cenaBezDPH'], 2, '.', '');
-        $items[$number]['cenaZaKusSDPH'] = number_format($thisItem['cenaSDPH'], 2, '.', '');
-        $items[$number]['cenaBezDPH'] = number_format($countAll[$num]*$thisItem['cenaBezDPH'], 2, '.', '');
-        $items[$number]['cenaSDPH'] = number_format($countAll[$num]*$thisItem['cenaSDPH'], 2, '.', '');
+        $items[$number]['cenaZaKusBezDPH'] = number_format($thisItem['cenaBezDPH'.$basketItem['mena']], 2, '.', '');
+        $items[$number]['cenaZaKusSDPH'] = number_format($thisItem['cenaSDPH'.$basketItem['mena']], 2, '.', '');
+        $items[$number]['cenaBezDPH'] = number_format($countAll[$num]*$thisItem['cenaBezDPH'.$basketItem['mena']], 2, '.', '');
+        $items[$number]['cenaSDPH'] = number_format($countAll[$num]*$thisItem['cenaSDPH'.$basketItem['mena']], 2, '.', '');
         $celkovaCena['sDPH'] += $items[$number]['cenaSDPH'];
         $celkovaCena['bezDPH'] += $items[$number]['cenaBezDPH'];
         $celkovaHmotnost += $thisItem['hmotnost']*$items[$number]['count'];
