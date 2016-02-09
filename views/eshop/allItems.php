@@ -17,6 +17,6 @@ for($n = 0; $n < $pocetRadku; $n++)
 	$container .= "</tr>";
 }
 
-$container .= "</table><div id='celaObrazovka' onclick='fullScreen()'>celaObrazovka</div></div><div id='blackBackground'></div>";
+$container .= "</table><div id='celaObrazovka' onclick='fullScreen()'></div></div><div id='blackBackground'></div>";
 
 return $container;
