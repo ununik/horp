@@ -14,7 +14,7 @@
     width: 235px;
     height: 235px;
     padding: 15px;
-    bottom: 55px;
+    bottom: 15px;
     overflow: hidden;
     color: black;
     z-index: 5001;
@@ -30,6 +30,8 @@
 	display: none;
 }
 #allItems table{
+	position: relative;
+	top: 8px;
 	width: 95%;
 	border-collapse: collapse;
 	height: 100%;	
@@ -41,7 +43,11 @@
 	max-width: 250px;
 }
 #celaObrazovka{
+	cursor: pointer;
+	background-image: url('../images/eshop/fullScreen1.png');
+	background-repeat: no-repeat;
 	position: absolute;
+	padding: 0px 0px 2px 35px;
 	top: 0px;
 	left: 0px;
 	color: red;
@@ -197,7 +203,7 @@ body{
     background-color: rgba(256, 256, 256, 0.85);
     width: 235px;
     padding: 15px;
-    top: 40%;
+   	bottom: 300px;
     -webkit-transition: right 1s;
     -moz-transition: right 1s;
     -ms-transition: right 1s;

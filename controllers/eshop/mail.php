@@ -95,4 +95,6 @@ $tabulkaFaktura
 </html>";
 $subject = "({$basket['jmeno']} {$basket['prijmeni']}) objednavka na horp.cz";
 mail('horp@seznam.cz', "$subject", $content, $header);
+
+
 $eshop->done($ip);

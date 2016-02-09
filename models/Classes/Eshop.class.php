@@ -122,8 +122,9 @@ class Eshop extends Connection
     public function done($ip){
     	$db = parent::connect();
     	$done = 1;
-    	$result = $db->prepare("UPDATE `basket` SET `done`=? WHERE ip = ? && done = ?");
-    	$result->execute(array($done, $ip, '0'));
+    	$timestamp = time();
+    	$result = $db->prepare("UPDATE `basket` SET `done`=?, `timestamp`=? WHERE ip = ? && done = ?");
+    	$result->execute(array($done, $timestamp, $ip, '0'));
 		echo $done;
     	break;
     }
