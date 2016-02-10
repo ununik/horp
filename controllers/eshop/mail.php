@@ -43,7 +43,7 @@ $celkovaCena['sDPH'] = number_format($celkovaCena['sDPH'], 2, '.', '');
 $celkovaCena['bezDPH'] = number_format($celkovaCena['bezDPH'], 2, '.', '');
 $celkovaHmotnostKg = $celkovaHmotnost/1000;
 $celkovaHmotnostKg = number_format($celkovaHmotnostKg, 2, ',', '');
-$doprava = $eshop->getDoprava($basket['doprava']);
+$doprava = $eshop->getDopravaById($basket['doprava']);
 $zbytek = $celkovaHmotnost%20000;
 $ostatni = (int) ($celkovaHmotnost - $zbytek)/20000;
 $cena = $doprava['cenaZaGram']*$zbytek + $doprava['cenaZaGram']*$ostatni + ($ostatni + 1)*$doprava['cenaZaJdenBalik'];
@@ -95,6 +95,5 @@ $tabulkaFaktura
 </html>";
 $subject = "({$basket['jmeno']} {$basket['prijmeni']}) objednavka na horp.cz";
 mail('horp@seznam.cz', "$subject", $content, $header);
-
 
 $eshop->done($ip);

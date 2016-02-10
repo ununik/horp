@@ -10,7 +10,7 @@ class Connection
 {
     protected function connect(){
         if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1') {
-            $dbh = new PDO('mysql:host=localhost;dbname=horp', 'root', 'Unununium111');
+            $dbh = new PDO('mysql:host=localhost;dbname=horp', 'root', '');
         	            $dbh->exec("set names utf8");
             return $dbh;
         }else{

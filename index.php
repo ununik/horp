@@ -49,7 +49,10 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 }
 $footer = include_once("controllers/footer.php");
 $navigation = include_once("views/navigation.php");
-$content = include_once("controllers/$getPage.php");
-
+if(file_exists("controllers/$getPage.php")){
+	$content = include_once("controllers/$getPage.php");
+} else {
+	$content = include_once("controllers/noPageFound.php");
+}
 
 print include_once("views/page.php");
