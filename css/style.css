@@ -759,3 +759,17 @@ nav span {
 	display: block;	
 	width: 400px;
 }
+
+#galleryTable{
+	width: 100%;
+}
+#galleryTable td{
+	width: 33%;
+}
+#galleryTable td h4{
+	text-align: center;
+}
+#galleryTable td .youtube{
+	width: 100%;
+	height: 300px;
+}

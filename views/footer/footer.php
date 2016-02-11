@@ -10,5 +10,6 @@ $foot .= "<a href='mailto:horp@seznam.cz' title='mail - horp@seznam.cz' target='
 $foot .= "<a href='index.php?page=eshop' title='eshop' target='_blank'><img src='images/page/eshop.png' alt='eshop' title='eshop'></a>";
 $foot .= "<a href='https://www.facebook.com/horpcz/' title='facebook' target='_blank'><img src='images/page/fb.png' alt='facebook' title='facebook'></a>";
 $foot .= "<a href='http://mapy.cz/zakladni?x=14.3135142&y=50.7286513&z=17&source=addr&id=9154508' title='kontakt na mapě' target='_blank'><img src='images/page/map.png' alt='kontakt na mapě' title='kontakt na mapě'></a>";
+//$foot .= "<a href='index.php?page=galerie' title='galerie'><img src='images/page/gallery.png' alt='galerie' title='galerie'></a>";
 
 return $foot;
