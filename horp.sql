@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Počítač: localhost
--- Vygenerováno: Úte 09. úno 2016, 18:19
--- Verze serveru: 5.5.46-0ubuntu0.14.04.2
+-- Vygenerováno: Čtv 11. úno 2016, 15:32
+-- Verze serveru: 5.5.47-0ubuntu0.14.04.1
 -- Verze PHP: 5.5.9-1ubuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -55,14 +55,15 @@ CREATE TABLE IF NOT EXISTS `basket` (
   `stat` varchar(255) COLLATE utf8_bin NOT NULL,
   `mena` varchar(5) COLLATE utf8_bin NOT NULL COMMENT '"" = Kc, ''EN'' = EUR',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
 
 --
 -- Vypisuji data pro tabulku `basket`
 --
 
 INSERT INTO `basket` (`id`, `ip`, `timestamp`, `count`, `item`, `color`, `comment`, `doprava`, `jmeno`, `prijmeni`, `firma`, `ic`, `dic`, `adresa`, `mesto`, `psc`, `jmeno_dodaci`, `prijmeni_dodaci`, `adresa_dodaci`, `mesto_dodaci`, `psc_dodaci`, `postovne`, `mail`, `tel`, `done`, `stat`, `mena`) VALUES
-(1, '127.0.0.1', 1455003819, '_;_2_;_6', '_;_1_;_68', '', '', 1, 'fdsa', 'fads', '', '', '', 'fdsa', 'fads', 'fads', '', '', '', '', '', 0, 'dfas', '', 0, 'fdas', '');
+(1, '127.0.0.1', 1455096732, '_;_2', '_;_1', '', '', 1, 'sdg', 'gsdf', '', '', '', 'gsdf', 'sgdf', 'dsgf', '', '', '', '', '', 0, 'gssdfgsfd', '', 1, '', ''),
+(2, '127.0.0.1', 1455182004, '_;_1', '_;_249', '', '', 1, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', 0, '', 'EN');
 
 -- --------------------------------------------------------
 
@@ -143,6 +144,36 @@ INSERT INTO `doprava` (`id`, `cz`, `en`, `cenaZaGram`, `cenaZaJdenBalik`) VALUES
 (3, 'Dobírka - balík Na poštu', '', 0.004, 102),
 (4, 'Dobírka - balík Do ruky', '', 0.004, 102),
 (5, 'Osobní odběr', '', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `galerie`
+--
+
+CREATE TABLE IF NOT EXISTS `galerie` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `titleEN` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `descriptionEN` text NOT NULL,
+  `link` text NOT NULL,
+  `linkEN` text NOT NULL,
+  `timestamp` int(20) NOT NULL,
+  `likes` int(20) NOT NULL DEFAULT '0',
+  `youtube` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Vypisuji data pro tabulku `galerie`
+--
+
+INSERT INTO `galerie` (`id`, `title`, `titleEN`, `description`, `descriptionEN`, `link`, `linkEN`, `timestamp`, `likes`, `youtube`) VALUES
+(1, 'czvxxcvcxv', 'fasfa sd', 'fadsf sd fs df', ' sdf sdf sdf ds fas', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 0, 0, 1),
+(2, 'ds', 'adsf', 'asdfsda', 'fsad', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 0, 0, 0),
+(3, 'sdfa', 'afsd', 'fdsafadsfsad', 'fsadfds', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 0, 0, 1),
+(4, 'fsdhttps://www.youtube.com/watch?v=Eq8dOn3LoVc', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 'https://www.youtube.com/watch?v=Eq8dOn3LoVc', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -424,16 +455,16 @@ INSERT INTO `item` (`id`, `rozmeryEN`, `poznamkaEN`, `cenaBezDPHEN`, `cenaSDPHEN
 (241, '8.1 x 9.3 x 5.3 cm', '', 1.87, 2.26, 'Cap head bolt M10', '', 0, 12, 'M - 29', 'M - 29', 0, 0, 43, 52, 'imbus M10', '8.1 x 9.3 x 5.3 cm', '', '', 230, '29a.png', '29b.png', '', '', '', '326'),
 (242, '6.5 x 8.2 x 5.6 cm', '', 1.87, 2.26, 'Cap head bolt M10', '', 0, 12, 'M - 30', 'M - 30', 0, 0, 43, 52, 'imbus M10', '6.5 x 8.2 x 5.6 cm', '', '', 300, '30a.png', '30b.png', '', '', '', '326'),
 (243, '9 x 9.5 x 4.5 cm', '', 1.87, 2.26, 'Cap head bolt M10', '', 0, 12, 'M - 31', 'M - 31', 0, 0, 43, 52, 'imbus M10', '9 x 9.5 x 4.5 cm', '', '', 280, '31a.png', '31b.png', '', '', '', '326'),
-(244, '7.9 x 8.9 x 4.1 cm', '', 1.87, 2.26, 'Cap head bolt M10', '', 0, 12, 'M - 32', 'M - 32', 0, 0, 43, 52, 'imbus M10', '7.9 x 8.9 x 4.1 cm', '', '', 250, '', '', '', '', '', '326'),
-(245, '9.4 x 10 x 3.6 cm', '', 1.87, 2.26, 'Cap head bolt M10', '', 0, 12, 'M - 33', 'M - 33', 0, 0, 43, 52, 'imbus M10', '9.4 x 10 x 3.6 cm', '', '', 220, '', '', '', '', '', '326'),
-(246, '12.2 x 15 x 4.1 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 1', 'L - 1', 0, 0, 58, 70.2, 'imbus M10', '12.2 x 15 x 4.1 cm', '', '', 500, '', '', '', '', '', '326'),
-(247, '7.3 x 15.5 x 6.1 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 2', 'L - 2', 0, 0, 58, 70.2, 'imbus M10', '7.3 x 15.5 x 6.1 cm', '', '', 690, '', '', '', '', '', '326'),
-(248, '10 x 16 x 4.5 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 3', 'L - 3', 0, 0, 58, 70.2, 'imbus M10', '10 x 16 x 4.5 cm', '', '', 440, '', '', '', '', '', '326'),
-(249, '7.7 x 12 x 8 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 4', 'L - 4', 0, 0, 58, 70.2, 'imbus M10', '7.7 x 12 x 8 cm', '', '', 500, '', '', '', '', '', '326'),
-(250, '8 x 14 x 7 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 5', 'L - 5', 0, 0, 58, 70.2, 'imbus M10', '8 x 14 x 7 cm', '', '', 480, '', '', '', '', '', '326'),
-(251, '11.13 x 11.13 x 5.7 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 6', 'L - 6', 0, 0, 58, 70.2, 'imbus M10', '11.13 x 11.13 x 5.7 cm', '', '', 610, '', '', '', '', '', '326'),
-(252, '13 x 12.4 x 7.1 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 7', 'L - 7', 0, 0, 58, 70.2, 'imbus M10', '13 x 12.4 x 7.1 cm', '', '', 630, '', '', '', '', '', '326'),
-(253, '11.5 x 14.8 x 6.2 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 8', 'L - 8', 0, 0, 58, 70.2, 'imbus M10', '11.5 x 14.8 x 6.2 cm', '', '', 690, '', '', '', '', '', '326'),
+(244, '7.9 x 8.9 x 4.1 cm', '', 1.87, 2.26, 'Cap head bolt M10', '', 0, 12, 'M - 32', 'M - 32', 0, 0, 43, 52, 'imbus M10', '7.9 x 8.9 x 4.1 cm', '', '', 250, '32a.png', '32b.png', '', '', '', '326'),
+(245, '9.4 x 10 x 3.6 cm', '', 1.87, 2.26, 'Cap head bolt M10', '', 0, 12, 'M - 33', 'M - 33', 0, 0, 43, 52, 'imbus M10', '9.4 x 10 x 3.6 cm', '', '', 220, '33a.png', '33b.png', '', '', '', '326'),
+(246, '12.2 x 15 x 4.1 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 1', 'L - 1', 0, 0, 58, 70.2, 'imbus M10', '12.2 x 15 x 4.1 cm', '', '', 500, '1a.png', '1b.png', '', '', '', '326'),
+(247, '7.3 x 15.5 x 6.1 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 2', 'L - 2', 0, 0, 58, 70.2, 'imbus M10', '7.3 x 15.5 x 6.1 cm', '', '', 690, '2a.png', '2b.png', '', '', '', '326'),
+(248, '10 x 16 x 4.5 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 3', 'L - 3', 0, 0, 58, 70.2, 'imbus M10', '10 x 16 x 4.5 cm', '', '', 440, '3a.png', '3b.png', '', '', '', '326'),
+(249, '7.7 x 12 x 8 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 4', 'L - 4', 0, 0, 58, 70.2, 'imbus M10', '7.7 x 12 x 8 cm', '', '', 500, '4a.png', '4b.png', '', '', '', '326'),
+(250, '8 x 14 x 7 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 5', 'L - 5', 0, 0, 58, 70.2, 'imbus M10', '8 x 14 x 7 cm', '', '', 480, '5a.png', '5b.png', '', '', '', '326'),
+(251, '11.13 x 11.13 x 5.7 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 6', 'L - 6', 0, 0, 58, 70.2, 'imbus M10', '11.13 x 11.13 x 5.7 cm', '', '', 610, '6a.png', '6b.png', '', '', '', '326'),
+(252, '13 x 12.4 x 7.1 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 7', 'L - 7', 0, 0, 58, 70.2, 'imbus M10', '13 x 12.4 x 7.1 cm', '', '', 630, '7a.png', '7b.png', '', '', '', '326'),
+(253, '11.5 x 14.8 x 6.2 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 8', 'L - 8', 0, 0, 58, 70.2, 'imbus M10', '11.5 x 14.8 x 6.2 cm', '', '', 690, '8a.png', '8b.png', '', '', '', '326'),
 (254, '5.7 x 18.5 x 4 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 9', 'L - 9', 0, 0, 58, 70.2, 'imbus M10', '5.7 x 18.5 x 4 cm', '', '', 430, '', '', '', '', '', '326'),
 (255, '11.4 x 11.6 x 6.2 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 10', 'L - 10', 0, 0, 58, 70.2, 'imbus M10', '11.4 x 11.6 x 6.2 cm', '', '', 500, '', '', '', '', '', '326'),
 (256, '7 x 7 x 9.5 cm', '', 2.51, 3.04, 'Cap head bolt M10', '', 0, 13, 'L - 11', 'L - 11', 0, 0, 58, 70.2, 'imbus M10', '7 x 7 x 9.5 cm', '', '', 500, '', '', '', '', '', '326'),
