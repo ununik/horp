@@ -8,19 +8,19 @@
 $faktura = "<h2>Faktura</h2>";
 
 $faktura .= "<table class='udaje'>";
-$faktura .= "<th colspan='2'>Fakturační údaje</th><th colspan='2'>Dodací adresa (liší-li se od fakturačních údajů)</th>";
-$faktura .= "<tr><td class='popis'>Jméno:</td><td class='left_part'>{$basket['jmeno']}</td><td class='popis'>Jméno:</td><td>{$basket['jmeno_dodaci']}</td></tr>";
-$faktura .= "<tr><td class='popis'>Příjmení:</td><td class='left_part'>{$basket['prijmeni']}</td><td class='popis'>Příjmení:</td><td>{$basket['prijmeni_dodaci']}</td></tr>";
-$faktura .= "<tr><td class='popis'>Adresa:</td><td class='left_part'>{$basket['adresa']}</td><td class='popis'>Adresa:</td><td>{$basket['adresa_dodaci']}</td></tr>";
-$faktura .= "<tr><td class='popis'>Město:</td><td class='left_part'>{$basket['mesto']}</td><td class='popis'>Město:</td><td>{$basket['mesto_dodaci']}</td></tr>";
-$faktura .= "<tr><td class='popis'>PSČ:</td><td class='left_part'>{$basket['psc']}</td><td class='popis'>PSČ:</td><td>{$basket['psc_dodaci']}</td></tr>";
+$faktura .= "<th colspan='2'>$fakturacniUdaje</th><th colspan='2'>Dodací adresa (liší-li se od fakturačních údajů)</th>";
+$faktura .= "<tr><td class='popis'>$jmenoTranslation:</td><td class='left_part'>{$basket['jmeno']}</td><td class='popis'>$jmenoTranslation:</td><td>{$basket['jmeno_dodaci']}</td></tr>";
+$faktura .= "<tr><td class='popis'>$prijmeniTranslation:</td><td class='left_part'>{$basket['prijmeni']}</td><td class='popis'>$prijmeniTranslation:</td><td>{$basket['prijmeni_dodaci']}</td></tr>";
+$faktura .= "<tr><td class='popis'>$adresaTranslation:</td><td class='left_part'>{$basket['adresa']}</td><td class='popis'>$adresaTranslation:</td><td>{$basket['adresa_dodaci']}</td></tr>";
+$faktura .= "<tr><td class='popis'>$mestoTranslation:</td><td class='left_part'>{$basket['mesto']}</td><td class='popis'>$mestoTranslation:</td><td>{$basket['mesto_dodaci']}</td></tr>";
+$faktura .= "<tr><td class='popis'>$PSCTranslation:</td><td class='left_part'>{$basket['psc']}</td><td class='popis'>$PSCTranslation:</td><td>{$basket['psc_dodaci']}</td></tr>";
 $faktura .= "<tr><td class='popis'>Mail:</td><td class='left_part'>{$basket['mail']}</td><td colspan='2'></td></tr>";
 $faktura .= "<tr><td class='popis'>Tel:</td><td class='left_part'>{$basket['tel']}</td><td colspan='2'></td></tr>";
 $faktura .= "<tr><td class='popis'>Firma:</td><td class='left_part'>{$basket['firma']}</td><td colspan='2'></td></tr>";
-$faktura .= "<tr><td class='popis'>IČ:</td><td class='left_part'>{$basket['ic']}</td><td colspan='2'></td></tr>";
-$faktura .= "<tr><td class='popis'>DIČ:</td><td class='left_part'>{$basket['dic']}</td><td colspan='2'></td></tr>";
+$faktura .= "<tr><td class='popis'>$ico:</td><td class='left_part'>{$basket['ic']}</td><td colspan='2'></td></tr>";
+$faktura .= "<tr><td class='popis'>$dic:</td><td class='left_part'>{$basket['dic']}</td><td colspan='2'></td></tr>";
 $faktura .= "</table>";
-$faktura .= "<h3>Obsah košíku</h3>";
+$faktura .= "<h3>$mujKosik</h3>";
 $faktura .= "<table class='basket_table faktura_basket'><th class='nazev'>Název</th><th>Cena za kus<br><small>bez DPH</small></th><th>Cena za kus<br><small>s DPH</small></th><th>Počet kusů</th><th>Cena<br><small>bez DPH</small></th><th>Cena<br><small>s DPH</small></th><th></th>";
 foreach($items as $item){
     $faktura .= "<tr><td class='nazev'>{$item['item']} ({$item['category']})</td>

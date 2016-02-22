@@ -28,6 +28,9 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$upravit = 'change';
 	$odstranit = 'delete';
 	$menaSlovo = 'Currency';
+	$rekapituace = 'Next';
+	$ico = 'Company registration number';
+	$dic = 'TAX ID';
 } else {
 	$kosik = 'Košík';
 	$mujKosik = 'Můj košík';
@@ -47,6 +50,9 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$upravit = 'upravit';
 	$odstranit = 'odstranit';
 	$menaSlovo = 'Měna';
+	$rekapituace = 'Rekapituace';
+	$ico = 'IČ';
+	$dic = 'DIČ';
 }
 
 $menaSelect = "<option value='' ";
