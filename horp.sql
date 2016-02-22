@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
--- Počítač: localhost
--- Vygenerováno: Čtv 11. úno 2016, 15:32
--- Verze serveru: 5.5.47-0ubuntu0.14.04.1
--- Verze PHP: 5.5.9-1ubuntu4.14
+-- Počítač: 127.0.0.1
+-- Vygenerováno: Ned 21. úno 2016, 20:06
+-- Verze serveru: 5.5.34
+-- Verze PHP: 5.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `basket` (
   `stat` varchar(255) COLLATE utf8_bin NOT NULL,
   `mena` varchar(5) COLLATE utf8_bin NOT NULL COMMENT '"" = Kc, ''EN'' = EUR',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
 --
 -- Vypisuji data pro tabulku `basket`
@@ -63,7 +63,8 @@ CREATE TABLE IF NOT EXISTS `basket` (
 
 INSERT INTO `basket` (`id`, `ip`, `timestamp`, `count`, `item`, `color`, `comment`, `doprava`, `jmeno`, `prijmeni`, `firma`, `ic`, `dic`, `adresa`, `mesto`, `psc`, `jmeno_dodaci`, `prijmeni_dodaci`, `adresa_dodaci`, `mesto_dodaci`, `psc_dodaci`, `postovne`, `mail`, `tel`, `done`, `stat`, `mena`) VALUES
 (1, '127.0.0.1', 1455096732, '_;_2', '_;_1', '', '', 1, 'sdg', 'gsdf', '', '', '', 'gsdf', 'sgdf', 'dsgf', '', '', '', '', '', 0, 'gssdfgsfd', '', 1, '', ''),
-(2, '127.0.0.1', 1455182004, '_;_1', '_;_249', '', '', 1, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', 0, '', 'EN');
+(2, '127.0.0.1', 1455182004, '_;_1', '_;_249', '', '', 1, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', 0, '', 'EN'),
+(3, '::1', 1456081544, '', '', '', '', 1, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -544,7 +545,7 @@ INSERT INTO `item` (`id`, `rozmeryEN`, `poznamkaEN`, `cenaBezDPHEN`, `cenaSDPHEN
 (330, 'ø 4', '', 0, 0, '', '', 4, 22, 'vrut ø 4', 'Screw ø 4', 0, 0, 5, 6.05, '', 'ø 4', '', '', 0, '', '', '', '', '', ''),
 (331, 'S - L', '', 0, 0, '', '', 0, 21, 'Triko - Lezec', 'T-shirt - Climber', 0, 0, 200, 242, '', 'S - L', '100% bavlna<br>barvy:<br>zelená, oranžová, černá', 'Velikosti upřesněte při odesílání objednávky, jinak budete kontaktováni pro její upřesnění.', 0, '', '', '', '', '', ''),
 (332, 'ø 10cm/6cm', '', 0, 0, '', '', 0, 8, 'Dvojkoule - L', 'Doubleball - L', 0, 0, 0, 0, 'Imbus M10', 'ø 10cm/6cm', '', '', 900, '', '', '', '', '', ''),
-(333, '7 x 9.5 x 5 cm', '', 0, 0, '', '', 0, 7, 'Ježek', 'Hedgehog', 0, 0, 79, 95.6, 'imbus šroub M10', '7 x 9.5 x 5 cm', '', 'Velikost S', 300, '', '', '', '', '', ''),
+(333, '7 x 9.5 x 5 cm', '', 0, 0, '', '', 0, 7, 'Ježek', 'Hedgehog', 0, 0, 79, 95.6, 'imbus šroub M10', '7 x 9.5 x 5 cm', '', 'Velikost S', 300, 'jezek1.png', '', '', '', '', ''),
 (334, 'ø 12cm/8cm', '', 0, 0, '', '', 0, 8, 'Dvojkoule - XL', 'Doubleball - XL', 0, 0, 0, 0, 'Imbus M10', 'ø 12cm/8cm', '', '', 1600, '', '', '', '', '', '');
 
 -- --------------------------------------------------------
