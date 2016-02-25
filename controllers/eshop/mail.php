@@ -199,4 +199,5 @@ $tabulkaFaktura
 $subject = "({$basket['jmeno']} {$basket['prijmeni']}) objednavka na horp.cz";
 mail('ununik@gmail.com', "$subject", $content, $header);
 
+$eshop->addMailingContact($basket['mail'], $basket['mailing'], $basket['jmeno'], $basket['prijmeni'], $lang);
 $eshop->done($ip);

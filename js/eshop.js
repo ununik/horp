@@ -47,6 +47,16 @@ function udaje_change(input){
         ajaxCall('controllers/eshop/changeUdaje.php?input='+name+'&value='+value, function(xhr) {
     })
 }
+function udaje_change_checkbox(input){
+    name = input.name;
+    if(input.checked == true){
+    	value = 1;
+    } else {
+    	value = 0;
+    }
+        ajaxCall('controllers/eshop/changeUdaje.php?input='+name+'&value='+value, function(xhr) {
+    })
+}
 function pocetKsMinus(id){
     if(document.getElementById('kosik_'+id).value > 1){
         document.getElementById('kosik_'+id).value--

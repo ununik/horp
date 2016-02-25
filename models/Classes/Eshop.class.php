@@ -181,4 +181,26 @@ class Eshop extends Connection
         }
         return $sleva;
     }
+    
+    public function addMailingContact($mail, $active, $firstname, $lastname, $language){
+    	$db = parent::connect();
+    	$result = $db->prepare("SELECT * FROM `mailing` WHERE `mail`=?");
+    	$result->execute(array($mail));
+    	$contact = $result->fetch();
+    	if(isset($contact['id'])){
+    		if($contact['active'] == $active) {
+    			return;
+    		} else {
+    			$result = $db->prepare("UPDATE `mailing` SET `active`=?, `firstname`=?, `lastname`=? WHERE id = ?");
+    			$result->execute(array($active, $firstname, $lastname, $contact['id']));
+    		}
+    	} else {
+    		$timestamp = time();
+    		$result = $db->prepare("INSERT INTO `mailing`(`mail`, `active`, `firstname`, `lastname`, `language`, `timestamp`) VALUES (?, ?, ?, ?, ?, ?)");
+    		$result->execute(array($mail, $active, $firstname, $lastname, $language, $timestamp));
+    	}
+    	
+    	
+    	return $category;
+    }
 }

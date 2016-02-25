@@ -49,30 +49,35 @@ $basket .= "<div id='Basket-step_3'><div id='step3'><div class='step1' onclick='
             </div><h2>$fakturacniUdaje</h2>";
 $basket .= "<table>";
 $basket .= "<th colspan='2'>$fakturacniUdaje</th>";
-$basket .= "<tr><td class='faktur_left'>$jmenoTranslation*:</td><td><input type='text' name='jmeno' onchange='udaje_change(this)' value='{$basketItem['jmeno']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$prijmeniTranslation*:</td><td><input type='text'  name='prijmeni' onchange='udaje_change(this)' value='{$basketItem['prijmeni']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$adresaTranslation*:</td><td><input type='text' name='adresa' onchange='udaje_change(this)' value='{$basketItem['adresa']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$mestoTranslation*:</td><td><input type='text' name='mesto' onchange='udaje_change(this)' value='{$basketItem['mesto']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$PSCTranslation*:</td><td><input type='text' name='psc' onchange='udaje_change(this)' value='{$basketItem['psc']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$statTranslation:</td><td><input type='text' name='stat' onchange='udaje_change(this)' value='{$basketItem['stat']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>Mail*:</td><td><input type='text' name='mail' onchange='udaje_change(this)' value='{$basketItem['mail']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>Tel:</td><td><input type='text' name='tel' onchange='udaje_change(this)' value='{$basketItem['tel']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>Firma:</td><td><input type='text'  name='firma' onchange='udaje_change(this)' value='{$basketItem['firma']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$ico:</td><td><input type='text'  name='ic' onchange='udaje_change(this)' value='{$basketItem['ic']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$dic:</td><td><input type='text'  name='dic' onchange='udaje_change(this)' value='{$basketItem['dic']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$jmenoTranslation*:</td><td><input type='text' class='basket_text_input' name='jmeno' onchange='udaje_change(this)' value='{$basketItem['jmeno']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$prijmeniTranslation*:</td><td><input type='text' class='basket_text_input'  name='prijmeni' onchange='udaje_change(this)' value='{$basketItem['prijmeni']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$adresaTranslation*:</td><td><input type='text' class='basket_text_input' name='adresa' onchange='udaje_change(this)' value='{$basketItem['adresa']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$mestoTranslation*:</td><td><input type='text' class='basket_text_input' name='mesto' onchange='udaje_change(this)' value='{$basketItem['mesto']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$PSCTranslation*:</td><td><input type='text' class='basket_text_input' name='psc' onchange='udaje_change(this)' value='{$basketItem['psc']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$statTranslation:</td><td><input type='text' class='basket_text_input' name='stat' onchange='udaje_change(this)' value='{$basketItem['stat']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>Mail*:</td><td><input type='text' class='basket_text_input' name='mail' onchange='udaje_change(this)' value='{$basketItem['mail']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>Tel:</td><td><input type='text' class='basket_text_input' name='tel' onchange='udaje_change(this)' value='{$basketItem['tel']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>Firma:</td><td><input type='text' class='basket_text_input'  name='firma' onchange='udaje_change(this)' value='{$basketItem['firma']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$ico:</td><td><input type='text' class='basket_text_input'  name='ic' onchange='udaje_change(this)' value='{$basketItem['ic']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$dic:</td><td><input type='text' class='basket_text_input'  name='dic' onchange='udaje_change(this)' value='{$basketItem['dic']}'></td></tr>";
 
-$basket .= "<tr><td class='faktur_left'>$menaSlovo:</td><td><select name='mena' onchange='udaje_change(this)' value='{$basketItem['mena']}'>$menaSelect</select></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$menaSlovo:</td><td><select class='basket_text_input' name='mena' onchange='udaje_change(this)' value='{$basketItem['mena']}'>$menaSelect</select></td></tr>";
 
 $basket .= "</table>";
 
 $basket .= "<table>";
 $basket .= "<th colspan='2'>$dodaciAdresa</th>";
-$basket .= "<tr><td class='faktur_left'>$jmenoTranslation:</td><td><input type='text' name='jmeno_dodaci' onchange='udaje_change(this)' value='{$basketItem['jmeno_dodaci']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$prijmeniTranslation:</td><td><input type='text' name='prijmeni_dodaci' onchange='udaje_change(this)' value='{$basketItem['prijmeni_dodaci']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$adresaTranslation:</td><td><input type='text'  name='adresa_dodaci' onchange='udaje_change(this)' value='{$basketItem['adresa_dodaci']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$mestoTranslation:</td><td><input type='text'  name='mesto_dodaci' onchange='udaje_change(this)' value='{$basketItem['mesto_dodaci']}'></td></tr>";
-$basket .= "<tr><td class='faktur_left'>$PSCTranslation:</td><td><input type='text'  name='psc_dodaci' onchange='udaje_change(this)' value='{$basketItem['psc_dodaci']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$jmenoTranslation:</td><td><input type='text' class='basket_text_input' name='jmeno_dodaci' onchange='udaje_change(this)' value='{$basketItem['jmeno_dodaci']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$prijmeniTranslation:</td><td><input type='text' class='basket_text_input' name='prijmeni_dodaci' onchange='udaje_change(this)' value='{$basketItem['prijmeni_dodaci']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$adresaTranslation:</td><td><input type='text' class='basket_text_input'  name='adresa_dodaci' onchange='udaje_change(this)' value='{$basketItem['adresa_dodaci']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$mestoTranslation:</td><td><input type='text' class='basket_text_input'  name='mesto_dodaci' onchange='udaje_change(this)' value='{$basketItem['mesto_dodaci']}'></td></tr>";
+$basket .= "<tr><td class='faktur_left'>$PSCTranslation:</td><td><input type='text' class='basket_text_input'  name='psc_dodaci' onchange='udaje_change(this)' value='{$basketItem['psc_dodaci']}'></td></tr>";
 $basket .= "</table>";
+$basket .= "<h2>$ostatniTranslation</h2><div id='basket_ostatni'>";
+$basket .= "<div><label for='voacher'>$voucher: </label><input type='text' onchange='udaje_change(this)' name='voacher' id='voacher' value='{$basketItem['voacher']}'></div>";
+$basket .= "<div><input type='checkbox' onchange='udaje_change_checkbox(this)' name='mailing' id='mailing' $mailingValidation> <label for='mailing'>$mailiningTranslation</label></div>";
+$basket .= "</div>";
+
 $basket .= "<button onclick='nextstep(\"Basket-step_2\")'  class='previousStep'></button><button onclick='faktura()' class='objednat rekapituace'>$rekapituace</button></div>";
 
 $basket .= "<div id='Basket-step_4'></div>";

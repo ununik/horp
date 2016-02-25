@@ -785,3 +785,33 @@ nav span {
 .doprava_row label:hover {
 	color: #0e2307;
 }
+#basket_ostatni {
+	margin: 5px 0px 45px 55px;
+}
+#basket_ostatni div{
+	margin: 15px 0px;
+}
+#voacher {
+	width: 140px;
+	height: 25px;
+	background-color: #465747;
+	padding: 2px 3px;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.basket_text_input {
+	width: 200px;
+	height: 25px;
+	border-radius: 5px;
+	outline: none;
+	padding: 2px 3px;
+	border: 1px solid #465747;
+	background-color: white;
+}
+.basket_text_input:focus {
+	background-color: #465747;
+	color: white;
+}

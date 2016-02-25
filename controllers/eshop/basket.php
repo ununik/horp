@@ -32,6 +32,9 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$ico = 'Company registration number';
 	$dic = 'TAX ID';
 	$languageForDb = "EN";
+	$voucher = 'Voucher';
+	$mailiningTranslation = "I wish to receive promotional emails";
+	$ostatniTranslation = 'Others';
 } else {
 	$kosik = 'Košík';
 	$mujKosik = 'Můj košík';
@@ -55,6 +58,9 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$ico = 'IČ';
 	$dic = 'DIČ';
 	$languageForDb = "";
+	$voucher = 'Kód slevového kuponu';
+	$mailiningTranslation = "Přeji si dostávat reklamní emaily";
+	$ostatniTranslation = 'Ostatní';
 }
 
 $menaSelect = "<option value='' ";
@@ -66,6 +72,11 @@ if($basketItem['mena'] == "EN"){
 	$menaSelect .= "selected ";
 }
 $menaSelect .= ">EUR</option>";
+
+$mailingValidation = '';
+if($basketItem['mailing'] == true){
+	$mailingValidation = "checked ";
+}
 
 
 $itemsAll = explode("_;_", $basketItem['item']);
