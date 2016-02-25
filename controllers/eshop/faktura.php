@@ -20,12 +20,29 @@ if((($basket['jmeno'] == "" || $basket['prijmeni'] == "") && $basket['firma'] ==
 }
 
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
+    $lang = 'en';
+    $nahoru = "top";
+    $razeni = 'Sort';
+    $podleCeny = 'by price';
+    $podleVelikosti = 'by size';
+    $rozmery = 'dimensions';
+    $montazniPrvek = 'hardware';
+    $cenaZaKus = 'price per 1 piece';
+    $bezDPH = 'without tax';
+    $sDPH = 'with tax';
+    $pocetKusu = 'quantity';
+    $poznamka = 'comment';
+    $popis = 'description';
+    $daleDoporucujeme = 'Recommends';
+    $languageForDb = "EN";
+    $mena = 'EUR';
 	$kosik = 'Basket';
 	$mujKosik = 'My basket';
 	$nazev = 'name';
 	$cenaPrice = 'price';
 	$celkem = 'Total';
 	$dopravaAPlatba = 'Shipping and payment';
+	$dopravneABalneTranslation = 'Shipping';
 	$celkovaHmotnostTranslation = 'Total weight';
 	$fakturacniUdaje = 'Billing information';
 	$jmenoTranslation = 'Firstname';
@@ -41,7 +58,26 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$rekapituace = 'Next';
 	$ico = 'Company registration number';
 	$dic = 'TAX ID';
+	$slevaTranslation = 'discount';
+	$backToEshop = 'Back';
+	$odeslat = 'Send';
 } else {
+    $lang = 'cz';
+    $nahoru = "nahoru";
+    $razeni = 'Řazení';
+    $podleCeny = 'podle ceny';
+    $podleVelikosti = 'podle velikosti';
+    $rozmery = 'rozměry';
+    $montazniPrvek = 'montážní prvek';
+    $cenaZaKus = 'cena za 1ks';
+    $bezDPH = 'bez DPH';
+    $sDPH = 's DPH';
+    $pocetKusu = 'počet kusů';
+    $poznamka = 'poznámka';
+    $popis = 'popis';
+    $daleDoporucujeme = 'Dále doporučujeme';
+    $languageForDb = "";
+    $mena = 'Kč';
 	$kosik = 'Košík';
 	$mujKosik = 'Můj košík';
 	$nazev = 'název';
@@ -63,6 +99,10 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$rekapituace = 'Rekapituace';
 	$ico = 'IČ';
 	$dic = 'DIČ';
+	$slevaTranslation = 'sleva';
+	$dopravneABalneTranslation = 'Poštovné a balné';
+	$backToEshop = 'Zpět k objednávce';
+	$odeslat = 'Objednat';
 }
 
 
@@ -85,11 +125,11 @@ for($num = 0; $num < count($itemsAll); $num++){
         $items[$number]['subcategory'] = $eshop->getSubcategory($thisItem['subcategory']);
         $items[$number]['subcategory'] = $items[$number]['subcategory']['category'];
         $items[$number]['category'] = $eshop->getCategory($items[$number]['subcategory']);
-        $items[$number]['category'] = $items[$number]['category']['cz'];
-        $items[$number]['cenaZaKusBezDPH'] = number_format($thisItem['cenaBezDPH'], 2, '.', '');
-        $items[$number]['cenaZaKusSDPH'] = number_format($thisItem['cenaSDPH'], 2, '.', '');
-        $items[$number]['cenaBezDPH'] = number_format($countAll[$num]*$thisItem['cenaBezDPH'], 2, '.', '');
-        $items[$number]['cenaSDPH'] = number_format($countAll[$num]*$thisItem['cenaSDPH'], 2, '.', '');
+        $items[$number]['category'] = $items[$number]['category'][$lang];
+        $items[$number]['cenaZaKusBezDPH'] = number_format($thisItem['cenaBezDPH'.$basket['mena']], 2, '.', '');
+        $items[$number]['cenaZaKusSDPH'] = number_format($thisItem['cenaSDPH'.$basket['mena']], 2, '.', '');
+        $items[$number]['cenaBezDPH'] = number_format($countAll[$num]*$thisItem['cenaBezDPH'.$basket['mena']], 2, '.', '');
+        $items[$number]['cenaSDPH'] = number_format($countAll[$num]*$thisItem['cenaSDPH'.$basket['mena']], 2, '.', '');
         $celkovaCena['sDPH'] += $items[$number]['cenaSDPH'];
         $celkovaCena['bezDPH'] += $items[$number]['cenaBezDPH'];
         $celkovaHmotnost += $thisItem['hmotnost']*$items[$number]['count'];
@@ -102,10 +142,15 @@ $celkovaHmotnostKg = number_format($celkovaHmotnostKg, 2, ',', '');
 $doprava = $eshop->getDopravaById($basket['doprava']);
 $zbytek = $celkovaHmotnost%25000;
 $ostatni = (int) ($celkovaHmotnost - $zbytek)/25000;
-$cena = $doprava['cenaZaGram']*$zbytek + $doprava['cenaZaGram']*$ostatni + ($ostatni + 1)*$doprava['cenaZaJdenBalik'];
-$cena = (int) $cena;
+$cena = $doprava['cenaZaGram'.$basket['mena']]*$zbytek + $doprava['cenaZaGram'.$basket['mena']]*$ostatni + ($ostatni + 1)*$doprava['cenaZaJdenBalik'.$basket['mena']];
 $cena = number_format($cena, 2, '.', '');
 $cenaBezDPH = $cena;
 $cenaSDPH = $cena;
+
+if($basket['mena'] == 'EN') {
+    $mena = 'EUR';
+} else {
+    $mena = 'Kč';
+}
 
 print include_once('../../views/eshop/faktura-html.php');

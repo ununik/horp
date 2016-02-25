@@ -31,6 +31,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$rekapituace = 'Next';
 	$ico = 'Company registration number';
 	$dic = 'TAX ID';
+	$languageForDb = "EN";
 } else {
 	$kosik = 'Košík';
 	$mujKosik = 'Můj košík';
@@ -53,6 +54,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$rekapituace = 'Rekapituace';
 	$ico = 'IČ';
 	$dic = 'DIČ';
+	$languageForDb = "";
 }
 
 $menaSelect = "<option value='' ";

@@ -775,3 +775,13 @@ nav span {
 	width: 100%;
 	height: 300px;
 }
+.doprava_row {
+	margin: 7px 0px 7px 20px;
+}
+.doprava_row label {
+	margin-left: 8px;
+	font-size: 18px;
+}
+.doprava_row label:hover {
+	color: #0e2307;
+}

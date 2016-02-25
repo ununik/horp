@@ -102,8 +102,8 @@ function tabletMenu(){
 	}
 }
 function objednat(){
-	alert();
 	 ajaxCall('controllers/eshop/mail.php', function(xhr) {
+		 //document.getElementById('eshop_body').innerHTML = xhr.responseText;
 	    })
 	    window.location.href = "index.php?page=eshop&subpage=end";
 }

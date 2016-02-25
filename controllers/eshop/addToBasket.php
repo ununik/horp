@@ -2,6 +2,7 @@
 function __autoload($name){
     include_once("../../models/Classes/$name.class.php");
 }
+session_start();
 $ip = $_SERVER["REMOTE_ADDR"];
 $eshop = new Eshop($ip);
 $basket = $eshop->getBasket($ip);
@@ -32,4 +33,8 @@ $eshop->addToBasket($count, $items, $ip);
 
 $item = $eshop->getItem($_GET['id']);
 
-echo "{$item['cz']} - úspěšně přidáno do košíku";
+if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
+    echo "{$item['en']} - added to your basket";
+} else {
+    echo "{$item['cz']} - úspěšně přidáno do košíku";
+}
