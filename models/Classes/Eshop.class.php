@@ -210,4 +210,10 @@ public function updateCountShopping($id, $prodanoKS, $prodanoObjednavek)
     	$result = $db->prepare("UPDATE `item` SET `prodanoKS`=?, `prodanoObjednavek`=? WHERE `id`=? ");
     	$result->execute(array($prodanoKS, $prodanoObjednavek, $id));
     }
+    public function validateEMAIL($EMAIL)
+	{
+		$v = "/[a-zA-Z0-9-_.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/";
+	
+		return (bool)preg_match($v, $EMAIL);
+	}
 }

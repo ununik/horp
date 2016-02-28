@@ -67,11 +67,13 @@ foreach($eshop_nav as $nav){
         $subcategory = $eshop->getAllSubcategories($nav['id']);
         $eshop_navigation .= "<ul>";
         foreach($subcategory as $subcategory){
-            if(isset($_GET['category']) && $_GET['category'] == $subcategory["id"]){
-                $eshop_navigation .= "<li class='active_eshop_navigation'><a href='index.php?page=eshop&category={$subcategory["id"]}'>$subcategory[$lang]</a></li>";
-            }else{
-                $eshop_navigation .= "<li><a href='index.php?page=eshop&category={$subcategory["id"]}'>$subcategory[$lang]</a></li>";
-            }
+        	if($subcategory["active"] != false) {
+	            if(isset($_GET['category']) && $_GET['category'] == $subcategory["id"]){
+	                $eshop_navigation .= "<li class='active_eshop_navigation'><a href='index.php?page=eshop&category={$subcategory["id"]}'>$subcategory[$lang]</a></li>";
+	            }else{
+	                $eshop_navigation .= "<li><a href='index.php?page=eshop&category={$subcategory["id"]}'>$subcategory[$lang]</a></li>";
+	            }
+        	}
         }
         $eshop_navigation .= "</ul>";
     $eshop_navigation .= "</li>";

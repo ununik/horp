@@ -46,7 +46,7 @@ class Eshop extends Connection
     }
     public function getAllSubcategories($category){
         $db = parent::connect();
-        $result = $db->prepare("SELECT * FROM `subcategory` WHERE category = ?");
+        $result = $db->prepare("SELECT * FROM `subcategory` WHERE `active`=1 AND `category`=?");
         $result->execute(array($category));
         $subcategory = $result->fetchAll();
         return $subcategory;

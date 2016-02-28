@@ -99,9 +99,13 @@ function goNahoru(){
     window.scrollTo('0px', '0px');
 }
 function faktura(){
-    ajaxCall('controllers/eshop/faktura.php', function(xhr) {
-        document.getElementById('eshop_body').innerHTML = xhr.responseText;
-    })
+	if(validateData() == true) {
+	    ajaxCall('controllers/eshop/faktura.php', function(xhr) {
+	        document.getElementById('eshop_body').innerHTML = xhr.responseText;
+	    })
+	} else {
+		goNahoru();
+	}
 }
 
 function tabletMenu(){
@@ -157,4 +161,36 @@ function changeCurrency(currency){
 	ajaxCall('controllers/eshop/changeUdaje.php?input=mena&value='+currency, function(xhr) {
     })
     location.reload();
+}
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+function validateData() {
+	var NoErr = true;
+	var inputs = ["jmeno", "prijmeni", "adresa", "mesto", "psc", "mail"];
+	
+	for (i=0 ; i < inputs.length; i++) {
+		inputForm = document.getElementById(inputs[i]);
+		if (inputForm.value.length < 1){
+			inputForm.style.border = "1px solid red";
+			inputForm.parentNode.getElementsByTagName('span')[0].innerHTML = " *Toto je povinné pole.";
+			NoErr = false;
+		} else {
+			inputForm.style.border = "1px solid #465747";
+			inputForm.parentNode.getElementsByTagName('span')[0].innerHTML = "";
+		}
+	}
+	
+	mail = document.getElementById("mail");
+	if(validateEmail(mail.value) == false) {
+		mail.style.border = "1px solid red";
+		mail.parentNode.getElementsByTagName('span')[0].innerHTML = " *Mail nemá správný tvar.";
+		NoErr = false;
+	} else {
+		mail.style.border = "1px solid #465747";
+		mail.parentNode.getElementsByTagName('span')[0].innerHTML = "";
+	}
+	
+	return NoErr;
 }

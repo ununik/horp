@@ -14,7 +14,7 @@ $eshop = new Eshop($ip);
 session_start();
 $basket = $eshop->getBasket($ip);
 
-if((($basket['jmeno'] == "" || $basket['prijmeni'] == "") && $basket['firma'] == "")  || $basket['adresa'] == "" || $basket['mesto'] == "" || $basket['psc'] == ""   || $basket['item'] == "" || $basket['item'] == "_;_" || $basket['mail'] == ""){
+if((($basket['jmeno'] == "" || $basket['prijmeni'] == "") && $basket['firma'] == "")  || $basket['adresa'] == "" || $basket['mesto'] == "" || $basket['psc'] == ""   || $basket['item'] == "" || $basket['item'] == "_;_" || $basket['mail'] == "" || $eshop->validateEMAIL($basket['mail']) != true){
     print include_once('../../views/eshop/faktura-neni_vyplneno.php');
     return;
 }

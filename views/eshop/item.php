@@ -12,8 +12,8 @@ $body = "<h1>$item[$lang]</h1>";
 
     $body .= "<div class='item'>";
     $body .= "<table class='itemList'>";
-    if($item['montazniPrvek'] != "" ){
-        $body .= "<tr><td class='left'>montážní prvek:</td><td colspan='2'>{$item['montazniPrvek']}</td>";
+    if($item['montazniPrvek'.$languageForDb] != "" ){
+        $body .= "<tr><td class='left'>$montazniPrvek:</td><td colspan='2'>{$item['montazniPrvek'.$languageForDb]}</td>";
     }else{
     	$body .= "<tr><td class='left'></td><td colspan='2'></td>";
     }
@@ -45,19 +45,19 @@ $body = "<h1>$item[$lang]</h1>";
         }
     $body .= "</div></td></tr>";
 
-    if($item['rozmery'] != "" ){
-        $body .= "<tr><td class='left'>rozměry:</td><td colspan='2'>{$item['rozmery']}</td></tr>";
+   if($item['rozmery'.$languageForDb] != "" ){
+        $body .= "<tr><td class='left'>$rozmery:</td><td colspan='2'>{$item['rozmery'.$languageForDb]}</td></tr>";
     }
-    if($item['popis'] != "" ){
-        $body .= "<tr><td class='left'>popis:</td><td colspan='2'>{$item['popis']}</td></tr>";
+    if($item['popis'.$languageForDb] != "" ){
+        $body .= "<tr><td class='left'>$popis:</td><td colspan='2'>{$item['popis'.$languageForDb]}</td></tr>";
     }
-    if($item['poznamka'] != "" ){
-        $body .= "<tr><td class='left'>poznámka:</td><td colspan='2'>{$item['poznamka']}</td></tr>";
+    if($item['poznamka'.$languageForDb] != "" ){
+        $body .= "<tr><td class='left'>$poznamka:</td><td colspan='2'>{$item['poznamka'.$languageForDb]}</td></tr>";
     }
-    $body .= "<tr><td class='left'>cena za 1ks:<br><small>(bez DPH)</small></td><td colspan='2'><strong>$cenaBezDPH Kč</strong></td></tr>";
-    $body .= "<tr><td class='left'>cena za 1ks:<br><small>(s DPH)</small></td><td colspan='2'><strong>$cenaSDPH Kč</strong></td></tr>";
-    $body .= "<tr><td class='left'>počet kusů:</small></td><td class='pocet_kusu'><input type='text' onkeypress='validateNumber(event)' id='kosik_{$item['id']}' value='1'><div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$item['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$item['id']}\")'></div></div></td><td><button onclick='addToBasket({$item['id']})' class='basket'>Přidat do košíku</button></td></tr>";
-    $body .= "<tr><td colspan='4'>Dále doporučujeme:<div>";
+    $body .= "<tr><td class='left'>$cenaZaKus:<br><small>($bezDPH)</small></td><td colspan='2'><strong>$cenaBezDPH {$menaArray[$basketItem['mena']]}</strong></td></tr>";
+    $body .= "<tr><td class='left'>$cenaZaKus:<br><small>($sDPH)</small></td><td colspan='2'><strong>$cenaSDPH {$menaArray[$basketItem['mena']]}</strong></td></tr>";
+    $body .= "<tr><td class='left'>$pocetKusu:</small></td><td class='pocet_kusu'><input type='text' onkeypress='validateNumber(event)' id='kosik_{$item['id']}' value='1'><div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$item['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$item['id']}\")'></div></div></td><td><button onclick='addToBasket({$item['id']})' class='basket'>Přidat do košíku</button></td></tr>";
+    $body .= "<tr id='doporuceni_{$item['id']}'><td colspan='4'>$daleDoporucujeme:<div>";
     $nextItem = explode("_;_", $item['dalsi_zbozi']);
     foreach($nextItem as $id){
     	if($id != ""){
