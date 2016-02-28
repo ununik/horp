@@ -204,7 +204,7 @@ class Eshop extends Connection
     	return $category;
     }
     
-public function updateCountShopping($id, $prodanoKS, $prodanoObjednavek)
+	public function updateCountShopping($id, $prodanoKS, $prodanoObjednavek)
     {
     	$db = parent::connect();
     	$result = $db->prepare("UPDATE `item` SET `prodanoKS`=?, `prodanoObjednavek`=? WHERE `id`=? ");
@@ -215,5 +215,22 @@ public function updateCountShopping($id, $prodanoKS, $prodanoObjednavek)
 		$v = "/[a-zA-Z0-9-_.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/";
 	
 		return (bool)preg_match($v, $EMAIL);
+	}
+	
+	public function getNejoblibenejsi(){
+		$db = parent::connect();
+		$result = $db->prepare("SELECT * FROM `item` ORDER BY `prodanoObjednavek` DESC, `cenaSDPH` DESC LIMIT 3");
+		$result->execute(array());
+		$items = $result->fetchAll();
+		
+		return $items;
+	}
+	public function getNejprodavanejsi(){
+		$db = parent::connect();
+		$result = $db->prepare("SELECT * FROM `item` ORDER BY `prodanoKS` DESC, `cenaSDPH` DESC LIMIT 3");
+		$result->execute(array());
+		$items = $result->fetchAll();
+	
+		return $items;
 	}
 }

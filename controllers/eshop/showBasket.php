@@ -31,10 +31,20 @@ for($number = 0; $number < $manyItems; $number++){
     $howMuch += $count[$number]*$thisItem['cenaSDPH'.$basket['mena']];
 }
 
+if($basket['mena'] == "EN")
+{
+	$activeCurrencyKC = '';
+	$activeCurrencyEUR = ' activeCurrency';
+} else {
+	$activeCurrencyKC = ' activeCurrency';
+	$activeCurrencyEUR = '';
+}
+
 $manyItems--;
 
 $howMuch = number_format($howMuch, 2, '.', '');
 $menaArray = array('' => 'Kč', 'EN' => 'EUR');
 
+$body .= "<div id='vyberMenyDiv'><div class='vyberMeny$activeCurrencyKC' onclick='changeCurrency(\"\")'>Kč</div><div class='vyberMeny$activeCurrencyEUR' onclick='changeCurrency(\"EN\")'>EUR</div></div>";
 
-echo "$obsahKosiku:<p><b>$manyItems</b> $polozek<br><b>$howMuch {$menaArray[$basket['mena']]}</b></p>";
+echo "$obsahKosiku:<p><b>$manyItems</b> $polozek<br><b>$howMuch {$menaArray[$basket['mena']]}</b></p>$body";
