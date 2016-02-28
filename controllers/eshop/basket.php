@@ -8,7 +8,7 @@
 $ip = $_SERVER["REMOTE_ADDR"];
 $eshop = new Eshop($ip);
 $basketItem = $eshop->getBasket($ip);
-
+	
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
 	$kosik = 'Basket';
 	$mujKosik = 'My basket';

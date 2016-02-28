@@ -125,6 +125,11 @@ for($num = 0; $num < count($itemsAll); $num++){
 		$celkovaCena['sDPH'] += $items[$number]['cenaSDPH'];
 		$celkovaCena['bezDPH'] += $items[$number]['cenaBezDPH'];
 		$celkovaHmotnost += $thisItem['hmotnost']*$items[$number]['count'];
+		
+		$prodanoKS = $thisItem['prodanoKS'] + $countAll[$num];
+		$prodanoObjednavek = $thisItem['prodanoObjednavek'] + 1;
+		
+		$eshop->updateCountShopping($itemsAll[$num], $prodanoKS, $prodanoObjednavek);
 	}
 }
 $celkovaCena['sDPH'] = number_format($celkovaCena['sDPH'], 2, '.', '');

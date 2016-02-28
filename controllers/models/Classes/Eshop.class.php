@@ -159,4 +159,11 @@ class Eshop extends Connection
         }
         return $sleva;
     }
+    
+    public function updateCountShopping($id, $newCountForDBProdanoKS, $newCountForDBProdanoObjednavek)
+    {
+    	$db = parent::connect();
+    	$result = $db->prepare("UPDATE `item` SET `prodanoKS`=?, `prodanoObjednavek`=? WHERE `id`=? ");
+    	$result->execute(array($newCountForDBProdanoKS, $newCountForDBProdanoObjednavek, $id));
+    }
 }
