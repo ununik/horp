@@ -59,5 +59,6 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 }else{
     $title .= 'HORP - výroba lezeckých chytů';
 }
+$meta = 'Výroba a prodej horolezeckých chytů.';
 
 print include_once("views/page.php");
