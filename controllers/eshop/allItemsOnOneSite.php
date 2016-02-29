@@ -7,4 +7,5 @@ if(count($Allitems) < 6){
 	$pocetSloupcu = ceil(sqrt(count($Allitems)));
 	$pocetRadku = ceil(count($Allitems)/$pocetSloupcu);
 }
+
 return include 'views/eshop/allItems.php';

@@ -1,6 +1,6 @@
 <?php
 $container = "<h1>$header</h1>";
-$container .= "<img src='fotka' class='kontakt_foto' alt='Petr Horyna' title='Petr Horyna'>";
+$container .= "<img src='images/page/foto.bmp' class='kontakt_foto' alt='Petr Horyna' title='Petr Horyna'>";
 $container .= "<div id='kontakt_information'>";
 $container .= "<h4>$name</h4>";
 $container .= "<p>";

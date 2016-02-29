@@ -13,7 +13,7 @@ if(isset($_GET['pageNumber']) && $_GET['pageNumber']!=""){
     $eshop->pageNumber = $_GET['pageNumber'];
 }
 
-
+$title = $subcategory[$lang] . ' | ';
 
 
 

@@ -45,6 +45,6 @@ $manyItems--;
 $howMuch = number_format($howMuch, 2, '.', '');
 $menaArray = array('' => 'Kč', 'EN' => 'EUR');
 
-$body .= "<div id='vyberMenyDiv'><div class='vyberMeny$activeCurrencyKC' onclick='changeCurrency(\"\")'>Kč</div><div class='vyberMeny$activeCurrencyEUR' onclick='changeCurrency(\"EN\")'>EUR</div></div>";
+$body = "<div id='vyberMenyDiv'><div class='vyberMeny$activeCurrencyKC' onclick='changeCurrency(\"\"); return false;'>Kč</div><div class='vyberMeny$activeCurrencyEUR' onclick='changeCurrency(\"EN\"); return false;'>EUR</div></div>";
 
 echo "$obsahKosiku:<p><b>$manyItems</b> $polozek<br><b>$howMuch {$menaArray[$basket['mena']]}</b></p>$body";

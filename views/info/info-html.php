@@ -13,17 +13,17 @@ $container .= "<li><h2>Jak je to s barvami chytů?</h2>
                     1 – 2 týdny podle velikosti objednávky). Na přání je možné vyrobit i dvoubarevné chyty, přirážka k základní ceně je však 10 %. Možnosti výběru barev viz <a href='index.php?page=vzornik' target='_blank'>Vzorník</a>.</p></li>";
 
 $container .= "<li><h2>Jak poznám, jak je daný chyt velký?</h2>
-                <p>U každé série chytů je umístěn imbus šroub M10, tzn. průměr dříku šroubu je 1 cm. Pokud by ani toto nepomohlo, obraťte se na nás s konkrétní dotazem, zašleme velikost chytu v cm.</p></li>";
+                <p>U každého chytu je jeho rozměr v centimetrech. V případě koulí se jedná o průměry.</p></li>";
 
 $container .= "<li><h2>Dodáváte k chytům i šrouby?</h2>
-                <p>Ano dodáváme, ale ne automaticky, je třeba je k chytům přiobjednat. Pro délku šroubů potřebujeme znát tloušťku stěny.</p></li>";
+                <p>Ano dodáváme, ale ne automaticky, je třeba je k chytům přiobjednat.</p></li>";
 
 $container .= "<li><h2>Je možné domluvit slevu?</h2>
                 <p>Ano, sleva se však odvíjí od množství odebraných chytů.</p></li>";
 
 $container .= "<li><h2>Kolik platím za dopravu?</h2>
                 <p>Zasíláme poštou, počítáme přesné poštovné, které zavisí na váze balíku. Při platbě předem zasíláme fa. k proplacení, kde je vyčíslená i položka poštovného. Při platbě
-na dobírku je možné na požádání zaslat výslednou sumu včetně poštovného.</p></li>";
+na dobírku je možné na požádání zaslat výslednou sumu včetně poštovného. Výpočet poštovného se může drobně lišit, ale spoléháme na vaši vstřícnost.</p></li>";
 
 $container .= "<li><h2>Jak rozmístit chyty na stěně?</h2>
                 <p>Chyty rozmístit na plochu tak, aby jednotlivé vzdálenosti mezi chyty byly přibližně stejné. Do spodní části stěny použít chyty oblejších tvarů a naopak čím výš tím větší chyt.</p></li>";
@@ -38,8 +38,6 @@ $container .= "<li><h2>Kolik chytů počítat na 1m<sup>2</sup>?</h2>
                 <p>Nejčastěji se počítá s 5 – 8ks/1m<sup>2</sup>,ale je nutno zohlednit, kdo na chytech poleze.
 Tak např. pro dětské využití je potřeba počítat s plným počtem, ale pro delší lezeckou linii, na které polezou trénovanější lezci, postačí i 3 ks/1m<sup>2</sup>.</p></li>";
 
-$container .= "<li><h2>Je možné zaslat nezávaznou objednávku?</h2>
-                <p>Jistě, spočítáme cenu chytů + poštovné, tu Vám zašleme a Vy se rozhodnete jestli výsledná cena je pro Vás přijatelná.</p></li>";
 
 $container .= "</ol>";
 

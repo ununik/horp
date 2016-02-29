@@ -7,6 +7,7 @@
  */
 ini_set('error_reporting', E_ALL);
 session_start();
+$title = '';
 function __autoload($name){
     include_once("models/Classes/$name.class.php");
 }
@@ -42,10 +43,8 @@ foreach($_GET as $get => $value){
 }
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
     $subtitle = 'Climbing holds production';
-    $title = 'HORP - climbing holds production';
 }else{
     $subtitle = 'Výroba lezeckých chytů';
-    $title = 'HORP - výroba lezeckých chytů';
 }
 $footer = include_once("controllers/footer.php");
 $navigation = include_once("views/navigation.php");
@@ -53,6 +52,12 @@ if(file_exists("controllers/$getPage.php")){
 	$content = include_once("controllers/$getPage.php");
 } else {
 	$content = include_once("controllers/noPageFound.php");
+}
+
+if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
+    $title .= 'HORP - climbing holds production';
+}else{
+    $title .= 'HORP - výroba lezeckých chytů';
 }
 
 print include_once("views/page.php");

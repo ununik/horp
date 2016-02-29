@@ -293,7 +293,6 @@ body{
 }
 .kontakt_foto{
     width: 150px;
-    height: 200px;
     float: left;
     margin: 0px 25px 0px 0px;
 }
@@ -705,8 +704,9 @@ nav span {
      background-color: rgba(256, 256, 256, 0.85);
 }
 .next_item_obrazek_nahled{
-	   width: 100px;
-    border: 1px dotted #465747;
+	   width: 100%;
+    border: 1px solid #465747;
+    background-color: black;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -716,7 +716,7 @@ nav span {
 	display:none;
 }
 .doporuceni_polozka{
-	width: 100px;
+	width: 150px;
 	display: inline-block;
 	margin: 0px 3px;
 }
@@ -725,6 +725,10 @@ nav span {
 	position: relative;
 	top: -20px;
 	text-align: center;
+	color: white;
+}
+.daleDoporuceno_all {
+	padding-top: 55px !important;
 }
 .basket_nahled{
 	height: 1em;

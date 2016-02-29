@@ -72,7 +72,7 @@ for($i = $eshop->getFirstItemOnPage(); $i < $eshop->getLastItemOnPage($items); $
     $body .= "<tr><td class='left'>$cenaZaKus:<br><small>($bezDPH)</small></td><td colspan='2'><strong>$cenaBezDPH {$menaArray[$basketItem['mena']]}</strong></td></tr>";
     $body .= "<tr><td class='left'>$cenaZaKus:<br><small>($sDPH)</small></td><td colspan='2'><strong>$cenaSDPH {$menaArray[$basketItem['mena']]}</strong></td></tr>";
     $body .= "<tr><td class='left'>$pocetKusu:</small></td><td class='pocet_kusu'><input type='text' onkeypress='validateNumber(event)' id='kosik_{$items[$i]['id']}' value='1'><div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$items[$i]['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$items[$i]['id']}\")'></div></div></td><td><button onclick='addToBasket({$items[$i]['id']})' class='basket'>Přidat do košíku</button></td></tr>";
-    $body .= "<tr class='doporuceni' id='doporuceni_{$items[$i]['id']}'><td colspan='4'>$daleDoporucujeme:<div>";
+    $body .= "<tr class='doporuceni' id='doporuceni_{$items[$i]['id']}'><td colspan='4'  class='daleDoporuceno_all'>$daleDoporucujeme:<div>";
     $nextItem = explode("_;_", $items[$i]['dalsi_zbozi']);
     foreach($nextItem as $id){
     	if($id != ""){

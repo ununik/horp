@@ -6,7 +6,7 @@
  * Time: 11:52
  */
 $contentbox = "<h1>Obchodní podmínky</h1>
-               <h2>Kontaktní údaje</h2>
+              <!-- <h2>Kontaktní údaje</h2>
                     <table>
                         <tr><td>Název:</td><td></td></tr>
                         <tr><td>Sídlo:</td><td></td></tr>
@@ -14,13 +14,13 @@ $contentbox = "<h1>Obchodní podmínky</h1>
                         <tr><td>Telefon:</td><td></td></tr>
                         <tr><td>Email:</td><td></td></tr>
                         <tr><td>Kontaktní adresa:</td><td></td></tr>
-                    </table>
+                    </table>-->
                <h2>Informace</h2>
                     <p>Informace o zboží a ceně uváděné prodávajícím jsou
                      závazné s výjimkou zjevné chyby. Ceny jsou prezentovány
                      včetně DPH i bez něj, kromě nákladů
                      na doručení zboží.</p>
-     /*odkaz*/               <p>Informace o přijímaných způsobech platby jsou uvedeny zde.
+              <p>
                     Prodávající nepožaduje žádné poplatky v závislosti na způsobu platby.</p>
                     <p>Potvrzení obsahu smlouvy uzavřené v jiné než písemné formě, které vykazuje odchylky
                      od skutečně ujednaného obsahu smlouvy, nemá právní účinky.</p>
@@ -34,7 +34,7 @@ $contentbox = "<h1>Obchodní podmínky</h1>
                     <p>Požádá-li o to kupující, potvrdí mu prodávající v písemné formě, v jakém rozsahu a
                     po jakou dobu trvají jeho povinnosti z vadného plnění a jakým způsobem může kupující
                     práva z nich uplatnit.</p>
-/*odkaz*/                    <p>Cena a způsob doručení (informace ke stažení zde)</p>
+                    <p>Cena a způsob doručení</p>
                     <p>Nepřevezme-li kupující zboží v dohodnuté době porušením své povinnosti, je povinen
                     prodávajícímu zaplatit poplatek za uskladnění za každý den prodlení ve výši 10,- Kč,
                     maximálně však 300,- Kč. Prodávající je oprávněn poté, co kupujícího prokazatelně

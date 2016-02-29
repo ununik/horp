@@ -35,6 +35,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$voucher = 'Voucher';
 	$mailiningTranslation = "I wish to receive promotional emails";
 	$ostatniTranslation = 'Others';
+	$title = 'Basket | ';
 } else {
 	$kosik = 'Košík';
 	$mujKosik = 'Můj košík';
@@ -61,6 +62,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 	$voucher = 'Kód slevového kuponu';
 	$mailiningTranslation = "Přeji si dostávat reklamní emaily";
 	$ostatniTranslation = 'Ostatní';
+	$title = 'Košík | ';
 }
 
 $menaSelect = "<option value='' ";

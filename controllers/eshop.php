@@ -20,8 +20,8 @@ $eshop_nav = $eshop->getAllCategories();
 $basketItem = $eshop->getBasket($ip);
 
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
-    $eshop_navigation = "<li class='menuEshop'><a href='index.php?page=eshop&subpage=basket'>Basket</a></li>";
-    $eshop_navigation .= "<li class='menuEshop nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>How to shopping</a></li>";
+    $eshop_navigation = "<li class='menuEshop nav_basket'><a href='index.php?page=eshop&subpage=basket'>Basket</a></li>";
+    //$eshop_navigation .= "<li class='menuEshop nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>How to shopping</a></li>";
     $nahoru = "top";
     $razeni = 'Sort';
     $podleCeny = 'by price';
