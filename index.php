@@ -6,6 +6,12 @@
  * Time: 10:29
  */
 ini_set('error_reporting', E_ALL);
+
+if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1') {
+    define('WWW', 'http://localhost/horp');
+}else{
+    define('WWW', 'http://new.horp.cz');
+}
 session_start();
 $title = '';
 function __autoload($name){

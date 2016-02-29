@@ -7,11 +7,11 @@ return "
         <meta name='viewport' content='width=device-width; initial-scale=1.0'>
         <meta name='description' content='$meta'>
         <link rel='shortcut icon' href='images/horp_ico1.ico'>
-        <link rel='stylesheet' href='css/style.css' type='text/css' media='screen'/>
-		<link rel='stylesheet' href='css/style_tablet.css' type='text/css' media='handheld, only screen and (max-device-width: 1177px)'>
-		<link rel='stylesheet' href='css/style_mobile.css' type='text/css' media='handheld, only screen and (max-device-width: 720px)'>
+        <link rel='stylesheet' href='". WWW . "/css/style.css' type='text/css' media='screen'/>
+		<link rel='stylesheet' href='". WWW . "/css/style_tablet.css' type='text/css' media='handheld, only screen and (max-device-width: 1177px)'>
+		<link rel='stylesheet' href='". WWW . "/css/style_mobile.css' type='text/css' media='handheld, only screen and (max-device-width: 720px)'>
         <title>$title</title>
-        <link href='css/lightbox.css' rel='stylesheet' />
+        <link href='". WWW . "/css/lightbox.css' rel='stylesheet' />
         <style>
         nav [href *= '?page=$getPage']{
             /*background-color:rgba(212, 212, 212, 1);*/
