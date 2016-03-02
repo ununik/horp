@@ -1,12 +1,11 @@
 <?php
-return "
-<!doctype>
+return "<!doctype>
 <html>
     <head>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width; initial-scale=1.0'>
         <meta name='description' content='$meta'>
-        <link rel='shortcut icon' href='images/horp_ico1.ico'>
+        <link rel='shortcut icon' href='". WWW . "/images/horp_ico1.ico'>
         <link rel='stylesheet' href='". WWW . "/css/style.css' type='text/css' media='screen'/>
 		<link rel='stylesheet' href='". WWW . "/css/style_tablet.css' type='text/css' media='handheld, only screen and (max-device-width: 1177px)'>
 		<link rel='stylesheet' href='". WWW . "/css/style_mobile.css' type='text/css' media='handheld, only screen and (max-device-width: 720px)'>
@@ -33,7 +32,7 @@ return "
   ga('send', 'pageview');
 
 </script>
-    <div id='header'><a href='index.php'><h1><span>HORP</span></h1></a><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a href='index.php?page=$getPage@cz$language_link' id='language_cz'></a><a href='index.php?page=$getPage@en$language_link' id='language_en'></a></div>
+    <div id='header'><a href='index.php'><h1><span>HORP</span></h1></a><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a href='".WWW."/index.php?page=$getPage@cz$language_link' id='language_cz'></a><a href='".WWW."/index.php?page=$getPage@en$language_link' id='language_en'></a></div>
     <nav>$navigation</nav></div>
     </div>
     <div id='notice'></div>

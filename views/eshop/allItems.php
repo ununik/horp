@@ -8,7 +8,7 @@ for($n = 0; $n < $pocetRadku; $n++)
 	for($i = 0; $i < $pocetSloupcu; $i++)
 	{
 		if(count($Allitems) > $number){
-			$container .= "<td><a href='index.php?page=eshop&category={$Allitems[$number]['subcategory']}&id={$Allitems[$number]['id']}' title='{$Allitems[$number][$lang]}'><img src='images/eshop/foto/{$Allitems[$number]['subcategory']}/250/{$Allitems[$number]['img1']}'></a></td>";
+			$container .= "<td><a href='".WWW."/eshop/category/{$Allitems[$number]['subcategory']}/{$Allitems[$number]['id']}/' title='{$Allitems[$number][$lang]}'><img src='".WWW."/images/eshop/foto/{$Allitems[$number]['subcategory']}/250/{$Allitems[$number]['img1']}'></a></td>";
 			$number++;
 		} else {
 			$container .= "<td></td>";

@@ -15,10 +15,10 @@ $basket = "<h1>$kosik</h1>
 $basket .= "<table class='basket_table'><th class='nazev'>$nazev</th><th>$cenaZaKus<br><small>$bezDPH</small></th><th>$cenaZaKus<br><small>$sDPH</small></th><th>$pocetKusu</th><th>$cenaPrice<br><small>$bezDPH</small></th><th>$cenaPrice<br><small>$sDPH</small></th><th></th>";
 foreach($items as $item){
     $basket .= "<tr><td class='nazev'>";
-    		$basket .= "<a href='images/eshop/foto/{$item['categoryNumber']}/1000/{$item['img1']}' rel='lightbox[{$item['img1']}]'>";
-            $basket .= "<img src='images/eshop/foto/{$item['categoryNumber']}/30/{$item['img1']}' class='basket_nahled'>";
+    		$basket .= "<a href='".WWW."/images/eshop/foto/{$item['categoryNumber']}/1000/{$item['img1']}' rel='lightbox[{$item['img1']}]'>";
+            $basket .= "<img src='".WWW."/images/eshop/foto/{$item['categoryNumber']}/30/{$item['img1']}' class='basket_nahled'>";
             $basket .= "</a>";
-    $basket .= "<a href='index.php?page=eshop&category={$item['categoryNumber']}&id={$item['id']}'>{$item['item']} ({$item['category']})</a></td>
+    $basket .= "<a href='".WWW."/eshop/category/{$item['categoryNumber']}/{$item['id']}'>{$item['item']} ({$item['category']})</a></td>
                 <td class='cena'>{$item['cenaZaKusBezDPH']} {$menaArray[$basketItem['mena']]}</td>
                 <td class='cena'>{$item['cenaZaKusSDPH']} {$menaArray[$basketItem['mena']]}</td>
 

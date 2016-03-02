@@ -6,15 +6,15 @@
  * Time: 14:14
  */
 $body = "<h1>$subcategory[$lang]</h1>";
-$body .= "<div><b>$razeni:</b> $podleCeny: <a href='index.php?page=eshop&category={$subcategory['id']}&order=cena' class='vzestupne'></a><a href='index.php?page=eshop&category={$subcategory['id']}&order=cenaDESC' class='sestupne'></a> $podleVelikosti: <a href='index.php?page=eshop&category={$subcategory['id']}&order=velikost' class='vzestupne'></a><a href='index.php?page=eshop&category={$subcategory['id']}&order=velikostDESC' class='sestupne'></a>";
+$body .= "<div><b>$razeni:</b> $podleCeny: <a href='".WWW."/eshop/category/{$subcategory['id']}/order/cena/' class='vzestupne'></a><a href='".WWW."/eshop/category/{$subcategory['id']}/order/cenaDESC/' class='sestupne'></a> $podleVelikosti: <a href='".WWW."/eshop/category/{$subcategory['id']}/order/velikost/' class='vzestupne'></a><a href='".WWW."/eshop/category/{$subcategory['id']}/order/velikostDESC/' class='sestupne'></a>";
 if($eshop->pagesOfItems($items) > 1) {
     $body .= "<div id='strankovani_nahore'>Strana: ";
     for ($i = 1; $i <= $eshop->pagesOfItems($items); $i++) {
         if ($eshop->pageNumber == $i) {
-            $body .= "<a href='index.php?page=eshop&category={$subcategory['id']}&order=$order&pageNumber=$i' class='activePageNumber'>$i</a>";
+            $body .= "<a href='".WWW."/eshop/category/{$subcategory['id']}/order/$order/pageNumber/$i/' class='activePageNumber'>$i</a>";
 
         } else {
-            $body .= "<a href='index.php?page=eshop&category={$subcategory['id']}&order=$order&pageNumber=$i'>$i</a>";
+            $body .= "<a href='".WWW."/eshop/category/{$subcategory['id']}/order/$order/pageNumber/$i/'>$i</a>";
         }
     }
     $body .= "</div>";
@@ -34,28 +34,28 @@ for($i = $eshop->getFirstItemOnPage(); $i < $eshop->getLastItemOnPage($items); $
     }
      $body .= "<td rowspan='7' class='image_item'><div class='images_rightAlign'>";
         if($items[$i]['img1'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img1']}' rel='lightbox[{$items[$i]['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img1']}' class='obrazek'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img1']}' rel='lightbox[{$items[$i]['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img1']}' class='obrazek'>";
             $body .= "</a>";
         }
         if($items[$i]['img2'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img2']}' rel='lightbox[{$items[$i]['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img2']}' class='obrazek_nahled'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img2']}' rel='lightbox[{$items[$i]['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img2']}' class='obrazek_nahled'>";
             $body .= "</a>";
         }
         if($items[$i]['img3'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img3']}' rel='lightbox[{$items[$i]['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img3']}' class='obrazek_nahled'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img3']}' rel='lightbox[{$items[$i]['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img3']}' class='obrazek_nahled'>";
             $body .= "</a>";
         }
         if($items[$i]['img4'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img4']}' rel='lightbox[{$items[$i]['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img4']}' class='obrazek_nahled'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img4']}' rel='lightbox[{$items[$i]['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img4']}' class='obrazek_nahled'>";
             $body .= "</a>";
         }
         if($items[$i]['img5'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img5']}' rel='lightbox[{$items[$i]['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img5']}' class='obrazek_nahled'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/1000/{$items[$i]['img5']}' rel='lightbox[{$items[$i]['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img5']}' class='obrazek_nahled'>";
             $body .= "</a>";
         }
     $body .= "</div></td></tr>";
@@ -77,7 +77,7 @@ for($i = $eshop->getFirstItemOnPage(); $i < $eshop->getLastItemOnPage($items); $
     foreach($nextItem as $id){
     	if($id != ""){
 	    	$nextItem = $eshop->getItem($id);
-	    	$body .= "<a href='index.php?page=eshop&category={$nextItem['subcategory']}&id={$nextItem['id']}'><div class='doporuceni_polozka'><img src='images/eshop/foto/{$nextItem['subcategory']}/250/{$nextItem['img1']}' class='next_item_obrazek_nahled'><div>$nextItem[$lang]</div></div></a>";
+	    	$body .= "<a href='".WWW."/eshop/category/{$nextItem['subcategory']}/{$nextItem['id']}'><div class='doporuceni_polozka'><img src='".WWW."/images/eshop/foto/{$nextItem['subcategory']}/250/{$nextItem['img1']}' class='next_item_obrazek_nahled'><div>$nextItem[$lang]</div></div></a>";
     	}
     }
     $body .= "</div></td></tr>";
@@ -90,19 +90,19 @@ if($eshop->pagesOfItems($items) > 1) {
     $body .= "<div id='strankovani'>";
     if($eshop->pageNumber != 1){
         $previousPage = $eshop->pageNumber - 1;
-        $body .= "<a href='index.php?page=eshop&category={$subcategory['id']}&order=$order&pageNumber=$previousPage' class='previousAndNextPage'><</a>";
+        $body .= "<a href='".WWW."/eshop/category/{$subcategory['id']}/order/$order/pageNumber/$previousPage/' class='previousAndNextPage'><</a>";
     }
     for ($i = 1; $i <= $eshop->pagesOfItems($items); $i++) {
         if ($eshop->pageNumber == $i) {
-            $body .= "<a href='index.php?page=eshop&category={$subcategory['id']}&order=$order&pageNumber=$i' class='activePageNumber'>$i</a>";
+            $body .= "<a href='".WWW."/eshop/category/{$subcategory['id']}/order/$order/pageNumber/$i/' class='activePageNumber'>$i</a>";
 
         } else {
-            $body .= "<a href='index.php?page=eshop&category={$subcategory['id']}&order=$order&pageNumber=$i'>$i</a>";
+            $body .= "<a href='".WWW."/eshop/category/{$subcategory['id']}/order/$order/pageNumber/$i/'>$i</a>";
         }
     }
     if($eshop->pageNumber != $eshop->pagesOfItems($items)){
         $nextPage = $eshop->pageNumber + 1;
-        $body .= "<a href='index.php?page=eshop&category={$subcategory['id']}&order=$order&pageNumber=$nextPage' class='previousAndNextPage'>></a>";
+        $body .= "<a href='".WWW."/eshop/category/{$subcategory['id']}/order/$order/pageNumber/$nextPage/' class='previousAndNextPage'>></a>";
     }
     $body .= "</div>";
 }

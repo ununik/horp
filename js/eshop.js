@@ -1,6 +1,6 @@
 function addToBasket(id){
     var count = document.getElementById('kosik_'+id).value;
-    ajaxCall('controllers/eshop/addToBasket.php?id='+id+'&count='+count, function(xhr) {
+    ajaxCall('/controllers/eshop/addToBasket.php?id='+id+'&count='+count, function(xhr) {
         document.getElementById('successMessage').innerHTML = xhr.responseText;
         document.getElementById('successMessage').style.left = "0px";
         showBasket();
@@ -10,7 +10,7 @@ function addToBasket(id){
 
 }
 function deleteFromBasket(id){
-    ajaxCall('controllers/eshop/deleteFromBasket.php?id='+id, function(xhr) {
+    ajaxCall('/controllers/eshop/deleteFromBasket.php?id='+id, function(xhr) {
         document.getElementById('successMessage').innerHTML = xhr.responseText;
         document.getElementById('successMessage').style.left = "0px";
         setTimeout(function(){ document.getElementById('successMessage').style.left = "-331px"; }, 3000);
@@ -18,14 +18,14 @@ function deleteFromBasket(id){
     location.reload();
 }
 function showBasket(){
-    ajaxCall('controllers/eshop/showBasket.php', function(xhr) {
+    ajaxCall('/controllers/eshop/showBasket.php', function(xhr) {
         document.getElementById('eshop_panel').innerHTML = xhr.responseText;
         document.getElementById('eshop_panel').style.right = "-20px";
     })
 }
 function addPoznamka(){
     text = document.getElementById('eshop_poznamka').value;
-    ajaxCall('controllers/eshop/addPoznamka.php?text='+text, function(xhr) {
+    ajaxCall('/controllers/eshop/addPoznamka.php?text='+text, function(xhr) {
         document.getElementById('poznamka_saved').innerHTML = xhr.responseText;
         setTimeout(function(){ document.getElementById('poznamka_saved').innerHTML = ""; }, 5000);
     })
@@ -38,13 +38,13 @@ function nextstep(div){
 }
 function changeDoprava(radio){
     radio = radio.value;
-    ajaxCall('controllers/eshop/changeDoprava.php?doprava='+radio, function(xhr) {
+    ajaxCall('/controllers/eshop/changeDoprava.php?doprava='+radio, function(xhr) {
     })
 }
 function udaje_change(input){
     name = input.name;
     value = input.value;
-        ajaxCall('controllers/eshop/changeUdaje.php?input='+name+'&value='+value, function(xhr) {
+        ajaxCall('/controllers/eshop/changeUdaje.php?input='+name+'&value='+value, function(xhr) {
     })
 }
 function udaje_change_checkbox(input){
@@ -54,7 +54,7 @@ function udaje_change_checkbox(input){
     } else {
     	value = 0;
     }
-        ajaxCall('controllers/eshop/changeUdaje.php?input='+name+'&value='+value, function(xhr) {
+        ajaxCall('/controllers/eshop/changeUdaje.php?input='+name+'&value='+value, function(xhr) {
     })
 }
 function pocetKsMinus(id){
@@ -91,7 +91,7 @@ function saveNewCount(span, id){
     visible[0].innerHTML = newCount
     visible[1].style.display = "inline-block";
     visible[2].style.display = "none";
-    ajaxCall('controllers/eshop/changeCount.php?newCount='+newCount+'&id='+id, function(xhr) {
+    ajaxCall('/controllers/eshop/changeCount.php?newCount='+newCount+'&id='+id, function(xhr) {
         location.reload();
     })
 }
@@ -100,7 +100,7 @@ function goNahoru(){
 }
 function faktura(){
 	if(validateData() == true) {
-	    ajaxCall('controllers/eshop/faktura.php', function(xhr) {
+	    ajaxCall('/controllers/eshop/faktura.php', function(xhr) {
 	        document.getElementById('eshop_body').innerHTML = xhr.responseText;
 	    })
 	} else {
@@ -116,10 +116,10 @@ function tabletMenu(){
 	}
 }
 function objednat(){
-	 ajaxCall('controllers/eshop/mail.php', function(xhr) {
+	 ajaxCall('/controllers/eshop/mail.php', function(xhr) {
 		 //document.getElementById('eshop_body').innerHTML = xhr.responseText;
 	    })
-	    window.location.href = "index.php?page=eshop&subpage=end";
+	    window.location.href = "/eshop/end";
 }
 function fullScreen(){
 	var allItems = document.getElementById('allItems');
@@ -158,7 +158,7 @@ function fullScreen(){
 	}
 }
 function changeCurrency(currency){
-	ajaxCall('controllers/eshop/changeUdaje.php?input=mena&value='+currency, function(xhr) {
+	ajaxCall('/controllers/eshop/changeUdaje.php?input=mena&value='+currency, function(xhr) {
     })
     location.reload();
 }

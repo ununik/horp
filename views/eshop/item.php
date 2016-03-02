@@ -19,28 +19,28 @@ $body = "<h1>$item[$lang]</h1>";
     }
      $body .= "<td rowspan='7' class='image_item'><div class='images_rightAlign'>";
         if($item['img1'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$item['subcategory']}/1000/{$item['img1']}' rel='lightbox[{$item['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/250/{$item['img1']}' class='obrazek'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$item['subcategory']}/1000/{$item['img1']}' rel='lightbox[{$item['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$item['subcategory']}/250/{$item['img1']}' class='obrazek'>";
             $body .= "</a>";
         }
         if($item['img2'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$item['subcategory']}/1000/{$item['img2']}' rel='lightbox[{$item['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/250/{$item['img2']}' class='obrazek_nahled'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$item['subcategory']}/1000/{$item['img2']}' rel='lightbox[{$item['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$item['subcategory']}/250/{$item['img2']}' class='obrazek_nahled'>";
             $body .= "</a>";
         }
         if($item['img3'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$item['subcategory']}/1000/{$item['img3']}' rel='lightbox[{$item['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/250/{$item['img3']}' class='obrazek_nahled'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$item['subcategory']}/1000/{$item['img3']}' rel='lightbox[{$item['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$item['subcategory']}/250/{$item['img3']}' class='obrazek_nahled'>";
             $body .= "</a>";
         }
         if($item['img4'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$item['subcategory']}/1000/{$item['img4']}' rel='lightbox[{$item['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/250/{$item['img4']}' class='obrazek_nahled'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$item['subcategory']}/1000/{$item['img4']}' rel='lightbox[{$item['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$item['subcategory']}/250/{$item['img4']}' class='obrazek_nahled'>";
             $body .= "</a>";
         }
         if($item['img5'] != "" ) {
-            $body .= "<a href='images/eshop/foto/{$item['subcategory']}/1000/{$item['img5']}' rel='lightbox[{$item['img1']}]'>";
-            $body .= "<img src='images/eshop/foto/{$item['subcategory']}/250/{$item['img5']}' class='obrazek_nahled'>";
+            $body .= "<a href='".WWW."/images/eshop/foto/{$item['subcategory']}/1000/{$item['img5']}' rel='lightbox[{$item['img1']}]'>";
+            $body .= "<img src='".WWW."/images/eshop/foto/{$item['subcategory']}/250/{$item['img5']}' class='obrazek_nahled'>";
             $body .= "</a>";
         }
     $body .= "</div></td></tr>";
@@ -62,7 +62,7 @@ $body = "<h1>$item[$lang]</h1>";
     foreach($nextItem as $id){
     	if($id != ""){
 	    	$nextItem = $eshop->getItem($id);
-	    	$body .= "<a href='index.php?page=eshop&category={$nextItem['subcategory']}&id={$nextItem['id']}'><div class='doporuceni_polozka'><img src='images/eshop/foto/{$nextItem['subcategory']}/250/{$nextItem['img1']}' class='next_item_obrazek_nahled'><div>$nextItem[$lang]</div></div></a>";
+	    	$body .= "<a href='".WWW."/eshop/category/{$nextItem['subcategory']}/{$nextItem['id']}/'><div class='doporuceni_polozka'><img src='".WWW."/images/eshop/foto/{$nextItem['subcategory']}/250/{$nextItem['img1']}' class='next_item_obrazek_nahled'><div>$nextItem[$lang]</div></div></a>";
     	}
     }
     $body .= "</div></td></tr>";

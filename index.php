@@ -10,7 +10,7 @@ ini_set('error_reporting', E_ALL);
 if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1') {
     define('WWW', 'http://localhost/horp');
 }else{
-    define('WWW', 'http://new.horp.cz');
+    define('WWW', 'http://test.horp.cz');
 }
 session_start();
 $title = '';
@@ -24,9 +24,9 @@ if(isset($_GET['page']) && $_GET['page'] != ""){
 }else{
     $getPage = 'home';
 }
-$javascript = "<script src='js/ajax.js'></script>";
-$javascript .= '<script src="js/jquery-1.7.2.min.js"></script>
-                <script src="js/lightbox.js"></script>';
+$javascript = "<script src='".WWW."/js/ajax.js'></script>";
+$javascript .= '<script src="'.WWW.'/js/jquery-1.7.2.min.js"></script>
+                <script src="'.WWW.'/js/lightbox.js"></script>';
 $language = explode('@', $getPage);
 if(isset($language[1])){
     switch($language[1]){
