@@ -12,7 +12,7 @@ return "<!doctype>
         <title>$title</title>
         <link href='". WWW . "/css/lightbox.css' rel='stylesheet' />
         <style>
-        nav [href *= '?page=$getPage']{
+        nav [href *=\"" . $getPage . "\"]{
             /*background-color:rgba(212, 212, 212, 1);*/
             border-top: 1px solid #0f1315;
             border-left: 1px solid #0f1315;
@@ -32,7 +32,7 @@ return "<!doctype>
   ga('send', 'pageview');
 
 </script>
-    <div id='header'><a href='index.php'><h1><span>HORP</span></h1></a><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a href='".WWW."/index.php?page=$getPage@cz$language_link' id='language_cz'></a><a href='".WWW."/index.php?page=$getPage@en$language_link' id='language_en'></a></div>
+    <div id='header'><a href='".WWW."'><h1><span>HORP</span></h1></a><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a href='".WWW."/index.php?page=$getPage@cz$language_link' id='language_cz'></a><a href='".WWW."/index.php?page=$getPage@en$language_link' id='language_en'></a></div>
     <nav>$navigation</nav></div>
     </div>
     <div id='notice'></div>
