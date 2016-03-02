@@ -1,0 +1,17 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^([^/]+)$    ./index.php?page=$1
+RewriteRule ^([^/]+)/$    ./index.php?page=$1
+RewriteRule ^([^/]+)/([^/]+)/$    ./index.php?page=$1&subpage=$2
+RewriteRule ^([^/]+)/([^/]+)$    ./index.php?page=$1&subpage=$2
+RewriteRule ^eshop/category/([^/]+)$    ./index.php?page=eshop&category=$1
+RewriteRule ^eshop/category/([^/]+)/$    ./index.php?page=eshop&category=$1
+RewriteRule ^eshop/category/([^/]+)/([^/]+)$    ./index.php?page=eshop&category=$1&id=$2
+RewriteRule ^eshop/category/([^/]+)/([^/]+)/$    ./index.php?page=eshop&category=$1&id=$2
+
+
+RewriteRule ^eshop/page/(.*)$    ./index.php?page=eshop&subpage=$1

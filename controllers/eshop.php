@@ -10,7 +10,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 }else{
     $lang = 'cz';
 }
-$javascript .= "<script src='js/eshop.js'></script>";
+$javascript .= "<script src='".WWW."/js/eshop.js'></script>";
 /**
  * NAVIGATION
  */
@@ -20,7 +20,7 @@ $eshop_nav = $eshop->getAllCategories();
 $basketItem = $eshop->getBasket($ip);
 
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
-    $eshop_navigation = "<li class='menuEshop nav_basket'><a href='index.php?page=eshop&subpage=basket'>Basket</a></li>";
+    $eshop_navigation = "<li class='menuEshop nav_basket'><a href='".WWW."/eshop/basket'>Basket</a></li>";
     //$eshop_navigation .= "<li class='menuEshop nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>How to shopping</a></li>";
     $nahoru = "top";
     $razeni = 'Sort';
@@ -38,9 +38,9 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
     $languageForDb = "EN";
     $mena = 'EUR';
 }else{
-    $eshop_navigation = "<li  class='menuEshop'><a href='index.php?page=eshop&subpage=basket'>Košík</a></li>";
-    $eshop_navigation .= "<li  class='menuEshop'><a href='index.php?page=eshop&subpage=jak_nakupovat'>Jak nakupovat</a></li>";
-    $eshop_navigation .= "<li class='menuEshop nav_basket'><a href='index.php?page=eshop&subpage=obchodni_podminky'>Obchodní podmínky</a></li>";
+    $eshop_navigation = "<li  class='menuEshop'><a href='".WWW."/eshop/basket'>Košík</a></li>";
+    $eshop_navigation .= "<li  class='menuEshop'><a href='".WWW."/eshop/jak_nakupovat'>Jak nakupovat</a></li>";
+    $eshop_navigation .= "<li class='menuEshop nav_basket'><a href='".WWW."/eshop/obchodni_podminky'>Obchodní podmínky</a></li>";
     $nahoru = "nahoru";
     $razeni = 'Řazení';
     $podleCeny = 'podle ceny';
@@ -69,9 +69,9 @@ foreach($eshop_nav as $nav){
         foreach($subcategory as $subcategory){
         	if($subcategory["active"] != false) {
 	            if(isset($_GET['category']) && $_GET['category'] == $subcategory["id"]){
-	                $eshop_navigation .= "<li class='active_eshop_navigation'><a href='index.php?page=eshop&category={$subcategory["id"]}'>$subcategory[$lang]</a></li>";
+	                $eshop_navigation .= "<li class='active_eshop_navigation'><a href='".WWW."/eshop/category/{$subcategory["id"]}/'>$subcategory[$lang]</a></li>";
 	            }else{
-	                $eshop_navigation .= "<li><a href='index.php?page=eshop&category={$subcategory["id"]}'>$subcategory[$lang]</a></li>";
+	                $eshop_navigation .= "<li><a href='".WWW."/eshop/category/{$subcategory["id"]}/'>$subcategory[$lang]</a></li>";
 	            }
         	}
         }

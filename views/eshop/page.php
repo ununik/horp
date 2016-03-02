@@ -5,7 +5,7 @@
  * Date: 05.10.2015
  * Time: 12:15
  */
-$container = "<a href='index.php?page=eshop&subpage=basket'><div id='eshop_panel'></div></a><script>showBasket()</script><ul id='eshop_navigation'>$eshop_navigation<div id='menuButton' onclick='tabletMenu()'>MENU</div></ul><div id='successMessage'></div>";
+$container = "<a href='".WWW."/eshop/basket/'><div id='eshop_panel'></div></a><script>showBasket()</script><ul id='eshop_navigation'>$eshop_navigation<div id='menuButton' onclick='tabletMenu()'>MENU</div></ul><div id='successMessage'></div>";
 
 $container .= "<div id='eshop_body'>$body</div>";
 

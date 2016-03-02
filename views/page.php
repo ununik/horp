@@ -46,7 +46,7 @@ return "
     <div id='background'></div>
     <script>
         var background = document.getElementById('background');
-        background.style.backgroundImage = 'url(images/page/$background)'
+        background.style.backgroundImage = 'url(".WWW."/images/page/$background)'
     </script>
     </body>
 </html>";
