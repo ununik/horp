@@ -764,7 +764,8 @@ nav span {
 #vyberMenyDiv{	
 	margin: 0px auto;
 	display: block;	
-	width: 400px;
+	position: absolute;
+	margin-bottom: 150px;
 }
 
 #galleryTable{
@@ -846,4 +847,87 @@ nav span {
 	width: 100%;
 	height: auto;
 	text-align: center;
+}
+.itemListTable {
+	margin-top: 35px;
+	width: 100%;
+	border-collapse: collapse;
+}
+.listItem{
+	background-color: black;
+	max-width: 250px;
+	min-height: 200px;
+	border-radius: 5px;	
+	clear: both;
+}
+.listItem h4{
+	text-align: center;
+	color: white;
+}
+.obrazek_nahled_table {
+	max-width: 100px;
+	padding: 0px 0px 10px 10px;
+	float: left;
+}
+.tableForItem {
+	max-width: 100%;
+	width: 50%;
+	float: right;
+	border-collapse: collapse;
+	color: white;
+	margin: 5px 6px 5px 0px;
+}
+.tableForItem td{
+	vertical-align: top;
+}	
+.pocetKusuItemList {
+	width: 40px;
+	border-radius: 5px;
+	color: #465747;
+	float: left;
+}
+.popisItemList {
+	font-size: 13px;
+	text-align: right;
+	padding-right: 3px;
+}
+.pocetKsTd {
+	padding-top: 8px;
+	vertical-align: middle;
+	width: 100%;
+}
+.pocetKusuAll{
+	witdh: 45px;
+	margin-right: 2px;
+	float: right;
+	margin-top: 5px;
+}
+.pocetKsTd .basket{
+	margin-right: 32px;
+	margin-top: 5px;
+	float: right;
+	display: inline-block;
+    background-color: transparent;
+    border:none;
+    outline: none;
+    background-image: url(../images/eshop/basket.png);
+    background-size: 40px 35px;
+    width: 40px;
+    height: 35px;
+    cursor: pointer;
+    text-indent: -9999px;
+    clear: right;
+}
+.viceInfo_itemlist {
+	display: block;
+	width: 100%;
+	clear: both;
+	color: white;
+	margin: 15px;
+}
+.viceInfo_itemlist a{
+	color: white;
+}
+.cenaItemList {
+	font-size: 13px;
 }

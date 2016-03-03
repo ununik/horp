@@ -107,14 +107,6 @@ function faktura(){
 		goNahoru();
 	}
 }
-
-function tabletMenu(){
-	if(document.getElementById("eshop_navigation").style.top != "-320px"){
-			document.getElementById("eshop_navigation").style.top = "-320px";	
-	}else{
-		document.getElementById("eshop_navigation").style.top = '0px';
-	}
-}
 function objednat(){
 	 ajaxCall('/controllers/eshop/mail.php', function(xhr) {
 		 //document.getElementById('eshop_body').innerHTML = xhr.responseText;

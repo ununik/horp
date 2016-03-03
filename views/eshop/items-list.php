@@ -20,11 +20,46 @@ if($eshop->pagesOfItems($items) > 1) {
     $body .= "</div>";
 }
 $body .= "<div class='horizontal_line'></div>";
+$body .= '<table class="itemListTable">';
+$colNumber = 0;
 for($i = $eshop->getFirstItemOnPage(); $i < $eshop->getLastItemOnPage($items); $i++){
+	if ($colNumber == 0){
+		$body .= '<tr>';
+	}
     $cenaBezDPH = number_format($items[$i]['cenaBezDPH'.$basketItem['mena']], 2, '.', '');
     $cenaSDPH = number_format($items[$i]['cenaSDPH'.$basketItem['mena']], 2, '.', '');
+//   Telo bunky 
+    $body .= "<td>";
+    $body .= "<div class='listItem'>";
+    $body .= "<h4>{$items[$i][$lang]}</h4>";
+    $body .= "<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img1']}' class='obrazek_nahled_table'>";
+    $body .= "<table class='tableForItem'><tr><td class='popisItemList'>$cenaZaKus:<br><small>($bezDPH)</small></td><td class='cenaItemList'>$cenaBezDPH {$menaArray[$basketItem['mena']]}</td></tr>";
+    $body .= "<tr><td class='popisItemList'>$cenaZaKus:<br><small>($sDPH)</small></td><td class='cenaItemList'>$cenaSDPH {$menaArray[$basketItem['mena']]}</td></tr>";
+    $body .= "<tr><td colspan='2' class='pocetKsTd'>
+    <div class='pocetKusuAll'><input type='text' class='pocetKusuItemList' onkeypress='validateNumber(event)' id='kosik_{$items[$i]['id']}' value='1'>
+    <div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$items[$i]['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$items[$i]['id']}\")'></div></div>
+    <button onclick='addToBasket({$items[$i]['id']})' class='basket'>Přidat do košíku</button>
+    </td></tr></table>";
+    $body .= "<a href='".WWW."/eshop/category/{$items[$i]['subcategory']}/{$items[$i]['id']}/' class='viceInfo_itemlist'>vice informaci</a>";
+    $body .= "</div>";
+    $body .= "</td>";
+//  konec tela bunky  
+    if ($colNumber >= 2){
+    	$body .= '</tr>';
+    	$colNumber = 0;
+    } else {
+    	$colNumber++;
+    }
+}  
+if($colNumber < 2) {  
+	for($colNumber; $colNumber < 3; $colNumber++){
+		$body .= '<td></td>';
+	}
+	$body .= '</tr>';
+}
+$body .= '</table>';
 
-    $body .= "<div class='item'>";
+    /*$body .= "<div class='item'>";
     $body .= "<h3>{$items[$i][$lang]}</h3>";
     $body .= "<table class='itemList'>";
     if($items[$i]['montazniPrvek'.$languageForDb] != "" ){
@@ -84,8 +119,7 @@ for($i = $eshop->getFirstItemOnPage(); $i < $eshop->getLastItemOnPage($items); $
     $body .= "</table>";
 
 
-    $body .= '</div>';
-}
+    $body .= '</div>';*/
 if($eshop->pagesOfItems($items) > 1) {
     $body .= "<div id='strankovani'>";
     if($eshop->pageNumber != 1){
