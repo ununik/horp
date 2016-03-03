@@ -855,27 +855,32 @@ nav span {
 }
 .listItem{
 	background-color: black;
-	max-width: 250px;
+	width: 90%;
+	min-width: 155px;
+	max-width: 275px;
 	min-height: 200px;
 	border-radius: 5px;	
 	clear: both;
+	display: inline-block;
+	text-align: right;
+	margin-bottom: 15px;
 }
 .listItem h4{
 	text-align: center;
 	color: white;
 }
 .obrazek_nahled_table {
-	max-width: 100px;
-	padding: 0px 0px 10px 10px;
-	float: left;
+	width: 150px;
+	margin: 5px auto;
+	display: block;
 }
 .tableForItem {
 	max-width: 100%;
-	width: 50%;
-	float: right;
+	clear: both;
 	border-collapse: collapse;
 	color: white;
-	margin: 5px 6px 5px 0px;
+	margin: 5px auto 5px auto;
+	display: block;
 }
 .tableForItem td{
 	vertical-align: top;
@@ -885,9 +890,12 @@ nav span {
 	border-radius: 5px;
 	color: #465747;
 	float: left;
+	border: none;
+	padding: 3px;
+	outline: none;
 }
 .popisItemList {
-	font-size: 13px;
+	font-size: 16px;
 	text-align: right;
 	padding-right: 3px;
 }
@@ -899,13 +907,12 @@ nav span {
 .pocetKusuAll{
 	witdh: 45px;
 	margin-right: 2px;
-	float: right;
-	margin-top: 5px;
+	margin-top: 20px;
 }
 .pocetKsTd .basket{
 	margin-right: 32px;
-	margin-top: 5px;
-	float: right;
+	position:relative;
+	top: -5px;
 	display: inline-block;
     background-color: transparent;
     border:none;
@@ -916,18 +923,28 @@ nav span {
     height: 35px;
     cursor: pointer;
     text-indent: -9999px;
-    clear: right;
 }
 .viceInfo_itemlist {
 	display: block;
 	width: 100%;
 	clear: both;
-	color: white;
-	margin: 15px;
+	
+	margin-bottom: 15px;
+	position: relative;
+	left: -10px;
 }
-.viceInfo_itemlist a{
+#content .viceInfo_itemlist {
 	color: white;
 }
 .cenaItemList {
-	font-size: 13px;
+	font-size: 17px;
+}
+.itemListLEFT{
+	text-align: right;
+}
+.itemListCENTER {
+	text-align: center;
+}
+.itemListRIGHT{
+	text-align: left;
 }

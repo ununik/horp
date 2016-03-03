@@ -29,7 +29,22 @@ for($i = $eshop->getFirstItemOnPage(); $i < $eshop->getLastItemOnPage($items); $
     $cenaBezDPH = number_format($items[$i]['cenaBezDPH'.$basketItem['mena']], 2, '.', '');
     $cenaSDPH = number_format($items[$i]['cenaSDPH'.$basketItem['mena']], 2, '.', '');
 //   Telo bunky 
-    $body .= "<td>";
+switch ($colNumber){
+        case 0:
+            $body .= '<td class="itemListLEFT">';
+            break;
+            
+        case 1:
+            $body .= '<td class="itemListCENTER">';
+            break;
+                
+        case 2:
+            $body .= '<td class="itemListRIGHT">';
+            break;
+            
+        default:
+            $body .= '<td>';
+    }
     $body .= "<div class='listItem'>";
     $body .= "<h4>{$items[$i][$lang]}</h4>";
     $body .= "<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img1']}' class='obrazek_nahled_table'>";
@@ -40,7 +55,7 @@ for($i = $eshop->getFirstItemOnPage(); $i < $eshop->getLastItemOnPage($items); $
     <div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$items[$i]['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$items[$i]['id']}\")'></div></div>
     <button onclick='addToBasket({$items[$i]['id']})' class='basket'>Přidat do košíku</button>
     </td></tr></table>";
-    $body .= "<a href='".WWW."/eshop/category/{$items[$i]['subcategory']}/{$items[$i]['id']}/' class='viceInfo_itemlist'>vice informaci</a>";
+    $body .= "<a href='".WWW."/eshop/category/{$items[$i]['subcategory']}/{$items[$i]['id']}/' class='viceInfo_itemlist'>...vice informaci</a>";
     $body .= "</div>";
     $body .= "</td>";
 //  konec tela bunky  
