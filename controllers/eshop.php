@@ -37,6 +37,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
     $daleDoporucujeme = 'Recommends';
     $languageForDb = "EN";
     $mena = 'EUR';
+    $viceInformaci = 'more';
 }else{
     $eshop_navigation = "<li  class='menuEshop'><a href='".WWW."/eshop/basket'>Košík</a></li>";
     $eshop_navigation .= "<li  class='menuEshop'><a href='".WWW."/eshop/jak_nakupovat'>Jak nakupovat</a></li>";
@@ -56,6 +57,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
     $daleDoporucujeme = 'Dále doporučujeme';
     $languageForDb = "";
     $mena = 'Kč';
+    $viceInformaci = 'více informací';
 }
 $menaArray = array('' => 'Kč', 'EN' => 'EUR');
 $i = 0;

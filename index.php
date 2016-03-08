@@ -25,28 +25,10 @@ if(isset($_GET['page']) && $_GET['page'] != ""){
     $getPage = 'home';
 }
 $javascript = "<script src='".WWW."/js/ajax.js'></script>";
+$javascript .= "<script src='".WWW."/js/language.js'></script>";
 $javascript .= '<script src="'.WWW.'/js/jquery-1.7.2.min.js"></script>
                 <script src="'.WWW.'/js/lightbox.js"></script>';
-$language = explode('@', $getPage);
-if(isset($language[1])){
-    switch($language[1]){
-        case 'en':
-            $_SESSION['horp']['language'] = 'en';
-            break;
-
-        default:
-            $_SESSION['horp']['language'] = 'cz';
-            break;
-    }
-    $getPage = $language[0];
-}
-$language_link = "";
 $background = "background1.png";
-foreach($_GET as $get => $value){
-    if($get != "page"){
-        $language_link .= "&$get=$value";
-    }
-}
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
     $subtitle = 'Climbing holds production';
 }else{
