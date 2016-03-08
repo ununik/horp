@@ -68,7 +68,15 @@ $body = "<h1>$item[$lang]</h1>";
     $body .= "</div></td></tr>";
     $body .= "</table>";
 
-
+    $body .= "<div id='dotazDIV'>";
+    $body .= "<h4>Dotaz na tento produkt:</h4>";
+    $body .= "<table id='table_dotaz'>"
+            ."<tr><td class='table_dotaz_left'>Jmeno:</td><td><input type='text' class='table_dotaz_input' id='table_dotaz_jmeno'></td></tr>"
+            ."<tr><td  class='table_dotaz_left'>Email:</td><td><input type='text' class='table_dotaz_input' id='table_dotaz_email'></td></tr>"
+            ."<tr><td colspan='2'>Dotaz:<br><textarea id='table_dotaz_message'></textarea></td></tr>"
+            ."<tr><td></td><td><input type='submit' value='Odeslat' onclick='send_dotaz(\"{$item['id']}\")' id='table_dotaz_submit'></td></tr>";
+    $body .= "</table>";
+    $body .= "</div>";
     $body .= '</div>';
 
 return $body;

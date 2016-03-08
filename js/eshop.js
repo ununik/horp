@@ -192,3 +192,31 @@ function changeItemsOnPage(select) {
 		location.reload();
     })
 }
+
+function send_dotaz(id) {
+	var mypostrequest=new ajaxRequest()
+	mypostrequest.onreadystatechange=function(){
+	 if (mypostrequest.readyState==4){
+	  if (mypostrequest.status==200 || window.location.href.indexOf("http")==-1){
+		  
+		  document.getElementById('dotazDIV').innerHTML = '<h4>Váš dotaz byl odeslán</h4>';
+	  }
+	  else{
+	   alert("An error has occured making the request")
+	  }
+	 }
+	}
+	var jmeno = document.getElementById('table_dotaz_jmeno').value;
+	var email = document.getElementById('table_dotaz_email').value;
+	var message = document.getElementById('table_dotaz_message').value;
+	if(jmeno=='' || email=='' || message=='') {
+		alert('Musí být vyplněná všechna pole.')
+	} else if(validateEmail(email) == false){
+		alert('Email má špatný tvar.')
+	} else {
+		parameters = 'id='+id+'&jmeno='+jmeno+'&email='+email+'&message='+message;
+		mypostrequest.open("POST", "/controllers/eshop/send_dotaz.php", true)
+		mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		mypostrequest.send(parameters)
+	}
+}

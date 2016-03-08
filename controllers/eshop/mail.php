@@ -203,9 +203,7 @@ $tabulkaFaktura
 </html>";
 $subject = "({$basket['jmeno']} {$basket['prijmeni']}) objednavka na horp.cz";
 mail('ununik@gmail.com', "$subject", $content, $header);
-if(substr(strtolower(trim($basket['jmeno'])), 0, 6) != '[test]' || substr(strtolower(trim($basket['prijmeni'])), 0, 6) != '[test]') {
-	mail('horp@seznam.cz', "$subject", $content, $header);	
-}
+mail('horp@seznam.cz', "$subject", $content, $header);	
 
 $eshop->addMailingContact($basket['mail'], $basket['mailing'], $basket['jmeno'], $basket['prijmeni'], $lang);
 $eshop->done($ip);

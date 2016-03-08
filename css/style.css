@@ -961,3 +961,40 @@ nav span {
     color: #465747;
     width: 50px;
 }
+#table_dotaz {
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 35px;
+}
+.table_dotaz_left {
+	text-align: right;
+	padding-right: 6px;
+	width: 90px;
+}
+#table_dotaz_message {
+	padding: 2px 3px;
+	width: 100%;
+	min-height: 160px;
+	margin: 0px 50px 10px 10px;
+	border-radius: 4px;
+    background-color: #9b9e84;
+    color: #465747;
+    border: none;
+}
+.table_dotaz_input {
+	padding: 2px 3px;
+	border: none;
+	width: 250px;
+	border-radius: 4px;
+    background-color: #9b9e84;
+    color: #465747;
+}
+#table_dotaz_submit{
+	padding: 5px 20px;
+	border: none;
+	border-radius: 4px;
+    background-color: #9b9e84;
+    color: #465747;
+    font-weight: bold;	
+    font-size: 16px;
+}
