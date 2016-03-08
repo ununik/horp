@@ -186,3 +186,9 @@ function validateData() {
 	
 	return NoErr;
 }
+function changeItemsOnPage(select) {
+	count = select.value;
+	ajaxCall('/controllers/eshop/changeItemsOnPage.php?count='+count, function(xhr) {
+		location.reload();
+    })
+}

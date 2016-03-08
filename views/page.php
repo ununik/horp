@@ -29,7 +29,7 @@ return "<!doctype>
   ga('send', 'pageview');
 
 </script>
-    <div id='header'><a href='".WWW."'><h1><span>HORP</span></h1></a><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a href='".WWW."/index.php?page=$getPage@cz$language_link' id='language_cz'></a><a href='".WWW."/index.php?page=$getPage@en$language_link' id='language_en'></a></div>
+    <div id='header'><a href='".WWW."'><h1><span>HORP</span></h1></a><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a onclick='changeLanguage(\"cz\")' id='language_cz'></a><a onclick='changeLanguage(\"en\")' id='language_en'></a></div>
     <nav>$navigation</nav></div>
     </div>
     <div id='notice'></div>

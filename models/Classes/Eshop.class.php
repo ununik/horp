@@ -8,7 +8,7 @@
  */
 class Eshop extends Connection
 {
-    public $titlesOnPage = 15;
+    public $titlesOnPage = 6;
     public $pageNumber = 1;
 
     public function pagesOfItems($items){

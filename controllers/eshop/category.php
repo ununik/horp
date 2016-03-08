@@ -15,6 +15,15 @@ if(isset($_GET['pageNumber']) && $_GET['pageNumber']!=""){
 
 $title = $subcategory[$lang] . ' | ';
 
-
+$itemsOnPage = array(6, 12, 21, 45, 60, 90);
+$itemOnPageOptions = '';
+foreach($itemsOnPage as $item) {
+    $itemOnPageOptions .= '<option value="' . $item .'" ';
+    if(isset($_SESSION['itemsOnPage']) && $_SESSION['itemsOnPage'] == $item) {
+        $itemOnPageOptions .= 'selected';
+        $eshop->titlesOnPage = $item;
+    }
+    $itemOnPageOptions .= '>' . $item . '</option>';
+}
 
 return include_once('views/eshop/items-list.php');

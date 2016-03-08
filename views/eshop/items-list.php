@@ -7,8 +7,9 @@
  */
 $body = "<h1>$subcategory[$lang]</h1>";
 $body .= "<div><b>$razeni:</b> $podleCeny: <a href='".WWW."/eshop/category/{$subcategory['id']}/order/cena/' class='vzestupne'></a><a href='".WWW."/eshop/category/{$subcategory['id']}/order/cenaDESC/' class='sestupne'></a> $podleVelikosti: <a href='".WWW."/eshop/category/{$subcategory['id']}/order/velikost/' class='vzestupne'></a><a href='".WWW."/eshop/category/{$subcategory['id']}/order/velikostDESC/' class='sestupne'></a>";
+$body .= "<div id='strankovani_nahore'><span class='pocetPolozekNaStranu'>Počet položek na stránku: <select onchange='changeItemsOnPage(this)'>$itemOnPageOptions</select></span>";
 if($eshop->pagesOfItems($items) > 1) {
-    $body .= "<div id='strankovani_nahore'>Strana: ";
+    $body .= "Strana: ";
     for ($i = 1; $i <= $eshop->pagesOfItems($items); $i++) {
         if ($eshop->pageNumber == $i) {
             $body .= "<a href='".WWW."/eshop/category/{$subcategory['id']}/order/$order/pageNumber/$i/' class='activePageNumber'>$i</a>";
@@ -17,8 +18,9 @@ if($eshop->pagesOfItems($items) > 1) {
             $body .= "<a href='".WWW."/eshop/category/{$subcategory['id']}/order/$order/pageNumber/$i/'>$i</a>";
         }
     }
-    $body .= "</div>";
+    
 }
+$body .= "</div>";
 $body .= "<div class='horizontal_line'></div>";
 $body .= '<table class="itemListTable">';
 $colNumber = 0;
@@ -47,7 +49,8 @@ switch ($colNumber){
     }
     $body .= "<div class='listItem'>";
     $body .= "<h4>{$items[$i][$lang]}</h4>";
-    $body .= "<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img1']}' class='obrazek_nahled_table'>";
+    $body .= "<a href='".WWW."/eshop/category/{$items[$i]['subcategory']}/{$items[$i]['id']}/' class='viceInfo_itemlist'>"
+            ."<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img1']}' class='obrazek_nahled_table'></a>";
     $body .= "<table class='tableForItem'><tr><td class='popisItemList'>$cenaZaKus:<br><small>($bezDPH)</small></td><td class='cenaItemList'>$cenaBezDPH {$menaArray[$basketItem['mena']]}</td></tr>";
     $body .= "<tr><td class='popisItemList'>$cenaZaKus:<br><small>($sDPH)</small></td><td class='cenaItemList'>$cenaSDPH {$menaArray[$basketItem['mena']]}</td></tr>";
     $body .= "<tr><td colspan='2' class='pocetKsTd'>
@@ -55,7 +58,7 @@ switch ($colNumber){
     <div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$items[$i]['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$items[$i]['id']}\")'></div></div>
     <button onclick='addToBasket({$items[$i]['id']})' class='basket'>Přidat do košíku</button>
     </td></tr></table>";
-    $body .= "<a href='".WWW."/eshop/category/{$items[$i]['subcategory']}/{$items[$i]['id']}/' class='viceInfo_itemlist'>...vice informaci</a>";
+    $body .= "<a href='".WWW."/eshop/category/{$items[$i]['subcategory']}/{$items[$i]['id']}/' class='viceInfo_itemlist'>...$viceInformaci</a>";
     $body .= "</div>";
     $body .= "</td>";
 //  konec tela bunky  
