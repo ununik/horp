@@ -24,6 +24,9 @@ $body .= "</div>";
 $body .= "<div class='horizontal_line'></div>";
 $body .= '<table class="itemListTable">';
 $colNumber = 0;
+if(count($items) < 1) {
+    $body .= $zadnyVysledek . '.';
+} else {
 for($i = $eshop->getFirstItemOnPage(); $i < $eshop->getLastItemOnPage($items); $i++){
 	if ($colNumber == 0){
 		$body .= '<tr>';
@@ -69,6 +72,7 @@ switch ($colNumber){
     	$colNumber++;
     }
 }  
+}
 if($colNumber < 2) {  
 	for($colNumber; $colNumber < 3; $colNumber++){
 		$body .= '<td></td>';
