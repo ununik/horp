@@ -9,6 +9,12 @@ RewriteRule ^([^/]+)/$    ./index.php?page=$1
 RewriteRule ^eshop/([^/]+)$    ./index.php?page=eshop&subpage=$1
 RewriteRule ^eshop/([^/]+)/$    ./index.php?page=eshop&subpage=$1
 
+RewriteRule ^eshop/search/([^/]+)$    ./index.php?page=eshop&subpage=search&search=$1
+RewriteRule ^eshop/search/([^/]+)/$    ./index.php?page=eshop&subpage=search&search=$1
+
+RewriteRule ^eshop/pageNumber/([^/]+)/search/([^/]+)$    ./index.php?page=eshop&subpage=search&search=$2&pageNumber=$1
+RewriteRule ^eshop/pageNumber/([^/]+)/search/([^/]+)/$    ./index.php?page=eshop&subpage=search&search=$2&pageNumber=$1
+
 RewriteRule ^eshop/category/([^/]+)$    ./index.php?page=eshop&category=$1
 RewriteRule ^eshop/category/([^/]+)/$    ./index.php?page=eshop&category=$1
 
