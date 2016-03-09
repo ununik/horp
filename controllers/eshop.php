@@ -20,8 +20,10 @@ $eshop_nav = $eshop->getAllCategories();
 $basketItem = $eshop->getBasket($ip);
 
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
-    $eshop_navigation = "<li class='menuEshop nav_basket'><a href='".WWW."/eshop/basket'>Basket</a></li>";
+    $hledani = 'Search';
+    $eshop_navigation = "<li class='menuEshop'><a href='".WWW."/eshop/basket'>Basket</a></li>";
     //$eshop_navigation .= "<li class='menuEshop nav_basket'><a href='index.php?page=eshop&subpage=jak_nakupovat'>How to shopping</a></li>";
+    $eshop_navigation .= include 'views/eshop/searchFrom.php';
     $nahoru = "top";
     $razeni = 'Sort';
     $podleCeny = 'by price';
@@ -39,9 +41,11 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
     $mena = 'EUR';
     $viceInformaci = 'more';
 }else{
+    $hledani = 'Hledání';
     $eshop_navigation = "<li  class='menuEshop'><a href='".WWW."/eshop/basket'>Košík</a></li>";
     $eshop_navigation .= "<li  class='menuEshop'><a href='".WWW."/eshop/jak_nakupovat'>Jak nakupovat</a></li>";
-    $eshop_navigation .= "<li class='menuEshop nav_basket'><a href='".WWW."/eshop/obchodni_podminky'>Obchodní podmínky</a></li>";
+    $eshop_navigation .= "<li  class='menuEshop'><a href='".WWW."/eshop/obchodni_podminky'>Obchodní podmínky</a></li>";
+    $eshop_navigation .= include 'views/eshop/searchFrom.php';
     $nahoru = "nahoru";
     $razeni = 'Řazení';
     $podleCeny = 'podle ceny';
@@ -103,6 +107,8 @@ if(isset($_GET['category']) && $_GET['category'] != ""){
     $body = include('views/eshop/jak_nakupovat.php');
 }elseif(isset($_GET['subpage']) && $_GET['subpage'] == "obchodni_podminky"){
     $body = include('views/eshop/obchodni_podminky.php');
+}elseif(isset($_GET['subpage']) && $_GET['subpage'] == "search"){
+    $body = include('controllers/eshop/search.php');
 } elseif(isset($_GET['subpage']) && $_GET['subpage'] == "end"){
 	$body = include('views/eshop/end.php');
 }else {

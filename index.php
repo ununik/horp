@@ -17,6 +17,7 @@ $title = '';
 function __autoload($name){
     include_once("models/Classes/$name.class.php");
 }
+include ('models/Library/function.php');
 
 
 if(isset($_GET['page']) && $_GET['page'] != ""){

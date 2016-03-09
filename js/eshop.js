@@ -220,3 +220,13 @@ function send_dotaz(id) {
 		mypostrequest.send(parameters)
 	}
 }
+function searchBox(event) {
+	if (event.which == 13 || event.keyCode == 13) {
+        search();
+    }
+    return;
+}
+function search() {
+	search = document.getElementById('search').value;
+	window.location.href = "/eshop/search/"+search;
+}

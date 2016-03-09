@@ -69,19 +69,19 @@ class Eshop extends Connection
         $db = parent::connect();
         switch($order){
             case "cena":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC, `poradi` ASC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? AND active=1 ORDER BY `cenaBezDPH` ASC, `poradi` ASC, `id` ASC");
                 break;
             case "cenaDESC":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` DESC, `poradi` ASC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? AND active=1 ORDER BY `cenaBezDPH` DESC, `poradi` ASC, `id` ASC");
                 break;
             case "velikost":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` ASC, `poradi` ASC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? AND active=1 ORDER BY `hmotnost` ASC, `poradi` ASC, `id` ASC");
                 break;
             case "velikostDESC":
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `hmotnost` DESC, `poradi` ASC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? AND active=1 ORDER BY `hmotnost` DESC, `poradi` ASC, `id` ASC");
                 break;
             default:
-                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? ORDER BY `cenaBezDPH` ASC, `poradi` ASC, `id` ASC");
+                $result = $db->prepare("SELECT * FROM `item` WHERE subcategory  = ? AND active=1 ORDER BY `cenaBezDPH` ASC, `poradi` ASC, `id` ASC");
         }
 
         $result->execute(array($subcategory));
@@ -90,7 +90,7 @@ class Eshop extends Connection
     }
     public function getItem($id){
         $db = parent::connect();
-        $result = $db->prepare("SELECT * FROM `item` WHERE id  = ?");
+        $result = $db->prepare("SELECT * FROM `item` WHERE id  = ? AND active=1");
         $result->execute(array($id));
         $item = $result->fetch();
         return $item;
@@ -207,7 +207,7 @@ class Eshop extends Connection
 	public function updateCountShopping($id, $prodanoKS, $prodanoObjednavek)
     {
     	$db = parent::connect();
-    	$result = $db->prepare("UPDATE `item` SET `prodanoKS`=?, `prodanoObjednavek`=? WHERE `id`=? ");
+    	$result = $db->prepare("UPDATE `item` SET `prodanoKS`=?, `prodanoObjednavek`=? WHERE `id`=? AND active=1 ");
     	$result->execute(array($prodanoKS, $prodanoObjednavek, $id));
     }
     public function validateEMAIL($EMAIL)
@@ -219,7 +219,7 @@ class Eshop extends Connection
 	
 	public function getNejoblibenejsi(){
 		$db = parent::connect();
-		$result = $db->prepare("SELECT * FROM `item` ORDER BY `prodanoObjednavek` DESC, `cenaSDPH` DESC LIMIT 3");
+		$result = $db->prepare("SELECT * FROM `item` AND active=1 ORDER BY `prodanoObjednavek` DESC, `cenaSDPH` DESC LIMIT 3");
 		$result->execute(array());
 		$items = $result->fetchAll();
 		
@@ -227,10 +227,19 @@ class Eshop extends Connection
 	}
 	public function getNejprodavanejsi(){
 		$db = parent::connect();
-		$result = $db->prepare("SELECT * FROM `item` ORDER BY `prodanoKS` DESC, `cenaSDPH` DESC LIMIT 3");
+		$result = $db->prepare("SELECT * FROM `item` AND active=1 ORDER BY `prodanoKS` DESC, `cenaSDPH` DESC LIMIT 3");
 		$result->execute(array());
 		$items = $result->fetchAll();
 	
 		return $items;
+	}
+	
+	public function searchInItems($word) {
+	    $db = parent::connect();
+	    $result = $db->prepare("SELECT * FROM `item` WHERE (`cz` LIKE '%$word%' OR `en` LIKE '%$word%' OR `popis` LIKE '%$word%' OR `popisEN` LIKE '%$word%' OR id ='$word' ) AND active=1 ORDER BY cenaSDPH DESC");
+	    $result->execute();
+	    $items = $result->fetchAll();
+	    
+	    return $items;
 	}
 }
