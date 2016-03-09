@@ -242,4 +242,22 @@ class Eshop extends Connection
 	    
 	    return $items;
 	}
+	
+	public function checkVoucher($code) {
+	    $db = parent::connect();
+	    $result = $db->prepare("SELECT * FROM `voucher` WHERE code=?");
+	    $result->execute(array($code));
+	    $voucher = $result->fetch();
+	     
+	    if($voucher['used'] == 1 && $voucher['forOnlyOne'] == 0) {
+	        return;
+	    }
+	    
+	    $timestamp = time();
+	    if($voucher['from'] > $timestamp || $voucher['to'] < $timestamp) {
+	        return;
+	    }
+	    
+	    return $voucher;
+	}
 }

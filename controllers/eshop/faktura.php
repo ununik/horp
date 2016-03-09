@@ -119,7 +119,7 @@ for($num = 0; $num < count($itemsAll); $num++){
         $number++;
         $thisItem = $eshop->getItem($itemsAll[$num]);
 
-        $items[$number]['item'] = $thisItem['cz'];
+        $items[$number]['item'] = $thisItem[$lang];
         $items[$number]['id'] = $itemsAll[$num];
         $items[$number]['count'] = $countAll[$num];
         $items[$number]['subcategory'] = $eshop->getSubcategory($thisItem['subcategory']);
