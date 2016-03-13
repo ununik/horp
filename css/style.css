@@ -615,6 +615,10 @@ nav span {
     border-radius: 5px;
     margin-right: 3px;
     background-color: black;
+    background-image: url("../images/eshop/tmave_pozadiChytu.png");
+    -webkit-background-size: 100% auto;
+    background-size: auto 100%;
+    background-position: center top;
 }
 .obrazek_nahled:hover{
     background-color: black;
@@ -628,6 +632,10 @@ nav span {
     margin-bottom: 3px;
     display: block;
     background-color: black;
+    background-image: url("../images/eshop/tmave_pozadiChytu.png");
+    -webkit-background-size: 100% auto;
+    background-size: auto 100%;
+    background-position: center top;
 }
 .obrazek:hover{
     background-color: black;
@@ -835,6 +843,10 @@ nav span {
 	display: inline-block;
 	width: 30%;
 	background-color: black;
+    background-image: url("../images/eshop/tmave_pozadiChytu.png");
+    -webkit-background-size: 100% auto;
+    background-size: auto 100%;
+    background-position: center top;
 	border-radius: 5px;
 	margin: 0px 4px;
 	max-width: 250px;
@@ -860,6 +872,10 @@ nav span {
 }
 .listItem{
 	background-color: black;
+    background-image: url("../images/eshop/tmave_pozadiChytu.png");
+    -webkit-background-size: 100% auto;
+    background-size: auto 100%;
+    background-position: center top;
 	width: 90%;
 	min-width: 155px;
 	max-width: 275px;
