@@ -371,12 +371,16 @@ body{
     right: 50px;
 }
 .home_img{
-    width: 66%;
+    width: 300px;
     margin: 0px auto;
-    display: block;
+    display: inline-block;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
+    margin: 7px;
+}
+#imgWrapper {
+	width: 100%;
 }
 #menu_panel{
     position:absolute;

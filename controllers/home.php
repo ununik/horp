@@ -15,5 +15,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
             <p>Jedním z našich cílů je dodávat našim zákazníkům kvalitní výrobky za rozumnou cenu. Tento cíl se nám dlouhodobě daří plnit, neboť v porovnání s ostatními firmami podnikajícími v této oblasti se držíme na spodní hranici cenových relací. O tom, že to není na úkor kvality, svědčí cca 15 ti-letý pravidelný odbyt do mnoha zemí Evropy.</p>';
 }
 
+$eshop = new Item();
+
 $content = include_once('views/home/homepage-html.php');
 return $content;
