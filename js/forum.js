@@ -123,3 +123,7 @@ function reagovatNaPrispevek(id) {
 		mypostrequest.send(parameters)
 	}
 }
+
+function reagovat(id) {
+	document.getElementById('reagovatNaId_'+id).style.display = "block";
+}

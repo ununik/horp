@@ -11,6 +11,7 @@ if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1')
     define('WWW', 'http://localhost/horp');
 }else{
     define('WWW', 'http://test.horp.cz');
+    $noFollow = '<meta name="robots" content="nofollow" />';
 }
 session_start();
 $title = '';
@@ -25,10 +26,10 @@ if(isset($_GET['page']) && $_GET['page'] != ""){
 }else{
     $getPage = 'home';
 }
-$javascript = "<script src='".WWW."/js/ajax.js'></script>";
-$javascript .= "<script src='".WWW."/js/language.js'></script>";
-$javascript .= '<script src="'.WWW.'/js/jquery-1.7.2.min.js"></script>
-                <script src="'.WWW.'/js/lightbox.js"></script>';
+$javascript = "<script src='".WWW."/js/ajax.js' type='text/javascript'></script>";
+$javascript .= "<script src='".WWW."/js/language.js' type='text/javascript'></script>";
+$javascript .= '<script src="'.WWW.'/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+                <script src="'.WWW.'/js/lightbox.js" type="text/javascript"></script>';
 $background = "background1.png";
 if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'){
     $subtitle = 'Climbing holds production';

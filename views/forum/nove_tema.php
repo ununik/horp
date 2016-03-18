@@ -1,5 +1,6 @@
 <?php
 $container = '<h2>Nové téma</h2>';
+$container .= '<div class="forum_newEntry_topic">';
 //Status
 $container .= '<div id="status_newTopicForum"></div>';
 //Nadpis
@@ -22,7 +23,8 @@ $container .= "</div>";
 
 //Ulozit
 $container .= "<div>";
-$container .= "<input type='submit' id='forum_ulozit' value='uložit' onclick='newTopic()'>";
+$container .= "<button onclick='newTopic()'>uložit</button>";
 $container .= "</div>";
+$container .= '</div>';
 
 return $container;

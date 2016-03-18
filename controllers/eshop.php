@@ -10,7 +10,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 }else{
     $lang = 'cz';
 }
-$javascript .= "<script src='".WWW."/js/eshop.js'></script>";
+$javascript .= "<script src='".WWW."/js/eshop.js' type=\"text/javascript\"></script>";
 /**
  * NAVIGATION
  */

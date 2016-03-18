@@ -1,14 +1,15 @@
 <?php
-return "<!doctype>
+return "<!DOCTYPE html>
 <html>
     <head>
-        <meta charset='utf-8'>
+    $noFollow
+        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
         <meta name='description' content='$meta'>
         <link rel='shortcut icon' href='". WWW . "/images/horp_ico1.ico'>
         <link rel='stylesheet' href='". WWW . "/css/style.css' type='text/css' media='screen'/>
         <title>$title</title>
         <link href='". WWW . "/css/lightbox.css' rel='stylesheet' />
-        <style>
+        <style type=\"text/css\">
         nav [href *=\"" . $getPage . "\"]{
             /*background-color:rgba(212, 212, 212, 1);*/
             border-top: 1px solid #0f1315;
@@ -19,7 +20,7 @@ return "<!doctype>
         $javascript
     </head>
     <body>
-    <script>
+    <script type=\"text/javascript\">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -40,7 +41,7 @@ return "<!doctype>
     </div>
     <div id='footer'>$footer</div>
     <div id='background'></div>
-    <script>
+    <script type=\"text/javascript\">
         var background = document.getElementById('background');
         background.style.backgroundImage = 'url(".WWW."/images/page/$background)'
     </script>

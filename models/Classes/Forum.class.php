@@ -1,6 +1,15 @@
 <?php
 class Forum extends Connection
 {
+	public function getAllTopics()
+	{
+		$db = parent::connect();
+		$result = $db->prepare("SELECT * FROM `forum_topic` WHERE active=1 ORDER BY `lastTimestamp` DESC");
+		$result->execute();
+		$topic = $result->fetchAll();
+		
+		return $topic;
+	}
 	public function safeText($text)
 	{
 		return addslashes(chop(htmlspecialchars($text)));

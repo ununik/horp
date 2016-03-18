@@ -6,7 +6,7 @@ $container .= "<div id='imgWrapper'>";
 foreach ($eshop->getPopularItem() as $item) {
 	$container .= "
 			<a href='".WWW."/eshop/category/{$item['subcategory']}/{$item['id']}/'>
-			<img src='". WWW."/images/eshop/foto/{$item['subcategory']}/{$item['presentationImage']}' class='home_img'>
+			<img src='". WWW."/images/eshop/foto/{$item['subcategory']}/{$item['presentationImage']}' class='home_img' alt='{$item[$lang]}'>
 			</a>";
 }
 $container .= "</div>";

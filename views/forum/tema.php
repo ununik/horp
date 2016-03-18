@@ -17,22 +17,8 @@ foreach ($forum->getEntriesForTopic($_GET['id']) as $entry) {
 	
 	$text = nl2br ($entry['text']);
 	$container .= "<div class='forum_entry_text'>$text</div>";
-	
-	$container .= "<div class='forum_reply'>";
-	foreach ($forum->getEntriesForEntry($entry['id']) as $reply) {
-		$container .= '<div class="forum_entryReply_head">';
-		$container .= "<div>{$reply['name']}</div>";
-		
-		$date = date('j. n. Y - H:i:s', $reply['timestamp']);
-		$container .= "<div class='forum_datum_entryReply'>$date</div>";
-		$container .= '</div>';
-		
-		$text = nl2br ($reply['text']);
-		$container .= "<div class='forum_entryReply_text'>$text</div>";
-	}
-	$container .= '</div>';
-	
-	$container .= '<div class="forum_reagovat">';
+	$container .= "<div class='forum_reagovat_button' onclick='reagovat(\"{$entry['id']}\")'>Reagovat</div>";
+	$container .= '<div id="reagovatNaId_'.$entry['id'].'" class="forum_newEntry_topic forum_reagovat">';
 	$container .= '<h3>Reagovat na tento příspěvek</h3>';
 	//Status
 	$container .= "<div id='status_newEntryForum_{$entry['id']}'></div>";
@@ -50,16 +36,31 @@ foreach ($forum->getEntriesForTopic($_GET['id']) as $entry) {
 	
 	//Pridat
 	$container .= "<div>";
-	$container .= "<input type='submit' value='vložit příspěvěk' onclick='reagovatNaPrispevek(\"{$entry['id']}\")'>";
+	$container .= "<button onclick='reagovatNaPrispevek(\"{$entry['id']}\")'>vložit příspěvěk</button>";
 	$container .= "</div>";
 	
+	$container .= '</div>';
+	
+	
+	$container .= "<div class='forum_reply'>";
+	foreach ($forum->getEntriesForEntry($entry['id']) as $reply) {
+		$container .= '<div class="forum_entryReply_head">';
+		$container .= "<div>{$reply['name']}</div>";
+		
+		$date = date('j. n. Y - H:i:s', $reply['timestamp']);
+		$container .= "<div class='forum_datum_entryReply'>$date</div>";
+		$container .= '</div>';
+		
+		$text = nl2br ($reply['text']);
+		$container .= "<div class='forum_entryReply_text'>$text</div>";
+	}
 	$container .= '</div>';
 	
 	$container .= '</div>';
 }
 
 
-$container .= '<div>';
+$container .= '<div class="forum_newEntry_topic">';
 $container .= '<h3>Vložit nový příspěvek</h3>';
 //Status
 $container .= '<div id="status_newEntryForum"></div>';
@@ -77,7 +78,7 @@ $container .= "</div>";
 
 //Pridat
 $container .= "<div>";
-$container .= "<input type='submit' id='forum_vlozit' value='vložit příspěvěk' onclick='pridatPrispevek(\"{$topic['id']}\")'>";
+$container .= "<button onclick='pridatPrispevek(\"{$topic['id']}\")'>vložit příspěvěk</button>";
 $container .= "</div>";
 
 $container .= '</div>';
