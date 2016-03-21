@@ -30,6 +30,9 @@ RewriteRule ^eshop/category/([^/]+)/order/([^/]+)/pageNumber/([^/]+)/$    ./inde
 RewriteRule ^forum/nove-tema$    ./index.php?page=forum&subpage=nove_tema
 RewriteRule ^forum/nove-tema/$    ./index.php?page=forum&subpage=nove_tema
 
+RewriteRule ^forum/pravidla$    ./index.php?page=forum&subpage=pravidla
+RewriteRule ^forum/pravidla/$    ./index.php?page=forum&subpage=pravidla
+
 RewriteRule ^forum/tema/([^/]+)$    ./index.php?page=forum&subpage=tema&id=$1
 RewriteRule ^forum/tema/([^/]+)/$    ./index.php?page=forum&subpage=tema&id=$1
 
