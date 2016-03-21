@@ -10,7 +10,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
 }else{
     $lang = 'cz';
 }
-$javascript .= "<script src='".WWW."/js/eshop.js'></script>";
+$javascript .= "<script src='".WWW."/js/eshop.js' type=\"text/javascript\"></script>";
 /**
  * NAVIGATION
  */
@@ -40,6 +40,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
     $languageForDb = "EN";
     $mena = 'EUR';
     $viceInformaci = 'more';
+    $zadnyVysledek = 'No results';
 }else{
     $hledani = 'Hledání';
     $eshop_navigation = "<li  class='menuEshop'><a href='".WWW."/eshop/basket'>Košík</a></li>";
@@ -62,6 +63,7 @@ if(isset($_SESSION['horp']['language']) && $_SESSION['horp']['language'] == 'en'
     $languageForDb = "";
     $mena = 'Kč';
     $viceInformaci = 'více informací';
+    $zadnyVysledek = 'Nebyl nalezen žádný výsledek';
 }
 $menaArray = array('' => 'Kč', 'EN' => 'EUR');
 $i = 0;

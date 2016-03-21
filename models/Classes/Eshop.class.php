@@ -219,7 +219,7 @@ class Eshop extends Connection
 	
 	public function getNejoblibenejsi(){
 		$db = parent::connect();
-		$result = $db->prepare("SELECT * FROM `item` AND active=1 ORDER BY `prodanoObjednavek` DESC, `cenaSDPH` DESC LIMIT 3");
+		$result = $db->prepare("SELECT * FROM `item` WHERE active=1 ORDER BY `prodanoObjednavek` DESC, `cenaSDPH` DESC LIMIT 3");
 		$result->execute(array());
 		$items = $result->fetchAll();
 		
@@ -227,7 +227,7 @@ class Eshop extends Connection
 	}
 	public function getNejprodavanejsi(){
 		$db = parent::connect();
-		$result = $db->prepare("SELECT * FROM `item` AND active=1 ORDER BY `prodanoKS` DESC, `cenaSDPH` DESC LIMIT 3");
+		$result = $db->prepare("SELECT * FROM `item` WHERE active=1 ORDER BY `prodanoKS` DESC, `cenaSDPH` DESC LIMIT 3");
 		$result->execute(array());
 		$items = $result->fetchAll();
 	
@@ -241,5 +241,23 @@ class Eshop extends Connection
 	    $items = $result->fetchAll();
 	    
 	    return $items;
+	}
+	
+	public function checkVoucher($code) {
+	    $db = parent::connect();
+	    $result = $db->prepare("SELECT * FROM `voucher` WHERE code=?");
+	    $result->execute(array($code));
+	    $voucher = $result->fetch();
+	     
+	    if($voucher['used'] == 1 && $voucher['forOnlyOne'] == 0) {
+	        return;
+	    }
+	    
+	    $timestamp = time();
+	    if($voucher['from'] > $timestamp || $voucher['to'] < $timestamp) {
+	        return;
+	    }
+	    
+	    return $voucher;
 	}
 }

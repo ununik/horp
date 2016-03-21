@@ -26,3 +26,25 @@ RewriteRule ^eshop/category/([^/]+)/order/([^/]+)/$    ./index.php?page=eshop&ca
 
 RewriteRule ^eshop/category/([^/]+)/order/([^/]+)/pageNumber/([^/]+)$    ./index.php?page=eshop&category=$1&order=$2&pageNumber=$3
 RewriteRule ^eshop/category/([^/]+)/order/([^/]+)/pageNumber/([^/]+)/$    ./index.php?page=eshop&category=$1&order=$2&pageNumber=$3
+
+RewriteRule ^forum/nove-tema$    ./index.php?page=forum&subpage=nove_tema
+RewriteRule ^forum/nove-tema/$    ./index.php?page=forum&subpage=nove_tema
+
+RewriteRule ^forum/pravidla$    ./index.php?page=forum&subpage=pravidla
+RewriteRule ^forum/pravidla/$    ./index.php?page=forum&subpage=pravidla
+
+RewriteRule ^forum/tema/([^/]+)$    ./index.php?page=forum&subpage=tema&id=$1
+RewriteRule ^forum/tema/([^/]+)/$    ./index.php?page=forum&subpage=tema&id=$1
+
+RewriteRule ^forum/tema/([^/]+)/prispevek/([^/]+)$    ./index.php?page=forum&subpage=tema&id=$1#prispevek_$2
+RewriteRule ^forum/tema/([^/]+)/prispevek/([^/]+)/$    ./index.php?page=forum&subpage=tema&id=$1#prispevek_$2
+
+
+<IfModule mod_expires.c>
+    ExpiresActive on
+ 
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+</IfModule>

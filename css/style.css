@@ -5,7 +5,7 @@
 }
 #allItems{
 	position: fixed;
-    right: -20;
+    right: -20px;
     border: 1px solid #9C9F84;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -239,7 +239,7 @@ body{
     color: #910303;
 }
 #footer{
-    widht: 100%;
+    width: 100%;
     height: 50px;
     background-color: rgba(256, 256, 256, 0.85);
     position: relative;
@@ -371,13 +371,37 @@ body{
     right: 50px;
 }
 .home_img{
-    width: 66%;
+    height: 150px;
     margin: 0px auto;
-    display: block;
+    display: inline-block;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
+    margin: 7px;    
+    vertical-align:top;
 }
+#imgWrapper {
+	width: 100%;
+	overflow-x: scroll;
+    overflow-y: hidden;
+    height: 185px;
+    white-space:nowrap
+	
+}
+#imgWrapper::-webkit-scrollbar{
+width:4px;
+background-color:#cccccc;
+} 
+#imgWrapper::-webkit-scrollbar-thumb{
+background-color:#B03C3F;
+border-radius:5px;
+}
+#imgWrapper::-webkit-scrollbar-thumb:hover{
+background-color:#BF4649;
+}
+#imgWrapper::-webkit-scrollbar-thumb:active{
+background-color:#A6393D;
+} 
 #menu_panel{
     position:absolute;
     top: 112px;
@@ -615,6 +639,10 @@ nav span {
     border-radius: 5px;
     margin-right: 3px;
     background-color: black;
+    background-image: url("../images/eshop/tmave_pozadiChytu.png");
+    -webkit-background-size: 100% auto;
+    background-size: auto 100%;
+    background-position: center top;
 }
 .obrazek_nahled:hover{
     background-color: black;
@@ -628,6 +656,10 @@ nav span {
     margin-bottom: 3px;
     display: block;
     background-color: black;
+    background-image: url("../images/eshop/tmave_pozadiChytu.png");
+    -webkit-background-size: 100% auto;
+    background-size: auto 100%;
+    background-position: center top;
 }
 .obrazek:hover{
     background-color: black;
@@ -835,6 +867,10 @@ nav span {
 	display: inline-block;
 	width: 30%;
 	background-color: black;
+    background-image: url("../images/eshop/tmave_pozadiChytu.png");
+    -webkit-background-size: 100% auto;
+    background-size: auto 100%;
+    background-position: center top;
 	border-radius: 5px;
 	margin: 0px 4px;
 	max-width: 250px;
@@ -856,10 +892,14 @@ nav span {
 	border-collapse: collapse;
 }
 .itemListTable td {
-	width: 33%;
+	width: 25%;
 }
 .listItem{
 	background-color: black;
+    background-image: url("../images/eshop/tmave_pozadiChytu.png");
+    -webkit-background-size: 100% auto;
+    background-size: auto 100%;
+    background-position: center top;
 	width: 90%;
 	min-width: 155px;
 	max-width: 275px;
@@ -910,9 +950,10 @@ nav span {
 	width: 100%;
 }
 .pocetKusuAll{
-	witdh: 45px;
+	min-width: 85px;
 	margin-right: 2px;
 	margin-top: 20px;
+	margin-left: 25px;
 }
 .pocetKsTd .basket{
 	position:relative;
@@ -1005,7 +1046,7 @@ nav span {
     color: #465747;	
     font-size: 14px;
     border: none;
-    width: 100%;
+    width: 170px;
     outline: none;
 }
 .search {
@@ -1038,4 +1079,126 @@ nav span {
 
 #search:-ms-input-placeholder {  
    color: #f2f2f2;  
+}
+.forum_prispevek{
+	margin: 10px 0px;
+	padding: 5px 0px 0px 0px;
+}
+.forum_tema_autorstvi{
+	border-collapse: collapse;
+}
+.forum_tema_autorstvi_left{
+	text-align: right;
+	padding-right: 5px;
+}
+.forum_popis{
+	font-style: italic;
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 7px;
+	padding: 10px;
+	margin: 10px 10px 10px 0px;
+}
+.forum_entry_head{
+	margin-top: 12px;
+	padding-left: 80px;
+	height: 80px;
+	font-size: 16px;
+	font-weight: bold;
+	background-image: url(../images/forum/avatar.png);
+	background-size: 60px 80px;
+	background-repeat: no-repeat;
+}
+.forum_entry_text{
+	margin-left: 100px;
+	position: relative;
+	top: -23px;
+}
+.forum_reply {
+	margin: 0px 0px 0px 105px;
+	padding-left: 7px;
+	border-left: 2px solid black;
+}
+.forum_entryReply_head{
+	padding-left: 40px;
+	height: 50px;
+	font-size: 15px;
+	font-weight: bold;
+	background-image: url(../images/forum/avatar.png);
+	background-size: 30px 40px;
+	background-repeat: no-repeat;
+}
+.forum_datum_entryReply{
+	font-size: 13px;
+}
+.forum_entryReply_text{
+	margin-left: 70px;
+	position: relative;
+	top: -5px;
+	margin-bottom: 20px;
+}
+.forum_reagovat{
+	display: none;	
+	margin-left: 110px;
+	margin-bottom: 15px;
+}
+.forum_datum_entry{
+	border-bottom: 1px solid black;
+	font-size: 14px;
+}
+.allTopics{
+	text-decoration: none;
+	display: block;
+	color: black;
+}
+.allTopics h3{
+	display: inline-block;
+	min-width: 200px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	color: black;
+}
+.allTopics div{
+	display: inline-block;
+	color: black
+}
+.forum_newEntry_topic label {
+	display: block;	
+	font-weight: bold;
+}
+.forum_newEntry_topic input {
+	width: 100%;
+	margin-bottom: 10px;
+	font-family: 'Didact Gothic', sans-serif;
+}
+.forum_newEntry_topic textarea {
+	width: 100%;
+	min-height: 150px;
+	font-family: 'Didact Gothic', sans-serif;
+}
+#formu_navigation{
+	border-bottom: 1px dashed #9b9e84;
+	padding-bottom: 10px;
+}
+#formu_navigation a{
+	display: inline-block;
+	margin: 0px 5px;
+	font-size: 16px;
+	padding: 5px 7px;
+	border-radius: 7px;
+	color: white;
+	background-color: #9b9e84;
+}
+.forum_reagovat_button {
+	display: inline-block;
+	margin: 10px 0px 10px 75px;
+	font-size: 14px;
+	padding: 5px 7px;
+	border-radius: 7px;
+	color: white;
+	background-color: #9b9e84;
+}
+#kontakt_logo {
+	clear: both;
+	margin: 40px 0px 10px 225px;
 }
