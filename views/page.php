@@ -5,7 +5,7 @@ return "<!DOCTYPE html>
     $noFollow
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
         <meta name='description' content='$meta'>
-        <link rel='shortcut icon' href='". WWW . "/images/horp_ico1.ico'>
+        <link href='". WWW . "/images/favicon.ico' rel='icon'/>
         <link rel='stylesheet' href='". WWW . "/css/style.css' type='text/css' media='screen'/>
         <title>$title</title>
         <link href='". WWW . "/css/lightbox.css' rel='stylesheet' />
