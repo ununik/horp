@@ -17,7 +17,7 @@ class Connection extends PDO
 	
 	public static function connect()
 	{
-		if (!self::$_instance instanceof Connection) {
+		if (!self::$_instance instanceof Connection && self::$_instance == null) {
 			new Connection();
 		}
 	
