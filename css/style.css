@@ -1202,3 +1202,12 @@ nav span {
 	clear: both;
 	margin: 40px 0px 10px 225px;
 }
+.facebookWrapper{
+	float: left;
+	margin-left: 10px;
+	position: relative;
+	top: -10px;	
+}
+.facebook_item{
+	margin: 30px 10px 10px 40px;
+}

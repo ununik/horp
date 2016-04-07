@@ -1,10 +1,14 @@
 <?php
+if(!isset($metaKeyWords)) {
+    $metaKeyWords = 'horolozec, chyt, prodej, cena, košík, informace';
+}
 return "<!DOCTYPE html>
 <html>
     <head>
     $noFollow
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
         <meta name='description' content='$meta'>
+        <meta name='keywords' content='$metaKeyWords'>
         <link href='". WWW . "/images/favicon.ico' rel='icon'/>
         <link rel='stylesheet' href='". WWW . "/css/style.css' type='text/css' media='screen'/>
         <title>$title</title>
@@ -30,6 +34,14 @@ return "<!DOCTYPE html>
   ga('send', 'pageview');
 
 </script>
+<div id=\"fb-root\"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = \"//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v2.5\";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div id='header'><a href='".WWW."'><h1><span>HORP</span></h1></a><h2>$subtitle</h2><div id='menu_panel'><div id='language'><a onclick='changeLanguage(\"cz\")' id='language_cz'></a><a onclick='changeLanguage(\"en\")' id='language_en'></a></div>
     <nav>$navigation</nav></div>
     </div>

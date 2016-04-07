@@ -57,6 +57,7 @@ $body = "<h1>$item[$lang]</h1>";
     $body .= "<tr><td class='left'>$cenaZaKus:<br><small>($bezDPH)</small></td><td colspan='2'><strong>$cenaBezDPH {$menaArray[$basketItem['mena']]}</strong></td></tr>";
     $body .= "<tr><td class='left'>$cenaZaKus:<br><small>($sDPH)</small></td><td colspan='2'><strong>$cenaSDPH {$menaArray[$basketItem['mena']]}</strong></td></tr>";
     $body .= "<tr><td class='left'>$pocetKusu:</small></td><td class='pocet_kusu'><input type='text' onkeypress='validateNumber(event)' id='kosik_{$item['id']}' value='1'><div class='pocet_kusu_up' onclick='pocetKsPlus(\"{$item['id']}\")'></div><div class='pocet_kusu_down'  onclick='pocetKsMinus(\"{$item['id']}\")'></div></div></td><td><button onclick='addToBasket({$item['id']})' class='basket'>Přidat do košíku</button></td></tr>";
+    $body .= '<tr><td colspan="4"><div class="fb-like facebook_item" data-href="'.WWW.'/eshop/category/'.$item['subcategory'].'/'.$item['is'].'/" data-layout="box_count" data-action="recommend" data-show-faces="true" data-share="true"></div></td></tr>';
     $body .= "<tr id='doporuceni_{$item['id']}'><td colspan='4'  class='daleDoporuceno_all'>$daleDoporucujeme:<div>";
     $nextItem = explode("_;_", $item['dalsi_zbozi']);
     foreach($nextItem as $id){

@@ -50,7 +50,7 @@ switch ($colNumber){
     $body .= "<div class='listItem'>";
     $body .= "<h4>{$items[$i][$lang]}</h4>";
     $body .= "<a href='".WWW."/eshop/category/{$items[$i]['subcategory']}/{$items[$i]['id']}/' class='viceInfo_itemlist'>"
-            ."<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img1']}' class='obrazek_nahled_table'></a>";
+            ."<img src='".WWW."/images/eshop/foto/{$items[$i]['subcategory']}/250/{$items[$i]['img1']}' class='obrazek_nahled_table' alt='{$subcategory[$lang]} - {$items[$i][$lang]}' title='{$subcategory[$lang]} - {$items[$i][$lang]}'></a>";
     $body .= "<table class='tableForItem'><tr><td class='popisItemList'>$cenaZaKus:<br><small>($bezDPH)</small></td><td class='cenaItemList'>$cenaBezDPH {$menaArray[$basketItem['mena']]}</td></tr>";
     $body .= "<tr><td class='popisItemList'>$cenaZaKus:<br><small>($sDPH)</small></td><td class='cenaItemList'>$cenaSDPH {$menaArray[$basketItem['mena']]}</td></tr>";
     $body .= "<tr><td colspan='2' class='pocetKsTd'>
@@ -59,6 +59,7 @@ switch ($colNumber){
     <button onclick='addToBasket({$items[$i]['id']})' class='basket'>Přidat do košíku</button>
     </td></tr></table>";
     $body .= "<a href='".WWW."/eshop/category/{$items[$i]['subcategory']}/{$items[$i]['id']}/' class='viceInfo_itemlist'>...$viceInformaci</a>";
+    $body .= '<div class="fb-like facebookWrapper" data-href="'.WWW.'/eshop/category/'.$items[$i]['subcategory'].'/'.$items[$i]['id'].'/" data-layout="button_count" data-action="recommend" data-show-faces="true" data-share="false"></div>';
     $body .= "</div>";
     $body .= "</td>";
 //  konec tela bunky  
