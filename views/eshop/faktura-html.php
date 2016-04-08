@@ -39,28 +39,30 @@ foreach($items as $item){
 //voucher
 $voucher = $eshop->checkVoucher($basket['voacher']);
 if(count($voucher) > 0) {
-    if($voucher['procentniSleva'] == 1) {
-        $procenta = (100 - $voucher['sleva'.$languageForDb])/100;
-        $cenaBezDPH = $cenaBezDPH * $procenta;
-        $cenaSDPH = $cenaSDPH * $procenta;
-        $slevaBezDPH = $cenaBezDPH * ($voucher['sleva'.$languageForDb] /100);
-        $slevaSDPH = $cenaSDPH * ($voucher['sleva'.$languageForDb] /100);
-        $slevaBezDPH = number_format($slevaBezDPH, 2, '.', '');
-        $slevaSDPH = number_format($slevaSDPH, 2, '.', '');
-        $faktura .= "<tr><td colspan='4'>Voucher: {$voucher['title'.$languageForDb]} ({$voucher['sleva'.$languageForDb]}%)</td><td class='cena'>-$slevaBezDPH $mena</td><td class='cena'>-$slevaSDPH $mena</td>";
-    } else if($voucher['financniSleva'] == 1) {
-        $cenaBezDPH = $cenaBezDPH - $voucher['sleva'.$languageForDb];
-        $cenaSDPH = $cenaSDPH - $voucher['sleva'.$languageForDb];
-        $slevaBezDPH = $voucher['sleva'.$languageForDb];
-        $slevaSDPH = $voucher['sleva'.$languageForDb];
-        $slevaBezDPH = number_format($slevaBezDPH, 2, '.', '');
-        $slevaSDPH = number_format($slevaSDPH, 2, '.', '');
-        $faktura .= "<tr><td colspan='4'>Voucher: {$voucher['title'.$languageForDb]} ({$voucher['sleva'.$languageForDb]} $mena)</td><td class='cena'>-$slevaBezDPH $mena</td><td class='cena'>-$slevaSDPH $mena</td>";
-    } else if($voucher['darekItem'] == 1) {
-        $darek = $eshop->getItem($voucher['darekItemId']);
-        $darekSubcategory = $eshop->getSubcategory($darek['subcategory']);
-        $darekCategory = $eshop->getCategory($darekSubcategory['category']);
-        $faktura .= "<tr><td colspan='4'>Voucher: {$voucher['title'.$languageForDb]} (Dárek - {$darek[$lang]} | {$darekCategory[$lang]} | {$darekSubcategory[$lang]})</td><td class='cena'>0.00 $mena</td><td class='cena'>0.00 $mena</td>";
+    if ($voucher['minCena'.$basket['mena']] <= $cenaSDPH) {
+        if($voucher['procentniSleva'] == 1) {
+            $procenta = (100 - $voucher['sleva'.$languageForDb])/100;
+            $cenaBezDPH = $cenaBezDPH * $procenta;
+            $cenaSDPH = $cenaSDPH * $procenta;
+            $slevaBezDPH = $cenaBezDPH * ($voucher['sleva'.$languageForDb] /100);
+            $slevaSDPH = $cenaSDPH * ($voucher['sleva'.$languageForDb] /100);
+            $slevaBezDPH = number_format($slevaBezDPH, 2, '.', '');
+            $slevaSDPH = number_format($slevaSDPH, 2, '.', '');
+            $faktura .= "<tr><td colspan='4'>Voucher: {$voucher['title'.$languageForDb]} ({$voucher['sleva'.$languageForDb]}%)</td><td class='cena'>-$slevaBezDPH $mena</td><td class='cena'>-$slevaSDPH $mena</td>";
+        } else if($voucher['financniSleva'] == 1) {
+            $cenaBezDPH = $cenaBezDPH - $voucher['sleva'.$languageForDb];
+            $cenaSDPH = $cenaSDPH - $voucher['sleva'.$languageForDb];
+            $slevaBezDPH = $voucher['sleva'.$languageForDb];
+            $slevaSDPH = $voucher['sleva'.$languageForDb];
+            $slevaBezDPH = number_format($slevaBezDPH, 2, '.', '');
+            $slevaSDPH = number_format($slevaSDPH, 2, '.', '');
+            $faktura .= "<tr><td colspan='4'>Voucher: {$voucher['title'.$languageForDb]} ({$voucher['sleva'.$languageForDb]} $mena)</td><td class='cena'>-$slevaBezDPH $mena</td><td class='cena'>-$slevaSDPH $mena</td>";
+        } else if($voucher['darekItem'] == 1) {
+            $darek = $eshop->getItem($voucher['darekItemId']);
+            $darekSubcategory = $eshop->getSubcategory($darek['subcategory']);
+            $darekCategory = $eshop->getCategory($darekSubcategory['category']);
+            $faktura .= "<tr><td colspan='4'>Voucher: {$voucher['title'.$languageForDb]} (Dárek - {$darek[$lang]} | {$darekCategory[$lang]} | {$darekSubcategory[$lang]})</td><td class='cena'>0.00 $mena</td><td class='cena'>0.00 $mena</td>";
+        }
     }
 }
 //sleva
